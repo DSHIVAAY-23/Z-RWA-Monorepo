@@ -1,0 +1,8 @@
+Private Context Awareness (PCA) is a system designed to enable privacy-first RAG.
+It ensures that user data never leaves the local device.
+All embedding generation and vector storage happen locally using Rust, Candle, and LanceDB.
+Zero-Knowledge proofs are used to verify the integrity of the retrieved context without revealing the data itself.
+The system uses the Reclaim Protocol for generating proofs of provenance.
+Ingestion is the process of parsing documents, chunking them, and storing their vector embeddings.
+Retrieval involves querying the vector database for semantically similar chunks.
+The goal is to build a robust, private, and verifiable knowledge management system.

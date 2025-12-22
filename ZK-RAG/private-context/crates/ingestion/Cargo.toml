@@ -1,0 +1,19 @@
+[package]
+name = "private-context-ingestion"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+private-context-core.workspace = true
+anyhow.workspace = true
+tokio.workspace = true
+clap = { version = "4.4", features = ["derive"] }
+candle-core = "0.3.3"
+candle-nn = "0.3.3"
+candle-transformers = "0.3.3"
+lancedb = "0.4.15"
+chrono = "=0.4.38"
+arrow = "51.0.0"
+tokenizers = "0.15.2"
+futures = "0.3"
+serde_json = "1.0"

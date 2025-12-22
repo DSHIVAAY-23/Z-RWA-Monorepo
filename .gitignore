@@ -1,0 +1,21 @@
+# Rust / Cargo
+target/
+**/*.rs.bk
+
+# Node / JS
+node_modules/
+dist/
+.env
+.DS_Store
+
+# Anchor
+.anchor/
+test-ledger/
+
+# IDEs
+.vscode/
+.idea/
+
+# Binaries
+**/*.bin
+**/*.so

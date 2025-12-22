@@ -1,0 +1,8 @@
+{
+    "name": "zk-rag",
+    "version": "0.1.0",
+    "scripts": {
+        "test:mock": "SP1_PROVER=mock cargo run -p private-context-ingestion -- prove Privacy --threshold 0.7",
+        "prove:release": "cargo run --release -p private-context-ingestion -- prove Privacy --threshold 0.7"
+    }
+}

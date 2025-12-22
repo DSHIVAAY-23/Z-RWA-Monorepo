@@ -1,0 +1,5 @@
+# Private Context Rules
+- Prefer Safe Rust. Use `anyhow` for errors.
+- INFERENCE: Use `candle` quantized models only.
+- STORAGE: Use `lancedb` with Apache Arrow types.
+- ZK-MATH: Use `fixed` crate for Cosine Similarity. No floating point in Guest.

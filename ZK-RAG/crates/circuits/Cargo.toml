@@ -1,0 +1,12 @@
+[package]
+name = "private-context-circuits"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sp1-zkvm = "3.0.0"
+private-context-core = { path = "../core", default-features = false }
+fixed = "1.27.0"
+serde.workspace = true
+anyhow.workspace = true
+# SP1 guest dependencies will be added here

@@ -1,0 +1,7 @@
+Private Context is a privacy-first RAG system.
+It keeps data local and uses Zero-Knowledge proofs.
+Vibe coding is the methodology we use.
+Rust is the language of choice for safety and performance.
+We switched from LanceDB to hnsw_rs and sled for pure Rust storage.
+This ensures no external dependencies like protoc are needed.
+Verified on local system successfully.

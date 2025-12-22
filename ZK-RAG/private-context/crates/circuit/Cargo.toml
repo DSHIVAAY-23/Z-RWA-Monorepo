@@ -1,0 +1,8 @@
+[package]
+name = "private-context-circuit"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+private-context-core.workspace = true
+sp1-zkvm = "3.0.0"

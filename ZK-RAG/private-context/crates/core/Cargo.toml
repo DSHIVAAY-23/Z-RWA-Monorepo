@@ -1,0 +1,9 @@
+[package]
+name = "private-context-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde.workspace = true
+fixed = { version = "1.27.0", features = ["serde"] }
+bytemuck = "1.14"

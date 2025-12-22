@@ -1,0 +1,13 @@
+[workspace]
+members = [
+    "crates/ingestion",
+    "crates/core",
+    "crates/circuit",
+]
+resolver = "2"
+
+[workspace.dependencies]
+anyhow = "1.0"
+tokio = { version = "1.32", features = ["full", "macros"] }
+serde = { version = "1.0", features = ["derive"] }
+private-context-core = { path = "./crates/core" }

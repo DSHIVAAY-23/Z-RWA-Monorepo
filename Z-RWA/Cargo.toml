@@ -1,0 +1,24 @@
+[workspace]
+members = [
+    "programs/base-token-program",
+    "programs/fund-contract",
+    "programs/token-program",
+    "programs/treasury-bond",
+    "programs/interop-core",
+    "programs/interop-multisig",
+    "programs/z-rwa"
+]
+resolver = "2"
+
+
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1
+
+

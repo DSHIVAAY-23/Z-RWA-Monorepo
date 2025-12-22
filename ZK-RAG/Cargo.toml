@@ -1,0 +1,22 @@
+[workspace]
+members = [
+    "crates/ingestion",
+    "crates/circuits",
+    "crates/core",
+]
+resolver = "2"
+
+[workspace.dependencies]
+anyhow = "1.0"
+thiserror = "1.0"
+tokio = { version = "1.36", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+arrow-array = "56.2.0"
+arrow-schema = "56.2.0"
+fixed = "1.27.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'

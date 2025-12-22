@@ -1,0 +1,15 @@
+
+.anchor
+.DS_Store
+target/*
+!target/types/
+!target/deploy/
+!target/idl/
+!target/deploy/*.json*
+target/deploy/*.so
+**/*.rs.bk
+node_modules
+test-ledger
+.yarn
+Cargo.lock
+.env

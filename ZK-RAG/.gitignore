@@ -1,0 +1,18 @@
+# Rust
+target/
+**/*.rs.bk
+
+# Data and Models (Local only)
+data/
+models/
+
+# Keys and Secrets
+.env
+*.pem
+
+# OS
+.DS_Store
+.vscode/
+
+# Antigravity
+.gemini/
