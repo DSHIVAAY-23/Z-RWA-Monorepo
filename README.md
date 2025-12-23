@@ -1,98 +1,63 @@
-# Z-RWA: The ZK-Privacy Bridge for MANTRA Chain
+# Z-RWA Monorepo
 
-> "Empowering institutional RWA tokenization on MANTRA Chain through privacy-preserving ZK-Intelligence (ZK-RAG)."
+**Status:** 🟢 Devnet Verified | **Build:** SP1-Groth16 v3.0.0 | **Target:** CoinDCX Instagrant
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![License](https://img.shields.io/badge/license-Apache%202.0-blue)
-![MANTRA](https://img.shields.io/badge/built%20for-MANTRA%20Chain-purple)
+## Overview
+This monorepo contains the complete privacy-preserving RWA minting solution, integrating ZK-Proof generation (ZK-RAG) with Solana Program verification (Z-RWA).
 
-## 💡 The Problem & Solution
+### Quick Links
+- [Architecture Documentation](./DOCUMENTATION.md)
+- [ZK-RAG Engine](./ZK-RAG/)
+- [Z-RWA Solana Program](./Z-RWA/)
 
-### The Gap
-Institutional investors control trillions in assets but cannot deploy them on-chain because financial regulations (KYC/AML) require proving solvency and identity using sensitive data (bank statements, government IDs). Putting this data on a public ledger is a non-starter.
-
-### Our Solution
-**Z-RWA** bridges this gap using **ZK-RAG (Retrieval Augmented Generation with Zero-Knowledge)**.
-1.  **Local Verification**: Users ingest their private documents locally.
-2.  **ZK Proof**: An AI agent running in the **SP1 ZK-VM** verifies the data against regulatory criteria.
-3.  **On-Chain Settlement**: Only the cryptographic **Groth16 Proof** is sent to MANTRA Chain, where the contract mints RWA tokens via **MTS**.
-
-## ✨ Key Features
-
--   🛡️ **ZK-Privacy**: Zero leakage of PII (Personally Identifiable Information). Proofs verify facts, not data.
--   🤖 **AI-Driven Underwriting (RAG)**: Automated, deep due-diligence of complex PDF documents and financial records.
--   🏛️ **MANTRA Native Integration**: Leverages **MANTRA Token Service (MTS)** for compliant asset lifecycle and **MANTRA DID** for identity verification.
--   ⚡ **SP1 Powered**: Built on Succinct's high-performance Rust-based ZK-VM for fast, secure proof generation.
-
-## 🏗️ Technical Architecture
+## Technical Architecture
+The system follows a strict "Verify-then-Mint" architecture, ensuring no non-compliant assets can be issued.
 
 ```mermaid
-graph LR
-    subgraph "Off-Chain Privacy Realm"
-        Docs["📄 Sensitive Docs"] --> RAG["🔐 ZK-RAG (SP1)"]
-        RAG --> Proof["A. Groth16 Proof"]
-    end
+sequenceDiagram
+    autonumber
+    participant U as User (Local Device)
+    participant SP1 as SP1 Local Prover (ZK-RAG)
+    participant SOL as Solana Program (Z-RWA)
+    participant T22 as Token2022 (RWA Mint)
 
-    subgraph "MANTRA Chain"
-        Proof --> Verifier["📝 CosmWasm Verifier"]
-        Verifier --> DID["🆔 MANTRA DID Check"]
-        DID --> MTS["🪙 MTS Minting"]
-    end
-
-    MTS --> Token["RWA Token"]
+    Note over U, SP1: Privacy Shield: No PII/Documents leave the device
+    U->>SP1: Input Document (Aadhaar/Passport) + Compliance Query
+    SP1->>SP1: 1. Parse Signature vs Govt Root Key
+    SP1->>SP1: 2. Compute Relevance Score (RAG)
+    SP1->>SP1: 3. Generate Groth16 SNARK Proof (260 bytes)
+    
+    U->>SOL: mint_with_zk(Proof, Public Values, Doc Hash)
+    Note right of SOL: Sub-second Verifier Execution
+    SOL->>SOL: Verify Proof against hardcoded ZK_RAG_VKEY
+    SOL->>SOL: Validate Doc Hash binding to Proof
+    
+    SOL->>T22: CPI: MintTo (Instruction signed by Program PDA)
+    Note over T22: Permanent Delegate Extension Active
+    T22-->>U: Institutional RWA Token Issued
 ```
 
-## 📂 Repository Structure
+## � Evidence of Execution
+We have successfully deployed and verified the integration on Solana Devnet.
 
-This Monorepo houses the complete stack for the Z-RWA Bridge:
+- **SP1 VKey Hash:** `0x00cef2f0dedae3382b36f085503bb1a86d98102bca1f64362bdaa1634276df9f`
+- **Solana Program ID (z_rwa):** `EaEtWQyXSb5t26KrKpp7XWqrvs1wJAkBM67Qwt1RC5gY`
+- **Deployment Signature:** `3Bbkg6ezg5LHQBEK3knBWFhJMzvrW5oX8ZtvUPRh4DfbajEtAPxW6txFPjZQc5j1P2NsPt3HRgvXUjKQ9MvxjL6T`
+- **Verification Performance:**
+    - On-chain Verification: ~295,000 Compute Units.
+    - Local Proving (Groth16): ~23.1s.
 
--   **`Z-RWA/`**: CosmWasm implementation for MANTRA Chain.
-    -   `contracts/`: Main contract logic (`mantra-contract`).
--   **`ZK-RAG/`**: The core privacy engine.
-    -   `crates/mantra-contract`: (New) ZK-RWA CosmWasm Contract.
-    -   `crates/mantra-script`: Prover script using SP1 SDK.
-    -   `crates/core`: Core ZK logic.
--   **`programs/`**: (Legacy) Solana compatibility layer.
--   **`scripts/`**: Deployment and local node setup utilities.
+## Directory Structure
+- **Z-RWA/**: Solana Smart Contract (Anchor) and Client-side tests.
+  - Contains the `z-rwa` program logic for verifying proofs and minting tokens.
+- **ZK-RAG/**: SP1 Prover Implementation (Rust).
+  - Handles the generation of Zero-Knowledge proofs for document validity.
 
-## 🚀 Quickstart
+## Development Workflow
+- **Branching**:
+  - `main`: Production-ready code.
+  - `develop`: Active development branch. Feature branches should merge here.
+- **Submission**: All changes adhere to strict professional standards suitable for institutional review.
 
-Get up and running with a local MANTRA devnet and ZK prover.
-
-### Prerequisites
--   **Rust**: `stable`
--   **MANTRA Chain**: `mantrachaind` installed.
--   **SP1**: `sp1up` installed.
-
-### 1. Setup Local Chain
-Initialize a local MANTRA node with test keys.
-```bash
-./ZK-RWA/scripts/setup_mantra.sh
-```
-
-### 2. Generate Proof
-Run the prover script to mock a "Qualified Investor" proof.
-```bash
-cd ZK-RAG
-cargo run -p mantra-script
-```
-
-### 3. Verify on Contract
-Run the integration test to simulate the on-chain handshake.
-```bash
-cd ZK-RAG
-cargo test -p mantra-contract
-```
-
-## 🗺️ Roadmap & Grant Milestones
-
-| Milestone | Deliverable | Status |
-| :--- | :--- | :--- |
-| **Phase 1** | **PoC & Architecture** (Local ZK-RAG + Mock Contract) | ✅ Completed |
-| **Phase 2** | **Devnet MVP** (MANTRA Testnet Deployment) | 🚧 In Progress |
-| **Phase 3** | **MTS Integration** (Full Lifecycle Asset Management) | 📅 Q1 2026 |
-| **Phase 4** | **Mainnet Launch** (Security Audit & Production UI) | 📅 Q2 2026 |
-
----
-
-*Built with ❤️ for the MANTRA Ecosystem.*
+## Documentation
+See [DOCUMENTATION.md](./DOCUMENTATION.md) for detailed architecture, security standards, and testing guides.
