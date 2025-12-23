@@ -1,0 +1,5 @@
+Z-RWA enables privacy-preserving on-chain issuance of institutional Real-World Assets (RWA) by combining an on-device Retrieval-Augmented Generation (RAG) prover with succinct Groth16 zero-knowledge proofs and an Anchor-based on-chain verifier. Institutions can prove document-based eligibility without exposing PII: the user generates a ZK proof locally (ZK-RAG) attesting to compliance checks; the `z-rwa` Solana program verifies the proof and mints Token2022-compliant RWA tokens under program-controlled governance.
+
+Our architecture guarantees Verify-then-Mint atomicity, enforceable freeze/burn controls via Token2022 extensions, and configurable multisig interop for cross-chain flows. We have devnet program IDs, an implemented prover (Rust), and end-to-end tests and scripts for reproducible devnet deployments.
+
+We seek funding to harden security, complete third-party audits, optimize proving latency for production, and run an institutional pilot. Funding will accelerate mainnet readiness and partner onboarding while preserving user privacy and regulatory compliance.
