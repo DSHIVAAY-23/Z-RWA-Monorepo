@@ -1,0 +1,8 @@
+
+# For mint
+mint|<order_id>|<token_name>|<to_address>|<amount>
+mint|1|TJTest-3|tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy|100
+
+# For burn
+burn|<order_id>|<token_name>|<from_address>|<amount>
+burn|2|TJTest-3|tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy|100

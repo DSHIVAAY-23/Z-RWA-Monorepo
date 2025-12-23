@@ -1,0 +1,11 @@
+{
+    "manage_requests": {
+        "requests":{
+            "approve_request":{
+                "request_type":"mint",
+                "proposal_id":"0"
+            }
+        }
+    }
+}        
+    

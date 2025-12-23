@@ -1,0 +1,17 @@
+{
+  "whitelist": {
+    "lists": [
+      {
+        "denom": "MCustomMarker",
+        "data": [
+          {
+            "address": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+            "country_code": {
+              "set": 91
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

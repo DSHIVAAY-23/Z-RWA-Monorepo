@@ -1,0 +1,14 @@
+{
+    "manage_roles": {
+        "denom": "CCustomMarker",
+        "roles": [
+            {
+                "issuer": {
+                    "update_type": {
+                        "add": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+                    }
+                }
+            }
+        ]
+    }
+}

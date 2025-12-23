@@ -1,0 +1,14 @@
+{
+    "create": {
+        "params": {
+            "denom": "MCustomMarker",
+            "issue_size": "1",
+            "face_value": "100",
+            "coupon_rate": 8,
+            "accrued_interest": 7,
+            "maturity_date": 1,
+            "issuer_name": "issuer",
+            "coupon_frequency": "Monthly"
+        }
+    }
+}

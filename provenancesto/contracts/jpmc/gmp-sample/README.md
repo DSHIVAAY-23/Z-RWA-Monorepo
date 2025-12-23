@@ -1,0 +1,46 @@
+# Cosmwasm SendReceive Smart Contract
+This project contains the Cosmwasm smart contract that can send and receive message payloads to/from EVM.
+
+This contract is deployed to osmosis-5 testnet: `osmo12uds53qp285w68vzq9wx5kjjfj0evvsy7k0e2srx9mchj29h7urq3rtuuc`
+
+# Tests
+Unit tests can be run with `cargo test`
+
+# Build and deploy
+This process assumes you're using osmosisd CLI: https://docs.osmosis.zone/osmosis-core/osmosisd/
+
+1. Build
+```
+docker run --rm -v "$(pwd)":/code \
+  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+  cosmwasm/rust-optimizer:0.12.13
+  ```
+
+## Testnet Deployment Details
+
+### contract_id
+```
+546
+```
+
+### contract_address
+```
+tp1gdrv7296qj3f5yuxvtrqc43dp6nc4dwdw4f9hhpwe9n759jd0lushvxcu8
+```
+
+## Devnet Deployment Details
+
+### contract_id
+```
+7
+```
+
+### contract_address
+```
+tp14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9s96lrg8
+```
+
+
+evm: E76A7066B4DBB87AE342FCA858A3BA62838DCF0B296030D51FE06CDC2FE43D87
+cosmos: 70CF31CE412FB46DB5878BA721244838BB0BD1DD979ECE530CB5E5B3E6B49460

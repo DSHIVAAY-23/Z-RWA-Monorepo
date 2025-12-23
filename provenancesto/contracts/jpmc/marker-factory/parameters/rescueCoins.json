@@ -1,0 +1,8 @@
+{
+    "rescue_coins": {
+        "denom": "Test-13",
+        "target_denom": "vspn",
+        "to_address": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+        "amount": 32
+    }
+}

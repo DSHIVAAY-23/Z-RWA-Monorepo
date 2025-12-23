@@ -1,0 +1,68 @@
+
+# For request mint
+requestMint|<token_name>|<request_id>|<amount>
+requestMint|Test-3|2|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp|100
+
+# For request burn
+requestBurn|<token_name>|<request_id>|<amount>
+
+# For request mint from
+requestMintFrom|<token_name>|<request_id>|<from>|<amount>
+requestMintFrom|Test-3|1|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp|100
+
+# For request burn from
+requestBurnFrom|<token_name>|<request_id>|<from>|<amount>
+requestBurnFrom|Test-5|2|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp|50
+
+# For approve mint
+approveMint|<token_name>|<request_id>
+
+# For approve burn
+approveBurn|<token_name>|<request_id>
+
+# For reject mint
+rejectMint|<token_name>|<request_id>
+
+# For reject burn
+rejectBurn|<token_name>|<request_id>
+
+# For increase request mint allowance
+increaseRequestMintAllowance|<token_name>|<spender>|<amount>
+increaseRequestMintAllowance|Test-1|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp|1000
+
+# For decrease request mint allowance
+decreaseRequestMintAllowance|<token_name>|<spender>|<amount>
+
+# For increase request burn allowance
+increaseRequestBurnAllowance|<token_name>|<spender>|<amount>
+
+# For decrease request burn allowance
+decreaseRequestBurnAllowance|<token_name>|<spender>|<amount>
+
+# For total supply
+totalSupply|<token_name>
+totalSupply|Test-5
+
+# For balance of
+balanceOf|<token_name>|<address>
+balanceOf|Test-4|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp
+
+# For mint request of
+mintRequestOf|<token_name>|<request_id>
+mintRequestOf|Test-5|1
+
+# For burn request of
+burnRequestOf|<token_name>|<request_id>
+burnRequestOf|Test-5|2
+
+# For burn request of
+burnBalanceOf|<token_name>|<address>
+burnBalanceOf|Test-5|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp
+
+# For mint request allowance of
+mintRequestAllowanceOf|<token_name>|<owner_address>|<spender_address>
+mintRequestAllowanceOf|Test-5|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp|tp1d8lzewx67da62k4ax5gcz4h90w236gnehfhx65y5ly24zwgdcyuscc48wx
+
+# For burn request allowance of
+burnRequestAllowanceOf|<token_name>|<owner_address>|<spender_address>
+burnRequestAllowanceOf|Test-5|tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp|tp1d8lzewx67da62k4ax5gcz4h90w236gnehfhx65y5ly24zwgdcyuscc48wx

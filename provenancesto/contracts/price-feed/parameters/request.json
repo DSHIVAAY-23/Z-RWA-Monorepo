@@ -1,0 +1,9 @@
+{
+    "request": {
+        "symbols": [
+            "BTC",
+            "ETH",
+            "BAND"
+        ]
+    }
+}

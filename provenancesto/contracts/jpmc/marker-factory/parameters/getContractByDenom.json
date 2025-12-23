@@ -1,0 +1,5 @@
+{
+    "get_contract_by_denom": {
+        "denom": "WCustomMarker"
+    }
+}

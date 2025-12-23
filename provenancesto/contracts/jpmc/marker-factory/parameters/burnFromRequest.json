@@ -1,0 +1,9 @@
+{
+    "request_from": {
+        "denom": "WCustomMarker",
+        "request_id": "0x0290934747923332982545784284218402533764514524637631709843857691",
+        "from": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+        "amount": "1000",
+        "request_type": "burn"
+    }
+}

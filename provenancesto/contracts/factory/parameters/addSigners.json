@@ -1,0 +1,12 @@
+{
+    "manage_signers": {
+        "denom": "CCustomMarker",
+        "instruction": {
+            "request_type":"mint"
+        },
+        "update_type": {
+                    "add": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+                }
+            }
+        }
+    

@@ -1,0 +1,13 @@
+{
+    "deploy_token": {
+        "msg": {
+            "id": "unique",
+            "denom": "WCustomMarker",
+            "tokenization_agent": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+            "config": {
+                "chain": "onyx",
+                "address": "0xD021c77149466aa2640878cb34D5Ab5e4Be3326d"
+            }
+        }
+    }
+}

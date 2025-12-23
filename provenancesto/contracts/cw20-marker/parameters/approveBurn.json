@@ -1,0 +1,9 @@
+{
+    "approve": {
+        "order_id": [
+            0,
+            0
+        ],
+        "request_type": "burn"
+    }
+}

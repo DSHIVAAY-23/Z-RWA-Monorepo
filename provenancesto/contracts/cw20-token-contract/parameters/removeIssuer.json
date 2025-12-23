@@ -1,0 +1,14 @@
+{
+    "manage_roles": {
+        
+        "roles": [
+            {
+                "issuer": {
+                    "update_type": {
+                        "remove": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+                    }
+                }
+            }
+        ]
+    }
+}

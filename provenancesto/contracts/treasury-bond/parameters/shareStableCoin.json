@@ -1,0 +1,20 @@
+{
+    "share_stable_coin": {
+        "denom": "MCustomMarker",
+        "coin_type": "usdt",
+        "share_params": [
+            {
+                "to": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "payment": "100"
+            },
+            {
+                "to": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "payment": "100"
+            },
+            {
+                "to": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "payment": "100"
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Array_of_Message",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Message"
+  },
+  "definitions": {
+    "Message": {
+      "type": "object",
+      "required": [
+        "message",
+        "sender"
+      ],
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "sender": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

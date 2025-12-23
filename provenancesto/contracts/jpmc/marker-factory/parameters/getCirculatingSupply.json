@@ -1,0 +1,5 @@
+{
+    "get_ciculating_supply": {
+        "denom": "WCustomMarker"
+    }
+}

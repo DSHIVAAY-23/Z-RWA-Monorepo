@@ -1,0 +1,19 @@
+{
+    "manage_requests": {
+        "requests":{
+            "create_request":{
+                "request_type":"burn",
+                "mint_burn_params":{
+                    "denom":"ABC",
+                    "mint_burn_data": [
+                        {
+                            "address": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                            "amount": "200"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}        
+    

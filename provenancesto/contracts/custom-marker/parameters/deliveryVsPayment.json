@@ -1,0 +1,11 @@
+{
+    "delivery_vs_payment": {
+        "denom": "MCustomMarker",
+        "mint_data": [
+            {
+                "address": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "amount": "200"
+            }
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "rescue_coins": {
+        "denom": "APPE",
+        "to_address": "tp1ujwgh8hs0l235plvln6qd0jxgxjym92z22chn7",
+        "amount": "2700000000"
+    }
+}

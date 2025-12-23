@@ -1,0 +1,6 @@
+{
+    "update_currency": {
+        "denom": "MCustomMarker",
+        "ccy": "ETH"
+    }
+}

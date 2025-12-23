@@ -1,0 +1,10 @@
+{
+    "burn_tokens": {
+        "order": {
+            "order_id": "1",
+            "denom": "TJ-Test-6",
+            "investor": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+            "amount": "100"
+        }
+    }
+}

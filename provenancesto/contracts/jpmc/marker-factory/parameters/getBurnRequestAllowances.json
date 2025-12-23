@@ -1,0 +1,8 @@
+{
+    "get_request_allowances": {
+        "denom": "WCustomMarker",
+        "owner": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+        "spender": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+        "request_type": "burn"
+    }
+}

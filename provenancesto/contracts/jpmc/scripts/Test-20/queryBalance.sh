@@ -1,0 +1,29 @@
+
+echo tp1d8lzewx67da62k4ax5gcz4h90w236gnehfhx65y5ly24zwgdcyuscc48wx
+  provenanced --testnet query bank balances tp1d8lzewx67da62k4ax5gcz4h90w236gnehfhx65y5ly24zwgdcyuscc48wx \
+--node=http://34.70.126.95:26657
+
+echo 
+echo $dev
+  provenanced --testnet query bank balances tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp \
+--node=http://34.70.126.95:26657
+
+echo 
+echo $user
+  provenanced --testnet query bank balances tp1zu5rdmpk08epmlt4j6qejwgej203zz86thfns2 \
+--node=http://34.70.126.95:26657
+
+echo 
+echo tp1ysjq08nlz4jh06spcfmv3fyewc2lrx80ldtlzw66rs4pnmnygl0svjmt5m
+  provenanced --testnet query bank balances tp1ysjq08nlz4jh06spcfmv3fyewc2lrx80ldtlzw66rs4pnmnygl0svjmt5m \
+--node=http://34.70.126.95:26657
+
+echo
+echo tp1ujwgh8hs0l235plvln6qd0jxgxjym92z22chn7
+provenanced --testnet query bank balances tp1ujwgh8hs0l235plvln6qd0jxgxjym92z22chn7 \
+--node=http://34.70.126.95:26657
+
+echo
+echo tp1we9chrq58nj3etdw3yss7ytqeaeeka5725u2m0lg7vg5yzrwa8usp8shgj
+provenanced --testnet query bank balances tp1we9chrq58nj3etdw3yss7ytqeaeeka5725u2m0lg7vg5yzrwa8usp8shgj \
+--node=http://34.70.126.95:26657

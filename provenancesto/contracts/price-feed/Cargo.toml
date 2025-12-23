@@ -1,0 +1,48 @@
+[package]
+authors = ["Tarun Jaiswal <tarunjais5@vibhathi.com>"]
+description = "Price feed contract store price data from BandChain"
+edition = "2021"
+name = "price-feed"
+version = "1.0.0"
+
+exclude = [
+  "price_feed.wasm",
+  "checksums.txt",
+]
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+panic = 'abort'
+incremental = false
+overflow-checks = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = []
+# for more explicit tests, cargo test --features=backtraces
+#backtraces = ["cosmwasm-std/backtraces"]
+# use library feature to disable all instantiate/execute/query exports
+library = []
+
+[dependencies]
+cosmwasm-schema = "1.5.11"
+cosmwasm-std = { version = "1.5.11" }
+cw-band = { version = "0.1.1" }
+cw-storage-plus = "1.2.0"
+cw2 = "1.1.2"
+obi = "0.0.2"
+serde = { version = "1.0.127", default-features = false, features = ["derive"] }
+serde_json = "1.0.143"
+thiserror = { version = "1.0.69" }
+
+[dev-dependencies]
+cosmwasm-schema = "1.0.0"
+cw-multi-test = "0.16.0"

@@ -1,0 +1,26 @@
+{
+    "send_instruction": {
+        "params": {
+            "portfolios": [
+                {
+                    "dest_chain": "Holesky",
+                    "dest_address": "0x0547b3e9253224978ada177570e87707e0ae24bd",
+                    "investor": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                    "token": "TJTest-3",
+                    "amount": "100",
+                    "order_id": "1",
+                    "action": "mint"
+                },
+                {
+                    "dest_chain": "Holesky",
+                    "dest_address": "0x0547b3e9253224978ada177570e87707e0ae24bd",
+                    "investor": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                    "token": "TJTest-3",
+                    "amount": "100",
+                    "order_id": "2",
+                    "action": "burn"
+                }
+            ]
+        }
+    }
+}

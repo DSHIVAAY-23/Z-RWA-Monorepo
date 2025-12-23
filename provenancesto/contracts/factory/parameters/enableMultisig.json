@@ -1,0 +1,15 @@
+{
+    "enable_multisig": {
+        "params": {
+            "denom": "HCustomMarker",
+            "mint_signers": ["add1","add2"],
+            "burn_signers": ["add1","add2"],
+            "mint_approvals": "2",
+            "burn_approvals":"2",
+            "expiration_time":"60",
+            "issuer": "tp1ss30sspkkjnns8q95cuw83lrt8h8nvehpwf479",
+            "tokenization_agent": "tp1r79n5nz7h6wnltv4g6lt3cek3h6d39p7jasv2k",
+            "transfer_agent": "tp1zry40eq8cm2nt85uac2eagd58xuj34c4sxuhx6"
+        }
+    }
+}
