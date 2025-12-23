@@ -3,6 +3,8 @@ members = [
     "crates/ingestion",
     "crates/circuits",
     "crates/core",
+    "crates/mantra-contract",
+    "crates/mantra-script",
 ]
 resolver = "2"
 

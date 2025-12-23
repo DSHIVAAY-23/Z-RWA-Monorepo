@@ -63,3 +63,17 @@ cargo run -p private-context-ingestion -- prove "Privacy" --threshold 0.4
 - **[Usage Guide](file:///home/user/.gemini/antigravity/brain/af33fbe7-61ca-45cb-8a9b-18551079f5a7/usage_guide.md)**: Detailed command reference.
 - **[Technical Architecture](file:///home/user/.gemini/antigravity/brain/af33fbe7-61ca-45cb-8a9b-18551079f5a7/technical_architecture.md)**: Deep dive into components and design.
 - **[Changelog](file:///home/user/.gemini/antigravity/brain/af33fbe7-61ca-45cb-8a9b-18551079f5a7/CHANGELOG.md)**: Release history.
+
+## 🏛️ MANTRA Chain Integration
+
+### Compliance Narrative (ZK-RAG)
+This project enables **Institutional RWA Adoption** by solving the privacy-compliance paradox:
+- **Challenge**: Financial regulations (KYC/AML) require proving "Qualified Investor" status, usually involving sensitive PII (Aadhaar, PAN, Tax Returns).
+- **Solution**: Users run **ZK-RAG** locally to generate a Zero-Knowledge Proof that their documents meet the "Accreditation Level" criteria without revealing the documents themselves.
+- **On-Chain**: The MANTRA Chain contract verifies this proof along with the **DID (Decentralized Identity)** of the sender. The contract mints RWA tokens ONLY if the geometric proof of qualification is valid and the user's DID is compliant.
+
+### MANTRA Synergy
+We leverage MANTRA's **VARA-licensed infrastructure** for legal and technical finality:
+1.  **MANTRA Compliance Module**: Acts as the "Gatekeeper", ensuring only KYC'd DIDs can attempt the ZK verification.
+2.  **MANTRA Token Service (MTS)**: Upon successful ZK verification, the contract triggers MTS to mint legally recognized asset tokens.
+3.  **Audit Trail**: The contract stores a cryptographic link (Proof Hash) to the private execution, giving regulators a verifiable paper trail without handling the private data.
