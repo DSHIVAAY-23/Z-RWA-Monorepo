@@ -1,0 +1,19 @@
+{
+    "create": {
+        "params": {
+            "supply": "1000000",
+            "denom": "MCustomMarker",
+            "denom_config": {
+                "token_limit": "10000",
+                "country_codes": [
+                    1,
+                    91
+                ]
+            },
+            "id": "unique",
+            "issuer": "tp1ss30sspkkjnns8q95cuw83lrt8h8nvehpwf479",
+            "tokenization_agent": "tp1r79n5nz7h6wnltv4g6lt3cek3h6d39p7jasv2k",
+            "transfer_agent": "tp1zry40eq8cm2nt85uac2eagd58xuj34c4sxuhx6"
+        }
+    }
+}

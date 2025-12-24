@@ -1,0 +1,6 @@
+{
+    "update_token_limit": {
+        "denom": "provenancetoken1310",
+        "limit": "2000"
+    }
+}

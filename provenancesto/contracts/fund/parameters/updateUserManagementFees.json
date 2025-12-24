@@ -1,0 +1,13 @@
+{
+    "management_fees": {
+        "denom": "MCustomMarker",
+        "managed_users": [
+            {
+                "update": {
+                    "user": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                    "fees": "1500"
+                }
+            }
+        ]
+    }
+}

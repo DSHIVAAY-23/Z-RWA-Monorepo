@@ -1,0 +1,23 @@
+{
+    "share_dividend": {
+        "denom": "MCustomMarker",
+        "coin_type": "usdt",
+        "shared_dividends": [
+            {
+                "to": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "dividend": "100",
+                "asset_type": "stable_coin"
+            },
+            {
+                "to": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "dividend": "100",
+                "asset_type": "token"
+            },
+            {
+                "to": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                "dividend": "100",
+                "asset_type": "stable_coin"
+            }
+        ]
+    }
+}

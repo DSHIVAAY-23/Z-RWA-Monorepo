@@ -1,0 +1,9 @@
+{
+    "manage_request_allowance": {
+        "spender": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+        "update_type": {
+            "remove": "1000"
+        },
+        "request_type": "mint"
+    }
+}

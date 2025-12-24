@@ -1,0 +1,8 @@
+{
+    "manage_agent": {
+        "denom": "MCustomMarker",
+        "update_type": {
+            "add": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+        }
+    }
+}

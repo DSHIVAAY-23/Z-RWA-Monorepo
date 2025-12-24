@@ -1,0 +1,11 @@
+{
+    "manage_roles": {
+        "roles": [
+            {
+                "executer": {
+                    "addr": "tp1esdv3xcal3fmc5aq93wvsujgkvc75mnf09jc73"
+                }
+            }
+        ]
+    }
+}

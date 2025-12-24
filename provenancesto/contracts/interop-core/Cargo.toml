@@ -1,0 +1,56 @@
+[package]
+name = "interop-core"
+version = "1.0.0"
+authors = ["Tarun Jaiswal <tarunjais5@vibhathi.com>"]
+edition = "2018"
+
+exclude = [
+  "interop_core.wasm",
+  "checksums.txt",
+]
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+panic = 'abort'
+incremental = false
+overflow-checks = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = []
+# use library feature to disable all instantiate/execute/query exports
+library = []
+schema = []
+
+[dependencies]
+cosmwasm-schema = { version = "1.5.11" }
+cosmwasm-std = "1.5.11"
+cw-storage-plus = "1.2.0"
+thiserror = { version = "1.0.20" }
+ethabi = { version = "18.0.0", default-features = false, features = [] }
+cw20-marker = { path = "../cw20-marker/", features = ["library"] }
+rustc-hex = "2.1.0"
+hex = "0.4.3"
+getrandom = { version = "0.2", default-features = false, features = ["custom"] }
+
+ed25519-zebra = { version = "3.1.0" }
+
+[dev-dependencies]
+provwasm-mocks = "1.2.0"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+
+ed25519-zebra = { version = "4.1.0", features = ["alloc"] }
+
+[[bin]]
+name = "schema"
+path = "src/bin/schema.rs"
+required-features = ["schema"]

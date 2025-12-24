@@ -1,0 +1,8 @@
+{
+    "manage_agent": {
+        "denom": "MCustomMarker",
+        "update_type": {
+            "remove": ""
+        }
+    }
+}

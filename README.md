@@ -37,7 +37,7 @@ sequenceDiagram
     T22-->>U: Institutional RWA Token Issued
 ```
 
-## 📜 Evidence of Execution
+## � Evidence of Execution
 We have successfully deployed and verified the integration on Solana Devnet.
 
 - **SP1 VKey Hash:** `0x00cef2f0dedae3382b36f085503bb1a86d98102bca1f64362bdaa1634276df9f`

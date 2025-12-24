@@ -1,0 +1,13 @@
+{
+    "manage_roles": {
+        "role": {
+            "admin": {
+                "update_type": {
+                    "add": [
+                        "tp17wka6zmfq2q0vqeg2zhrmj46327v5npuhf4dq7"
+                    ]
+                }
+            }
+        }
+    }
+}

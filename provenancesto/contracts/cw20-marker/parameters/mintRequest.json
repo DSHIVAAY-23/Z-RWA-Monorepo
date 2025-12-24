@@ -1,0 +1,10 @@
+{
+    "request": {
+        "order_id": [
+            0,
+            0
+        ],
+        "amount": "1000",
+        "request_type": "mint"
+    }
+}

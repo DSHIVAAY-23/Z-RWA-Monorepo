@@ -1,0 +1,13 @@
+{
+    "create": {
+        "params": {
+            "denom": "MCustomMarker",
+            "fund_name": "fund_name",
+            "asset_type": "token",
+            "issuer_name": "abc",
+            "target_aum": "12",
+            "nav_launch_price": "10",
+            "ccy": "USD"
+        }
+    }
+}
