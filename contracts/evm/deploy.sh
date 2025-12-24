@@ -1,11 +1,11 @@
 #!/bin/bash
-# Fuse Spark Testnet Deployment Script
-# This script deploys the Private Payroll Verifier to Fuse Spark Testnet
+# Sepolia (or any EVM chain) Testnet Deployment Script
+# This script deploys the Private Payroll Verifier to Sepolia (or any EVM chain) Testnet
 
 set -e  # Exit on error
 
 echo "================================================"
-echo "Fuse Payroll Verifier - Deployment Script"
+echo "EVM Payroll Verifier - Deployment Script"
 echo "================================================"
 echo ""
 
@@ -36,14 +36,14 @@ fi
 echo "✅ Build successful"
 echo ""
 
-echo "🚀 Deploying to Fuse Spark Testnet..."
-echo "   Network: Fuse Spark"
+echo "🚀 Deploying to Sepolia (or any EVM chain) Testnet..."
+echo "   Network: Sepolia (or any EVM chain)"
 echo "   Chain ID: 123"
 echo "   RPC: https://rpc.fusespark.io"
 echo ""
 
 # Deploy contracts
-forge script script/DeployFuse.s.sol \
+forge script script/DeployEVM.s.sol \
     --rpc-url https://rpc.fusespark.io \
     --private-key $PRIVATE_KEY \
     --broadcast \
@@ -59,7 +59,7 @@ if [ $? -eq 0 ]; then
     echo "Next steps:"
     echo "1. Check the deployment output above for contract addresses"
     echo "2. Save the addresses for your grant documentation"
-    echo "3. Verify contracts on Fuse Explorer (optional)"
+    echo "3. Verify contracts on EVM Explorer (optional)"
     echo "4. Test the verifySalary function with sample data"
     echo ""
     echo "For detailed instructions, see README_FUSE.md"

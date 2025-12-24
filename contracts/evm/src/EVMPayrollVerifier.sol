@@ -3,10 +3,10 @@ pragma solidity ^0.8.20;
 
 import "./ISP1Verifier.sol";
 
-/// @title Fuse Payroll Verifier
+/// @title EVM Payroll Verifier
 /// @notice Privacy-preserving payroll verification using ZK proofs
 /// @dev Verifies salary payments without revealing actual amounts on-chain
-contract FusePayrollVerifier {
+contract EVMPayrollVerifier {
     /// @notice SP1 Verifier contract for proof verification
     ISP1Verifier public immutable verifier;
 
@@ -41,8 +41,8 @@ contract FusePayrollVerifier {
     /// @param _verifier Address of the SP1 verifier contract
     /// @param _vkey Verification key for the payroll ZK program
     constructor(address _verifier, bytes32 _vkey) {
-        require(_verifier != address(0), "FusePayrollVerifier: Invalid verifier address");
-        require(_vkey != bytes32(0), "FusePayrollVerifier: Invalid vkey");
+        require(_verifier != address(0), "EVMPayrollVerifier: Invalid verifier address");
+        require(_vkey != bytes32(0), "EVMPayrollVerifier: Invalid vkey");
         
         verifier = ISP1Verifier(_verifier);
         payrollProgramVKey = _vkey;
@@ -61,14 +61,14 @@ contract FusePayrollVerifier {
         bytes calldata proof
     ) external {
         // Validate inputs
-        require(employee != address(0), "FusePayrollVerifier: Invalid employee");
-        require(payPeriod > 0, "FusePayrollVerifier: Invalid pay period");
-        require(payrollHash != bytes32(0), "FusePayrollVerifier: Invalid payroll hash");
+        require(employee != address(0), "EVMPayrollVerifier: Invalid employee");
+        require(payPeriod > 0, "EVMPayrollVerifier: Invalid pay period");
+        require(payrollHash != bytes32(0), "EVMPayrollVerifier: Invalid payroll hash");
         
         // Prevent double verification
         if (verifiedPeriods[employee][payPeriod]) {
             emit VerificationFailed(employee, payPeriod, "Already verified");
-            revert("FusePayrollVerifier: Period already verified");
+            revert("EVMPayrollVerifier: Period already verified");
         }
 
         // Encode public values: employee address, pay period, and payroll hash
@@ -83,10 +83,10 @@ contract FusePayrollVerifier {
             emit SalaryVerified(employee, payPeriod, payrollHash);
         } catch Error(string memory reason) {
             emit VerificationFailed(employee, payPeriod, reason);
-            revert(string(abi.encodePacked("FusePayrollVerifier: Proof verification failed - ", reason)));
+            revert(string(abi.encodePacked("EVMPayrollVerifier: Proof verification failed - ", reason)));
         } catch {
             emit VerificationFailed(employee, payPeriod, "Unknown error");
-            revert("FusePayrollVerifier: Proof verification failed");
+            revert("EVMPayrollVerifier: Proof verification failed");
         }
     }
 

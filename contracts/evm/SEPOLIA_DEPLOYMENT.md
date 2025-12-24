@@ -16,7 +16,7 @@
 - **Etherscan:** https://sepolia.etherscan.io/address/0x2033988A14b0F82327A215B9F801F142bBCd2367
 - **Transaction:** https://sepolia.etherscan.io/tx/0x49bfc94044d6d76b04af7692cf976d741af6b659e87eff045999cf78fd508944
 
-### 2. FusePayrollVerifier
+### 2. EVMPayrollVerifier
 - **Address:** `0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c`
 - **Transaction Hash:** `0xf2b1629789d12db8c68686a358ad6661d51951ebdfc18fff1393dd097db788ea`
 - **Etherscan:** https://sepolia.etherscan.io/address/0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
@@ -37,10 +37,10 @@ forge verify-contract 0x2033988A14b0F82327A215B9F801F142bBCd2367 \
   --watch
 ```
 
-### Verify FusePayrollVerifier
+### Verify EVMPayrollVerifier
 ```bash
 forge verify-contract 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
-  src/FusePayrollVerifier.sol:FusePayrollVerifier \
+  src/EVMPayrollVerifier.sol:EVMPayrollVerifier \
   --chain sepolia \
   --constructor-args $(cast abi-encode "constructor(address,bytes32)" 0x2033988A14b0F82327A215B9F801F142bBCd2367 0x2598b5d8ba1eabc94e167662b6f1becda7541fcb3c99123140e3f5e83f6ac0b3) \
   --watch
@@ -53,7 +53,7 @@ forge verify-contract 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
 ### Check Contract State
 
 ```bash
-# Get verifier address from FusePayrollVerifier
+# Get verifier address from EVMPayrollVerifier
 cast call 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
   "getVerifier()(address)" \
   --rpc-url https://ethereum-sepolia-rpc.publicnode.com
@@ -90,7 +90,7 @@ cast call 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
 ✅ **ZK Infrastructure:** Implemented SP1 verifier interface for zero-knowledge proofs  
 ✅ **Privacy-Preserving:** Payroll verification without revealing salary amounts  
 ✅ **Production-Ready:** Contracts compiled, deployed, and verifiable on-chain  
-✅ **Multi-Chain Ready:** Same contracts can deploy to Fuse, Polygon, Arbitrum, etc.
+✅ **Multi-Chain Ready:** Same contracts can deploy to EVM, Polygon, Arbitrum, etc.
 
 ### Technical Highlights
 
@@ -101,7 +101,7 @@ cast call 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
 | **Solidity Version** | 0.8.20 |
 | **Optimizer** | Enabled (200 runs) |
 | **Gas Used (MockSP1Verifier)** | ~191,203 gas |
-| **Gas Used (FusePayrollVerifier)** | ~TBD |
+| **Gas Used (EVMPayrollVerifier)** | ~TBD |
 | **Total Contracts** | 2 |
 
 ---
@@ -112,7 +112,7 @@ cast call 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
 graph TB
     A[HR Database Off-chain] -->|Salary Data| B[ZK Prover SP1]
     B -->|Generate Proof| C[User Wallet]
-    C -->|verifySalary| D[FusePayrollVerifier<br/>0xA527...2c4c]
+    C -->|verifySalary| D[EVMPayrollVerifier<br/>0xA527...2c4c]
     D -->|verifyProof| E[MockSP1Verifier<br/>0x2033...2367]
     E -->|✓ Valid| F[Emit SalaryVerified]
     F -->|Record| G[Sepolia Blockchain]
@@ -130,10 +130,10 @@ graph TB
 1. ✅ Visit Etherscan links above to verify deployment
 2. ✅ Review contract source code (will be verified)
 3. ✅ Test contract interactions using provided commands
-4. ✅ Confirm EVM compatibility for Fuse Network
+4. ✅ Confirm EVM compatibility for EVM Chains
 
 ### For Production Deployment
-1. Deploy to Fuse Spark Testnet using same contracts
+1. Deploy to Sepolia (or any EVM chain) Testnet using same contracts
 2. Replace MockSP1Verifier with official SP1 verifier
 3. Integrate with actual ZK proof generation
 4. Add USDC payment integration
@@ -146,7 +146,7 @@ graph TB
 
 ```
 MockSP1Verifier:     0x2033988A14b0F82327A215B9F801F142bBCd2367
-FusePayrollVerifier: 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
+EVMPayrollVerifier: 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
 Network:             Sepolia Testnet
 Chain ID:            11155111
 ```
@@ -174,4 +174,4 @@ Chain ID:            11155111
 
 **Deployment Status:** ✅ **COMPLETE AND VERIFIED**
 
-**Ready for:** Grant submission to Fuse Team and any EVM-compatible chain
+**Ready for:** Grant submission to EVM Team and any EVM-compatible chain

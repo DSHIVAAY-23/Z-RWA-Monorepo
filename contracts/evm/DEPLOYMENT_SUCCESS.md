@@ -2,7 +2,7 @@
 
 ## ✅ Mission Accomplished
 
-Successfully deployed **Private Payroll ZK-Verifier** to **Sepolia Testnet** as proof of EVM compatibility for ALL chains including Fuse Network.
+Successfully deployed **Private Payroll ZK-Verifier** to **Sepolia Testnet** as proof of EVM compatibility for ALL chains including EVM Chains.
 
 ---
 
@@ -14,7 +14,7 @@ Chain ID:            11155111
 Deployer:            0x483089BfAdF65a08F1be109b42A9aae8535B75ee
 
 MockSP1Verifier:     0x2033988A14b0F82327A215B9F801F142bBCd2367
-FusePayrollVerifier: 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
+EVMPayrollVerifier: 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
 ```
 
 ---
@@ -24,7 +24,7 @@ FusePayrollVerifier: 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
 **MockSP1Verifier:**  
 https://sepolia.etherscan.io/address/0x2033988A14b0F82327A215B9F801F142bBCd2367
 
-**FusePayrollVerifier:**  
+**EVMPayrollVerifier:**  
 https://sepolia.etherscan.io/address/0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c
 
 ---
@@ -52,14 +52,14 @@ cast call 0xA5275f6a1DD4f101e2de535693fFB0fBD2092c4c \
 
 ## 🎯 What This Proves
 
-✅ **EVM Compatibility** - Works on Sepolia = Works on Fuse, Polygon, Arbitrum, etc.  
+✅ **EVM Compatibility** - Works on Sepolia = Works on EVM, Polygon, Arbitrum, etc.  
 ✅ **ZK Infrastructure** - SP1 verifier interface implemented  
 ✅ **Privacy-Preserving** - Payroll verification without revealing amounts  
 ✅ **Production-Ready** - Live on testnet, publicly verifiable  
 
 ---
 
-## 🛣️ Deploy to Fuse Network (When Ready)
+## 🛣️ Deploy to EVM Chains (When Ready)
 
 ```bash
 # Same contracts, just change RPC URL
@@ -68,7 +68,7 @@ forge create src/MockSP1Verifier.sol:MockSP1Verifier \
   --private-key $PRIVATE_KEY \
   --legacy --broadcast
 
-# Then deploy FusePayrollVerifier with the MockSP1Verifier address
+# Then deploy EVMPayrollVerifier with the MockSP1Verifier address
 ```
 
 ---

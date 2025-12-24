@@ -7,11 +7,14 @@ optimizer = true
 optimizer_runs = 200
 via_ir = false
 
-# Fuse Spark Testnet Configuration
+# EVM Chain RPC Endpoints (Examples)
 [rpc_endpoints]
-fuse_spark = "https://rpc.fusespark.io"
+sepolia = "https://ethereum-sepolia-rpc.publicnode.com"
+polygon = "https://polygon-rpc.com"
+arbitrum = "https://arb1.arbitrum.io/rpc"
 
+# Block Explorer Configuration
 [etherscan]
-fuse_spark = { key = "${FUSESCAN_API_KEY}", chain = 123, url = "https://explorer.fusespark.io/api" }
+sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 11155111 }
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
