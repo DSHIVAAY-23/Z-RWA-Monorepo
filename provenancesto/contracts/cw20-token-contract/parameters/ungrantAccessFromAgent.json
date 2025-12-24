@@ -1,0 +1,27 @@
+{
+    "manage_roles": {
+        
+        "role": {
+            "agent": {
+                "update_type": {
+                    "remove": [
+                        "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+                    ]
+                },
+                "marker_access": [
+                    "admin",
+                    "burn",
+                    "deposit",
+                    "delete",
+                    "mint",
+                    "transfer",
+                    "unspecified",
+                    "withdraw",
+                    "freeze",
+                    "unfreeze",
+                    "force_transfer"
+                ]
+            }
+        }
+    }
+}

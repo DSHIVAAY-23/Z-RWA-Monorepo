@@ -1,0 +1,18 @@
+{
+    "distribute_and_burn": {
+        "denom": "MCustomMarker",
+        "coin_type": "usdt",
+        "distributions": [
+            {
+                "investor": "tp1clq0rtxlwtg384mtsx2333hv75nn0va8gw8md5",
+                "amount": "4",
+                "token": "12"
+            },
+            {
+                "investor": "tp1clq0rtxlwtg384mtsx2333hv75nn0va8gw8md5",
+                "amount": "4",
+                "token": "18"
+            }
+        ]
+    }
+}

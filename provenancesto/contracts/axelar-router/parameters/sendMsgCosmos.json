@@ -1,0 +1,8 @@
+{
+    "send_message_cosmos": {
+        "destination_chain": "Avalanche",
+        "destination_address": "0x1D5f14250B767728DB006993834e167c6bA740Fa",
+        "message": "hello world!",
+        "msg_type": "message"
+    }
+}

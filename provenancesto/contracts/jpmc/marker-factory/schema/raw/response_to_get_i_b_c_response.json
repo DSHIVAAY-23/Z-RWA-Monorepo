@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Array_of_IBCResponse",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/IBCResponse"
+  },
+  "definitions": {
+    "IBCResponse": {
+      "type": "object",
+      "required": [
+        "ack",
+        "channel",
+        "registry",
+        "sequence",
+        "success"
+      ],
+      "properties": {
+        "ack": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "registry": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

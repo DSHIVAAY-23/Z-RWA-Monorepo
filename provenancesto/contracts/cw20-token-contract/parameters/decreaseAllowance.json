@@ -1,0 +1,9 @@
+{
+    "decrease_allowance": {
+        "spender": "tp1zq8esq6htp2gyhdyggawfq9umgelnk6p23ddfg",
+        "amount": "1000",
+        "expires": {
+            "never": {}
+        }
+    }
+}

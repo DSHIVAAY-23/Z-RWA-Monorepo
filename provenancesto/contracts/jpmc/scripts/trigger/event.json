@@ -1,0 +1,9 @@
+{
+  "name": "wasm",
+  "attributes": [
+    {
+      "name": "action",
+      "value": "provwasm.contracts.cw20.marker.mint_requested_from"
+    }
+  ]
+}

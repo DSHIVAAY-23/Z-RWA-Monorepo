@@ -1,0 +1,14 @@
+{
+    "manage_requests": {
+        "requests":{
+            "cancel":{
+                "cancel_type":"request",
+                "params":{
+                    "request_type":"mint",
+                    "proposal_id":"0"
+                }
+            }
+        }
+    }
+}        
+    

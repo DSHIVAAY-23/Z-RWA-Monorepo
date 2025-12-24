@@ -1,0 +1,6 @@
+{
+    "update_credit_rating": {
+        "denom": "MCustomMarker",
+        "rating": "Rating"
+    }
+}

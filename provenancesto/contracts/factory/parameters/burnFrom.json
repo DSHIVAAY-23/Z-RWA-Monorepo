@@ -1,0 +1,15 @@
+{
+    "burn_from": {
+        "burn_from_params": [
+            {
+                "denom": "MCustomMarker",
+                "mint_burn_data": [
+                    {
+                        "address": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy",
+                        "amount": "200"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+
+# To Freeze address `tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp` for `OasisToken`
+freeze#OasisToken#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp
+
+# To Freeze address `tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp` for `OasisToken`
+unfreeze#OasisToken#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp
+
+# To mint `OasisToken`, to an address `tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp` with some amount `100`
+mint_to#OasisToken#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp#100
+
+# To burn `OasisToken`, from an address `tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp` with some amount `50`
+burn_from#OasisToken#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp#50
+
+# To transfer `OasisToken`, from an address `tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp` to address `tp1zu5rdmpk08epmlt4j6qejwgej203zz86thfns2` with some amount `50`
+force_transfer#OasisToken#50#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp#tp1zu5rdmpk08epmlt4j6qejwgej203zz86thfns2
+
+partial_freeze#OasisToken#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp#100
+unpartial_freeze#OasisToken#tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp#100

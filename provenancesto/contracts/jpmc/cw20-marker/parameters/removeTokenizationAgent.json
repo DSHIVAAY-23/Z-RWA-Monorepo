@@ -1,0 +1,13 @@
+{
+    "manage_roles": {
+        "roles": [
+            {
+                "tokenization_agent": {
+                    "update_type": {
+                        "remove": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+                    }
+                }
+            }
+        ]
+    }
+}

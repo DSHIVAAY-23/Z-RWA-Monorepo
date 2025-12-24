@@ -1,0 +1,44 @@
+[package]
+name = "marker-factory"
+version = "1.0.0"
+authors = ["Tarun Jaiswal <tarunjais5@vibhathi.com>"]
+edition = "2021"
+
+exclude = [
+  "marker_factory.wasm",
+  "checksums.txt",
+]
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+panic = 'abort'
+incremental = false
+overflow-checks = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = []
+# use library feature to disable all instantiate/execute/query exports
+library = []
+
+[dependencies]
+cosmwasm-schema = { version = "1.1.9" }
+cosmwasm-std = { version = "1.4.0", features = ["cosmwasm_1_1"] }
+cosmwasm-storage = "1.2.4"
+cw-storage-plus = "1.0.1"
+provwasm-std = "2.0.0"
+thiserror = { version = "1.0.20" }
+cw20 = "1.0.1"
+cw-utils = "1.0.1"
+cw20-marker = { path = "../cw20-marker/", features = ["library"] }
+
+[dev-dependencies]
+provwasm-mocks = "2.0.0"

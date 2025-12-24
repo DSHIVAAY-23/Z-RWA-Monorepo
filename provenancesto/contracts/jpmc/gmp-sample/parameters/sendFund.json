@@ -1,0 +1,6 @@
+{
+    "send_fund": {
+        "to": "Avalanche",
+        "amount": "1000"
+    }
+}

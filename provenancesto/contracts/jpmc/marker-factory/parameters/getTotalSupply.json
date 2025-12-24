@@ -1,0 +1,5 @@
+{
+    "get_total_supply": {
+        "denom": "WCustomMarker"
+    }
+}

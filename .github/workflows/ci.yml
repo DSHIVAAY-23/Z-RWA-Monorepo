@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  node-tests:
+    name: Node tests (Z-RWA)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install deps (Z-RWA)
+        working-directory: Z-RWA
+        run: |
+          yarn install --frozen-lockfile || yarn install
+      - name: Run tests (ts-mocha)
+        working-directory: Z-RWA
+        run: |
+          npx ts-mocha -p ./tsconfig.json -t 1000000 "tests/**/*.ts"
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Lint (Z-RWA)
+        working-directory: Z-RWA
+        run: yarn run lint || true

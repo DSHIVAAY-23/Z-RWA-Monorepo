@@ -1,0 +1,10 @@
+
+provenanced query wasm contract-state smart tp190s9ns0jvgr423jznaxcca332kze964dqpf64rr47vxrx2lag04sney6sx \
+	'{
+    "get_agent_by_denom": {
+        "denom": "provaniacne"
+    }
+}' \
+    --testnet \
+	--output json \
+	--node=https://rpc.test.provenance.io:443 | jq

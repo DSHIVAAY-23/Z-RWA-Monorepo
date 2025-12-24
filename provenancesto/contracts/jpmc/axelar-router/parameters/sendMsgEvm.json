@@ -1,0 +1,8 @@
+{
+    "send_message_evm": {
+        "destination_chain": "Avalanche",
+        "destination_address": "0xC249632c2D40b9001FE907806902f63038B737Ab",
+        "message": "hello world!",
+        "msg_type": "message"
+    }
+}

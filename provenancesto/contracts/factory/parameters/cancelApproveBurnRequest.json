@@ -1,0 +1,14 @@
+{
+    "manage_requests": {
+        "requests":{
+            "cancel":{
+                "cancel_type":"approval",
+                "params":{
+                    "request_type":"burn",
+                    "proposal_id":"0"
+                }
+            }
+        }
+    }
+}        
+    

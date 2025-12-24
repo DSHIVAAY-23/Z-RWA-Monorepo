@@ -1,0 +1,17 @@
+{
+  "@type": "/cosmwasm.wasm.v1.MsgExecuteContract",
+  "sender": "tp1dftv3wslxwzl99n7g4nqge47n07p9lczgeearp",
+  "contract": "tp1lu8mr2ge4hz7kd5qky2ysayyrtrgst7yslqd5ekuuqp79m9g9k0qwdeq54",
+  "msg": {
+    "approve_request": {
+      "request_id": "0x138",
+      "request_type": "mint"
+    }
+  },
+  "funds": [
+    {
+      "denom": "vspn",
+      "amount": "1"
+    }
+  ]
+}

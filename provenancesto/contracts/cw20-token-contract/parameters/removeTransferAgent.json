@@ -1,0 +1,14 @@
+{
+    "manage_roles": {
+        
+        "roles": [
+            {
+                "transfer_agent": {
+                    "update_type": {
+                        "remove": "tp1lz7rw3p48tsztjaqpnqzz7vzwfczrlkcrwkgqy"
+                    }
+                }
+            }
+        ]
+    }
+}
