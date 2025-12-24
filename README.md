@@ -86,6 +86,9 @@ graph TB
 3. **Multi-Chain Native**: Single ZK circuit, multiple chain deployments
 4. **Institutional Grade**: Bank-ready security and compliance
 
+> [!IMPORTANT]
+> **Trust Model Transparency**: This is an Alpha prototype (v0.5) with honest-prover assumptions. See our [Trust Model & Technical Roadmap](./TRUST_MODEL.md) for current limitations and the path to trustless verification via zkTLS and TEEs.
+
 ---
 
 ## 🚀 Quick Start
@@ -248,6 +251,7 @@ We welcome contributions from the community! Please see our [Contributing Guidel
 
 ## 📖 Documentation
 
+- **[Trust Model & Roadmap](./TRUST_MODEL.md)**: Transparent risk disclosure and technical roadmap
 - **[Technical Architecture](./DOCUMENTATION.md)**: Deep dive into system design
 - **[Audit Report](./audit.md)**: Security analysis and findings
 - **[EVM Deployment Guide](./contracts/evm/README.md)**: Deploy to any EVM chain
