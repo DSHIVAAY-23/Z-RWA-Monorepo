@@ -1,0 +1,14 @@
+
+> z-rwa-web@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.5s
+ ○ Compiling / ...
+ ✓ Compiled / in 40.3s (4907 modules)
+ GET / 200 in 41733ms
+ ✓ Compiled in 2.7s (2399 modules)
+ GET / 200 in 94ms
