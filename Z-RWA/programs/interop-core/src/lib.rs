@@ -17,7 +17,7 @@ mod instructions;
 mod states;
 mod structs;
 
-declare_id!("5dyQmihDcQqCBerQg82J19QxMByjpxbwdtmCuPkT9ePD");
+declare_id!("BUReiDoMaaACpK2U8VQu6o2ziKcFhomRSgq5CdrvqQpC");
 
 #[program]
 pub mod interop_core {

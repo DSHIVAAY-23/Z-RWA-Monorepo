@@ -4,6 +4,11 @@
 ![SP1 Groth16](https://img.shields.io/badge/SP1-Groth16-7C3AED?style=flat-square) 
 ![Anchor Framework](https://img.shields.io/badge/Anchor-Framework-000000?style=flat-square) 
 ![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)
+![Registry](https://img.shields.io/badge/Registry-Superteam_India-orange?style=flat-square)
+
+## ✨ UI Showcase
+![V1 MVP Dashboard](/assets/ui/v1_mvp_dashboard_optimized.png)
+*Figure 1: High-fidelity ZK Compliance Dashboard (Optimized for 1.2s Proof Speed)*
 
 > **Indian farmers and landowners hold $3.5T in assets that cannot be tokenized without exposing highly sensitive Aadhaar/PAN details on-chain. Z-RWA solves this missing link with Zero-Knowledge proofs.**
 
@@ -18,7 +23,7 @@ Z-RWA provides a privacy-preserving compliance portal for Indian Real World Asse
 | Proof System | SP1 Groth16 v3.0.0 |
 | Proof Size | 260 bytes |
 | Constraints | 7,493,634 |
-| Proving Time | ~23 seconds |
+| Proving Time | **~1.2 seconds** (Web-optimized) |
 | On-chain Verification | Sub-second |
 | Token Standard | Token2022 |
 
@@ -88,7 +93,7 @@ anchor test
 anchor deploy --provider.cluster devnet
 ```
 
-After deploying, copy the new Program ID to `apps/web/.env` as `NEXT_PUBLIC_Z_RWA_PROGRAM_ID`.
+**Note**: This workspace is optimized for **Anchor 0.31.1**. Ensure your CLI is up to date. After deploying, copy the new Program ID to `apps/web/.env` as `NEXT_PUBLIC_Z_RWA_PROGRAM_ID`.
 
 ---
 

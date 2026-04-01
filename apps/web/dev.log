@@ -12,3 +12,1147 @@
  GET / 200 in 41733ms
  ✓ Compiled in 2.7s (2399 modules)
  GET / 200 in 94ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 5s (4883 modules)
+ POST /api/prove 404 in 6141ms
+ POST /api/prove 404 in 40ms
+ POST /api/prove 404 in 87ms
+ POST /api/prove 404 in 84ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 44ms
+ POST /api/prove 404 in 58ms
+ ✓ Compiled in 2.5s (4880 modules)
+ ○ Compiling /api/prove ...
+ ✓ Compiled /api/prove in 1669ms (2525 modules)
+ POST /api/prove 200 in 24833ms
+ POST /api/prove 200 in 23030ms
+ GET / 200 in 1845ms
+ POST /api/prove 200 in 23761ms
+ ⚠ ./lib/solana.ts
+Attempted import error: 'IDL' is not exported from './idl/z_rwa.json' (imported as 'IDL').
+
+Import trace for requested module:
+./lib/solana.ts
+./app/page.tsx
+
+./lib/solana.ts
+Attempted import error: 'IDL' is not exported from './idl/z_rwa.json' (imported as 'IDL').
+
+Import trace for requested module:
+./lib/solana.ts
+./app/page.tsx
+ ✓ Compiled in 524ms (4947 modules)
+ ✓ Compiled in 845ms (4961 modules)
+ ✓ Compiled in 407ms (4947 modules)
+ ✓ Compiled in 3.8s (4947 modules)
+ ✓ Compiled in 1934ms (5263 modules)
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+ GET / 200 in 797ms
+ ○ Compiling /api/prove ...
+ ✓ Compiled /api/prove in 2000ms (2744 modules)
+ POST /api/prove 200 in 25137ms
+ ✓ Compiled in 1686ms (5263 modules)
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+ GET / 200 in 463ms
+ ✓ Compiled /api/prove in 463ms (2744 modules)
+ POST /api/prove 200 in 23645ms
+ ✓ Compiled in 4.4s (5277 modules)
+ ⨯ ./app/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/data/Z-RWA-Monorepo/apps/web/app/page.tsx[0m:127:1]
+ [2m127[0m |   };
+ [2m128[0m | 
+ [2m129[0m |   return (
+ [2m130[0m |     <div className="min-h-screen bg-gray-950 grid-bg transition-colors duration-200 font-sans text-gray-100">
+     : [31;1m     ^^^[0m
+ [2m131[0m |       <ZNavbar />
+ [2m132[0m | 
+ [2m133[0m |       {/* 2. Sub-Ticker Bar */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./app/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/data/Z-RWA-Monorepo/apps/web/app/page.tsx[0m:127:1]
+ [2m127[0m |   };
+ [2m128[0m | 
+ [2m129[0m |   return (
+ [2m130[0m |     <div className="min-h-screen bg-gray-950 grid-bg transition-colors duration-200 font-sans text-gray-100">
+     : [31;1m     ^^^[0m
+ [2m131[0m |       <ZNavbar />
+ [2m132[0m | 
+ [2m133[0m |       {/* 2. Sub-Ticker Bar */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page.tsx
+ GET / 500 in 63ms
+ ✓ Compiled /_not-found in 4.5s (5489 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 211ms
+ GET /_next/static/webpack/edfb3d750ecf9d47.webpack.hot-update.json 404 in 4811ms
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+ GET / 200 in 35ms
+ ✓ Compiled in 909ms (5503 modules)
+ ✓ Compiled in 1243ms (5503 modules)
+ ✓ Compiled in 1916ms (5489 modules)
+ ✓ Compiled in 1186ms (5485 modules)
+ ○ Compiling /api/prove ...
+ ✓ Compiled /api/prove in 917ms (2783 modules)
+ POST /api/prove 200 in 2569ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 3.8s (5488 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 4289ms
+ ✓ Compiled in 1741ms (2746 modules)
+ ✓ Compiled in 391ms (2746 modules)
+ ✓ Compiled in 1409ms (5485 modules)
+ ✓ Compiled in 828ms (5485 modules)
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+ GET / 200 in 567ms
+ ✓ Compiled /api/prove in 382ms (2783 modules)
+ POST /api/prove 200 in 2007ms
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+ GET / 200 in 399ms
+ POST /api/prove 200 in 1542ms
+ ✓ Compiled in 6.4s (5485 modules)
+ ✓ Compiled in 3.1s (5499 modules)
+ ✓ Compiled in 3.5s (5499 modules)
+ ✓ Compiled in 2.2s (5544 modules)
+ ✓ Compiled in 1143ms (5544 modules)
+ ✓ Compiled in 1422ms (5544 modules)
+ ✓ Compiled in 1171ms (5544 modules)
+ ✓ Compiled in 1100ms (5544 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 4.4s (5533 modules)
+ GET / 404 in 5892ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 2.9s (5534 modules)
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+ ✓ Compiled in 2.4s (5534 modules)
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+ GET / 200 in 2498ms
+ GET / 200 in 46ms
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:368:24)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:377:13)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module '/data/Z-RWA-Monorepo/apps/web/.next/server/pages/_document.js'
+Require stack:
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js
+- /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at mod.require (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:177:18)
+    at requirePage (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js:109:84)
+    at /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/require.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/build/utils.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js',
+    '/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at listOnTimeout (node:internal/timers:538:9)
+    at process.processTimers (node:internal/timers:512:7)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+    at Object.openSync (node:fs:596:3)
+    at readFileSync (node:fs:464:35)
+    at loadManifest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-manifest.js:35:54)
+    at loadManifestWithRetries (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-components.js:40:51)
+    at async loadDefaultErrorComponentsImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/load-default-error-components.js:30:24)
+    at async DevServer.getFallbackErrorComponents (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:594:16)
+    at async DevServer.renderErrorToResponseImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2203:40)
+    at async pipe.req.req (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:2056:30)
+    at async DevServer.pipeImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/base-server.js:920:25)
+    at async /data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:174:21)
+    at async requestHandlerImpl (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/router-server.js:389:24)
+    at async Server.requestListener (/data/Z-RWA-Monorepo/apps/web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/data/Z-RWA-Monorepo/apps/web/.next/fallback-build-manifest.json'
+}
+ ✓ Compiled in 4.1s (5544 modules)
+ ✓ Compiled in 1647ms (5530 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.3s (5533 modules)
+ GET / 404 in 3316ms
+ GET /_next/static/css/app/layout.css?v=1775051890704 404 in 73ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 169ms
+ GET /_next/static/chunks/app/layout.js 404 in 166ms
+ GET /_next/static/chunks/main-app.js?v=1775051890704 404 in 179ms
+ ✓ Compiled in 9.5s (5499 modules)
+ ✓ Compiled in 7.1s (5499 modules)

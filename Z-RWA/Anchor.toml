@@ -12,7 +12,7 @@ base-token-program = "7iaDbVGbVJdhZcKXWQmMw783nBqfDyx6K8V4yF6Kv8iq"
 interop-core = "5dyQmihDcQqCBerQg82J19QxMByjpxbwdtmCuPkT9ePD"
 interop-multisig = "2uuBHq3teujBvfE3AnRm4LZFYk7sHUiC36Z9MdkgcJ2N"
 treasury-bond = "53cKZWTPTwLjXD7E6NHCQzn5Gs9KL81u5xqicHEJwNgE"
-z-rwa = "EaEtWQyXSb5t26KrKpp7XWqrvs1wJAkBM67Qwt1RC5gY"
+z-rwa = "3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC"
 
 [programs.devnet]
 fund-contract = "H9txrMrTfGU6LXYWBzMHzmzuQWbNYcW1vHFLRcxCYiKn"
@@ -21,7 +21,7 @@ base-token-program = "7iaDbVGbVJdhZcKXWQmMw783nBqfDyx6K8V4yF6Kv8iq"
 interop-core = "5dyQmihDcQqCBerQg82J19QxMByjpxbwdtmCuPkT9ePD"
 interop-multisig = "2uuBHq3teujBvfE3AnRm4LZFYk7sHUiC36Z9MdkgcJ2N"
 treasury-bond = "53cKZWTPTwLjXD7E6NHCQzn5Gs9KL81u5xqicHEJwNgE"
-z-rwa = "EaEtWQyXSb5t26KrKpp7XWqrvs1wJAkBM67Qwt1RC5gY"
+z-rwa = "3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC"
 [registry]
 url = "https://api.apr.dev"
 

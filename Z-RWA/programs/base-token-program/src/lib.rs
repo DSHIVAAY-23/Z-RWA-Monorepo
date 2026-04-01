@@ -16,6 +16,8 @@ use anchor_spl::{
         token_metadata_initialize, Mint, TokenAccount, TokenInterface, TokenMetadataInitialize,
     },
 };
+pub use spl_transfer_hook_interface::instruction::TransferHookInstruction;
+pub use sp1_solana::verify_proof;
 pub use enums::*;
 use std::{
     fmt,
@@ -31,7 +33,7 @@ mod instructions;
 mod states;
 mod structs;
 
-declare_id!("7iaDbVGbVJdhZcKXWQmMw783nBqfDyx6K8V4yF6Kv8iq");
+declare_id!("3ZNt2uZ1Y1td6kT4brrEmYZeFzXzyHUMaiwMUx6A6a2r");
 
 #[program]
 pub mod base_token_program {
@@ -139,4 +141,51 @@ pub mod base_token_program {
     pub fn request_orders(ctx: Context<RequestOrderAccounts>, params: RequestOrder) -> Result<()> {
         instructions::request_order(ctx, params)
     }
+
+    pub fn verify_and_record(
+        ctx: Context<VerifyAndRecord>,
+        proof: Vec<u8>,
+        public_values: Vec<u8>,
+    ) -> Result<()> {
+        instructions::verify_and_record(ctx, proof, public_values)
+    }
+
+    pub fn initialize_extra_account_meta_list(ctx: Context<InitializeExtraAccountMetaList>) -> Result<()> {
+        instructions::initialize_extra_account_meta_list(ctx)
+    }
+
+    pub fn transfer_hook_execute(ctx: Context<TransferHookExecute>, amount: u64) -> Result<()> {
+        instructions::transfer_hook_execute(ctx, amount)
+    }
+
+    /// Fallback for the Transfer Hook interface
+    pub fn fallback(ctx: Context<Fallback>, instruction_data: Vec<u8>) -> Result<()> {
+        let instruction = TransferHookInstruction::unpack(&instruction_data)?;
+        match instruction {
+            TransferHookInstruction::Execute { amount } => {
+                let amount_bytes = amount.to_le_bytes();
+                let mut data = vec![];
+                data.extend_from_slice(&[105, 37, 101, 197, 75, 251, 102, 26]); // sighash("global:transfer_hook_execute")
+                data.extend_from_slice(&amount_bytes);
+                
+                anchor_lang::solana_program::program::invoke_signed(
+                    &anchor_lang::solana_program::instruction::Instruction {
+                        program_id: crate::ID,
+                        accounts: ctx.accounts.to_account_metas(None),
+                        data,
+                    },
+                    &ctx.remaining_accounts,
+                    &[],
+                )?;
+            }
+            _ => return err!(CustomError::InvalidPayload),
+        }
+        Ok(())
+    }
 }
+
+#[derive(Accounts)]
+pub struct Fallback<'info> {
+    pub system_program: Program<'info, System>,
+}
+

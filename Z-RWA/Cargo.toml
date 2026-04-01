@@ -1,12 +1,14 @@
 [workspace]
 members = [
+    "programs/z-rwa"
+]
+exclude = [
     "programs/base-token-program",
     "programs/fund-contract",
-    "programs/token-program",
-    "programs/treasury-bond",
     "programs/interop-core",
     "programs/interop-multisig",
-    "programs/z-rwa"
+    "programs/token-program",
+    "programs/treasury-bond"
 ]
 resolver = "2"
 

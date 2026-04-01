@@ -10,7 +10,7 @@ mod instructions;
 mod states;
 mod structs;
 
-declare_id!("53cKZWTPTwLjXD7E6NHCQzn5Gs9KL81u5xqicHEJwNgE");
+declare_id!("ZYFZi9Y9HEUXkJ1Pi2hpvsfM1Dwes96rhfg6hy3t2nA");
 
 #[program]
 pub mod treasury_bond {

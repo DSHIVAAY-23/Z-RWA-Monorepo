@@ -10,13 +10,26 @@ mod maintainers;
 mod mint;
 mod partial_freeze;
 mod partial_unfreeze;
-mod request_order;
-mod transfer;
-mod unfreeze;
-mod update_config;
+pub mod request_order;
+pub mod transfer;
+pub mod unfreeze;
+pub mod update_config;
+pub mod verify_and_record;
+pub mod transfer_hook;
 
-pub use {
-    burn::*, burn_from::*, create_token::*, force_transfer::*, freeze::*, initialize::*,
-    maintainers::*, mint::*, partial_freeze::*, partial_unfreeze::*, request_order::*, transfer::*,
-    unfreeze::*, update_config::*,
-};
+pub use burn::*;
+pub use burn_from::*;
+pub use create_token::*;
+pub use force_transfer::*;
+pub use freeze::*;
+pub use initialize::*;
+pub use maintainers::*;
+pub use mint::*;
+pub use partial_freeze::*;
+pub use partial_unfreeze::*;
+pub use request_order::*;
+pub use transfer::*;
+pub use unfreeze::*;
+pub use update_config::*;
+pub use verify_and_record::*;
+pub use transfer_hook::*;

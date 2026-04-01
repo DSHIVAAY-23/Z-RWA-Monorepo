@@ -28,4 +28,13 @@ pub enum CustomError {
 
     #[msg("Payload is invalid!")]
     InvalidPayload,
+
+    #[msg("Error: Invalid SP1 Proof!")]
+    InvalidSP1Proof,
+
+    #[msg("Error: Invalid Public Values length!")]
+    InvalidPublicValues,
+
+    #[msg("Error: Identity has not been verified!")]
+    UnverifiedIdentity,
 }

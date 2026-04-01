@@ -32,6 +32,12 @@ pub fn mint(ctx: Context<MintToken>, params: TokenParams) -> Result<()> {
         CustomError::AccountFrozen
     );
 
+    // ZK COMPLIANCE CHECK
+    require!(
+        ctx.accounts.compliance_record.is_verified,
+        CustomError::UnverifiedIdentity
+    );
+
     // Check user balance first
     require!(params.amount > 0, CustomError::AmountCantBeZero);
 
@@ -90,6 +96,12 @@ pub struct MintToken<'info> {
     /// CHECK: the authority of the mint account
     #[account(mut)]
     pub authority: Signer<'info>,
+
+    #[account(
+        seeds = [b"compliance", to_account.owner.as_ref()],
+        bump,
+    )]
+    pub compliance_record: Account<'info, ComplianceRecord>,
 
     pub token_program: Program<'info, Token2022>,
 }

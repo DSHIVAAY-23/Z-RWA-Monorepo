@@ -17,7 +17,7 @@ mod instructions;
 mod states;
 mod structs;
 
-declare_id!("H9txrMrTfGU6LXYWBzMHzmzuQWbNYcW1vHFLRcxCYiKn");
+declare_id!("BPqaC1QtwKokkbEJmMX5Lm6yJvwrLfMbq7tCfk1jJUsy");
 
 #[program]
 pub mod fund_contract {

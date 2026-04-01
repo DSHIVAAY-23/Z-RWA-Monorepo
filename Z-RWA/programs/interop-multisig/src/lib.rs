@@ -13,7 +13,7 @@ mod instructions;
 mod states;
 mod structs;
 
-declare_id!("2uuBHq3teujBvfE3AnRm4LZFYk7sHUiC36Z9MdkgcJ2N");
+declare_id!("DTEbjSxupcMZTrojMe1FZTrqMZPM621oUstwA7d4PrT3");
 
 #[program]
 pub mod interop_multisig {

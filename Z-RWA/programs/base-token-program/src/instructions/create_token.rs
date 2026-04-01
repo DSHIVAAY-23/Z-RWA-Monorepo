@@ -84,10 +84,10 @@ pub struct CreateToken<'info> {
         extensions::metadata_pointer::metadata_address = mint_account,
         extensions::group_member_pointer::authority = payer,
         extensions::group_member_pointer::member_address = mint_account,
-        // extensions::transfer_hook::authority = mint_account,
-        // extensions::transfer_hook::program_id = crate::ID,
         extensions::close_authority::authority = payer,
         extensions::permanent_delegate::delegate = mint_account,
+        extensions::transfer_hook::authority = mint_account,
+        extensions::transfer_hook::program_id = crate::ID,
     )]
     pub mint_account: Box<InterfaceAccount<'info, Mint>>,
 

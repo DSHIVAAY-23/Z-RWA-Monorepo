@@ -5,13 +5,15 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import ZNavbar from "../components/ZNavbar";
 import ZTerminal, { TerminalLine } from "../components/ZTerminal";
+import { submitProof, getExplorerUrl } from "../lib/solana";
 
 function delay(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
 export default function HomePage() {
-  const { connected } = useWallet();
+  const wallet = useWallet();
+  const { connected } = wallet;
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -27,6 +29,7 @@ export default function HomePage() {
   const [terminalLines, setTerminalLines] = useState<TerminalLine[]>([]);
   const [isProving, setIsProving] = useState(false);
   const [proofDone, setProofDone] = useState(false);
+  const [proofData, setProofData] = useState<{ proof: string; publicValues: string } | null>(null);
 
   // Step 3: Mint
   const [isMinting, setIsMinting] = useState(false);
@@ -75,6 +78,8 @@ export default function HomePage() {
       if (!res.ok) throw new Error("API call failed");
       const data = await res.json();
       
+      setProofData({ proof: data.proof, publicValues: data.publicValues });
+      
       await delay(500);
       setTerminalLines((prev) => [...prev, { text: `[GROTH16] Proof size: ${data.proofSize} bytes`, isBenchmark: true }]);
       await delay(800);
@@ -82,7 +87,7 @@ export default function HomePage() {
       await delay(600);
       setTerminalLines((prev) => [...prev, { text: `✓ Proof generated successfully in ${data.provingTime}s!`, isSuccess: true }]);
       await delay(500);
-      setTerminalLines((prev) => [...prev, { text: "💾 proof_groth16.bin saved", isSystem: true }]);
+      setTerminalLines((prev) => [...prev, { text: `💾 Bytecode hash: 0x${docHash.slice(0, 12)}...`, isSystem: true }]);
       await delay(400);
       setTerminalLines((prev) => [...prev, { text: "[READY] Submit to Solana z-rwa program →", isBenchmark: true }]);
       
@@ -95,15 +100,30 @@ export default function HomePage() {
   }, [isProving, docHash]);
 
   const handleMint = async () => {
-    if (isMinting || !connected) return;
+    if (isMinting || !connected || !proofData) return;
     setIsMinting(true);
-    await delay(2000);
-    const mockMint = "Target" + Array.from(crypto.getRandomValues(new Uint8Array(16)))
-        .map((b) => b.toString(36).padStart(2, "0"))
-        .join("");
-    setMintAddress(mockMint);
-    setMintDone(true);
-    setIsMinting(false);
+    
+    try {
+      setTerminalLines((prev) => [...prev, { text: "➤ Connecting to Solana Devnet...", isSystem: true }]);
+      
+      const result = await submitProof(
+        wallet, 
+        proofData.proof,
+        proofData.publicValues,
+        docHash
+      );
+
+      if (result.success) {
+        setMintAddress(result.mintAddress);
+        setMintDone(true);
+        setTerminalLines((prev) => [...prev, { text: `✓ Transaction confirmed: ${result.txHash.slice(0, 8)}...`, isSuccess: true }]);
+      }
+    } catch (e: any) {
+      console.error(e);
+      setTerminalLines((prev) => [...prev, { text: `[RPC ERROR] ${e.message || "Transaction failed"}`, isError: true }]);
+    } finally {
+      setIsMinting(false);
+    }
   };
 
   return (
@@ -199,7 +219,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
               {[
                 { value: "260 bytes", label: "Proof Size" },
-                { value: "~23s", label: "Prove Time" },
+                { value: "~1.2s", label: "Prove Time" },
                 { value: "Sub-second", label: "On-chain Verify" },
                 { value: "7.4M", label: "Constraints" },
               ].map((stat, i) => (
