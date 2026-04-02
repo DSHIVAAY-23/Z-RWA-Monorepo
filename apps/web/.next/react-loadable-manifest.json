@@ -1,4 +1,10 @@
 {
+  "app/page.tsx -> ../lib/solana": {
+    "id": "app/page.tsx -> ../lib/solana",
+    "files": [
+      "static/chunks/_app-pages-browser_lib_solana_ts.js"
+    ]
+  },
   "node_modules/@particle-network/auth/es/index.js -> draggabilly": {
     "id": "node_modules/@particle-network/auth/es/index.js -> draggabilly",
     "files": []

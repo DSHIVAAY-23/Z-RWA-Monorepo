@@ -691,6 +691,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/@solana/wallet-adapter-react/lib/esm/useAnchorWallet.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@solana/wallet-adapter-react/lib/esm/useAnchorWallet.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   useAnchorWallet: () => (/* binding */ useAnchorWallet)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var _useWallet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useWallet.js */ \"(ssr)/./node_modules/@solana/wallet-adapter-react/lib/esm/useWallet.js\");\n\n\nfunction useAnchorWallet() {\n    const { publicKey, signTransaction, signAllTransactions } = (0,_useWallet_js__WEBPACK_IMPORTED_MODULE_1__.useWallet)();\n    return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => publicKey && signTransaction && signAllTransactions\n        ? { publicKey, signTransaction, signAllTransactions }\n        : undefined, [publicKey, signTransaction, signAllTransactions]);\n}\n//# sourceMappingURL=useAnchorWallet.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvQHNvbGFuYS93YWxsZXQtYWRhcHRlci1yZWFjdC9saWIvZXNtL3VzZUFuY2hvcldhbGxldC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7QUFBZ0M7QUFDVztBQUNwQztBQUNQLFlBQVksa0RBQWtELEVBQUUsd0RBQVM7QUFDekUsV0FBVyw4Q0FBTztBQUNsQixZQUFZO0FBQ1o7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vei1yd2Etd2ViLy4vbm9kZV9tb2R1bGVzL0Bzb2xhbmEvd2FsbGV0LWFkYXB0ZXItcmVhY3QvbGliL2VzbS91c2VBbmNob3JXYWxsZXQuanM/NWQ3NyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VNZW1vIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgdXNlV2FsbGV0IH0gZnJvbSAnLi91c2VXYWxsZXQuanMnO1xuZXhwb3J0IGZ1bmN0aW9uIHVzZUFuY2hvcldhbGxldCgpIHtcbiAgICBjb25zdCB7IHB1YmxpY0tleSwgc2lnblRyYW5zYWN0aW9uLCBzaWduQWxsVHJhbnNhY3Rpb25zIH0gPSB1c2VXYWxsZXQoKTtcbiAgICByZXR1cm4gdXNlTWVtbygoKSA9PiBwdWJsaWNLZXkgJiYgc2lnblRyYW5zYWN0aW9uICYmIHNpZ25BbGxUcmFuc2FjdGlvbnNcbiAgICAgICAgPyB7IHB1YmxpY0tleSwgc2lnblRyYW5zYWN0aW9uLCBzaWduQWxsVHJhbnNhY3Rpb25zIH1cbiAgICAgICAgOiB1bmRlZmluZWQsIFtwdWJsaWNLZXksIHNpZ25UcmFuc2FjdGlvbiwgc2lnbkFsbFRyYW5zYWN0aW9uc10pO1xufVxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9dXNlQW5jaG9yV2FsbGV0LmpzLm1hcCJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/@solana/wallet-adapter-react/lib/esm/useAnchorWallet.js\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/@solana/wallet-adapter-react/lib/esm/useConnection.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/@solana/wallet-adapter-react/lib/esm/useConnection.js ***!

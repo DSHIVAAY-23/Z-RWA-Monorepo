@@ -25,18 +25,15 @@ declare_id!("3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC");
             msg!("Instruction: Verify and Mint");
     
             // 1. Verify SP1 Proof
-            // [MISSION CRITICAL]: In production, this verifies the Groth16 proof against the ZK_RAG_VKEY.
-            // For the Devnet MVP Demo, we skip the heavy verification to allow mock proofs from the frontend.
-            msg!("Verifying SP1 Proof (Bypassed for Demo)...");
-            /*
-            sp1_solana::verify_proof(
-                &proof, 
-                &public_values, 
-                ZK_RAG_VKEY, 
-                sp1_solana::GROTH16_VK_3_0_0_BYTES
-            ).map_err(|_| ErrorCode::InvalidProof)?;
-            */
-            msg!("Proof Verified Successfully (Demo Mode)!");
+            // DEMO OVERRIDE: Bypassing strict verification for UI recording
+            // sp1_solana::verify_proof(
+            //     &proof, 
+            //     &public_values, 
+            //     ZK_RAG_VKEY, 
+            //     sp1_solana::GROTH16_VK_3_0_0_BYTES
+            // ).map_err(|_| ErrorCode::InvalidProof)?;
+
+            msg!("Demo Mode: Proof verification bypassed for UI recording.");
 
         // 2. Validate Public Values (Bind Proof to Document)
         // Ensure the public values contain the expected document hash. 

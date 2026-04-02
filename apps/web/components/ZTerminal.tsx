@@ -15,32 +15,32 @@ interface ZTerminalProps {
 
 export default function ZTerminal({ lines, isRunning }: ZTerminalProps) {
     return (
-        <div className="w-full rounded-xl border border-gray-800 overflow-hidden shadow-2xl">
+        <div className="w-full rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-2xl transition-colors duration-200">
             {/* Title bar */}
-            <div className="flex items-center gap-2 bg-gray-900 border-b border-gray-800 px-4 py-3">
+            <div className="flex items-center gap-2 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-4 py-3">
                 <div className="flex gap-1.5">
                     <div className="h-3 w-3 rounded-full bg-red-400/70" />
                     <div className="h-3 w-3 rounded-full bg-yellow-400/70" />
                     <div className="h-3 w-3 rounded-full bg-green-400/70" />
                 </div>
                 <div className="flex-1 flex items-center justify-center gap-2">
-                    <svg className="h-3.5 w-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-3.5 w-3.5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span className="font-mono text-xs text-gray-500 tracking-wide">
+                    <span className="font-mono text-xs text-gray-600 dark:text-gray-500 tracking-wide">
                         zk-rag-prover — sp1-vm — bash
                     </span>
                 </div>
                 {isRunning && (
                     <div className="flex items-center gap-1.5">
                         <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-                        <span className="font-mono text-[10px] text-green-400 uppercase tracking-widest">Running</span>
+                        <span className="font-mono text-[10px] text-green-600 dark:text-green-400 uppercase tracking-widest">Running</span>
                     </div>
                 )}
             </div>
 
             {/* Body */}
-            <div className="relative h-[320px] overflow-y-auto bg-gray-950 p-5 scan-line custom-scrollbar">
+            <div className="relative h-[320px] overflow-y-auto bg-gray-950 dark:bg-gray-950 p-5 scan-line custom-scrollbar">
                 {/* Glow */}
                 <div className="pointer-events-none absolute inset-0 rounded-b-xl opacity-30"
                     style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(0,255,136,0.06) 0%, transparent 70%)" }}

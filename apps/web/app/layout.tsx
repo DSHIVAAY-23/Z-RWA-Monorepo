@@ -7,18 +7,21 @@ export const metadata: Metadata = {
   description: 'Zero-Knowledge RWA Compliance.',
 };
 
+import { ThemeProvider } from '../components/ThemeProvider';
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // Force dark mode class on html so dark variants apply
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <SolanaWalletProvider>
-          {children}
-        </SolanaWalletProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <SolanaWalletProvider>
+            {children}
+          </SolanaWalletProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

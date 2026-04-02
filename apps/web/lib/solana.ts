@@ -134,11 +134,25 @@ export async function checkComplianceToken(walletAddress: string): Promise<boole
 }
 
 /**
+ * Triggers a message signing request to verify wallet binding
+ */
+export async function signVerificationMessage(
+    wallet: any,
+    message: string
+): Promise<string> {
+    if (!wallet.publicKey) throw new Error("Wallet not connected");
+    if (!wallet.signMessage) throw new Error("Wallet does not support message signing");
+
+    const encodedMessage = new TextEncoder().encode(message);
+    const signature = await wallet.signMessage(encodedMessage);
+    
+    // Convert Uint8Array signature to hex
+    return Buffer.from(signature).toString('hex');
+}
+
+/**
  * Returns Solana explorer devnet URL
  */
 export function getExplorerUrl(txHash: string): string {
-  if (SOLANA_NETWORK === 'mainnet-beta') {
-    return `https://explorer.solana.com/tx/${txHash}`;
-  }
-  return `https://explorer.solana.com/tx/${txHash}?cluster=${SOLANA_NETWORK}`;
+    return `https://explorer.solana.com/tx/${txHash}?cluster=devnet`;
 }

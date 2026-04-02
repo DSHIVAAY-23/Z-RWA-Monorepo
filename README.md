@@ -1,115 +1,65 @@
-# Z-RWA: Trustless Indian RWA Compliance on Solana
+# Z-RWA: Privacy-Preserving Compliance Infrastructure for Indian RWAs
 
 ![Solana Devnet](https://img.shields.io/badge/Solana-Devnet-14F195?style=flat-square&logo=solana&logoColor=white) 
 ![SP1 Groth16](https://img.shields.io/badge/SP1-Groth16-7C3AED?style=flat-square) 
 ![Anchor Framework](https://img.shields.io/badge/Anchor-Framework-000000?style=flat-square) 
 ![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)
-![Registry](https://img.shields.io/badge/Registry-Superteam_India-orange?style=flat-square)
 
-## ✨ UI Showcase
-![V1 MVP Dashboard](/assets/ui/v1_mvp_dashboard_optimized.png)
-*Figure 1: High-fidelity ZK Compliance Dashboard (Optimized for 1.2s Proof Speed)*
+Z-RWA is a technical framework designed to bridge the $3.5T Indian Real-World Asset (RWA) market with decentralized finance on Solana. The protocol addresses a fundamental friction point: the requirement for identity verification (KYC/Aadhaar/PAN) against the privacy risks of publishing Personally Identifiable Information (PII) on a public ledger.
 
-> **Indian farmers and landowners hold $3.5T in assets that cannot be tokenized without exposing highly sensitive Aadhaar/PAN details on-chain. Z-RWA solves this missing link with Zero-Knowledge proofs.**
+## Core Problem
+Tokenizing Indian physical assets currently necessitates the exposure of sensitive government-issued document data on-chain or via centralized intermediaries. This creates a privacy-compliance paradox where regulatory transparency conflicts with individual data security, effectively stalling institutional adoption of on-chain RWAs.
 
-Z-RWA provides a privacy-preserving compliance portal for Indian Real World Assets (RWA). It leverages SP1 to locally generate a Groth16 proof validating a user's government documents, which is then verified sub-second on Solana via an Anchor program to mint a compliant Token2022 asset.
+## Protocol Solution
+Z-RWA utilizes a decentralized privacy pipeline to verify compliance without data leakage:
+- **Local Verification**: Government documents (Aadhaar/PAN/Land Records) are processed entirely on the user's device using local OCR and hashing.
+- **SP1 zkVM Integration**: A Succinct SP1 RISC-V program generates a Zero-Knowledge proof (Groth16) confirming document validity against specific criteria.
+- **On-Chain Assertion**: The Solana program verifies the proof artifacts (260 bytes) in sub-second time.
+- **Native Issuance**: Upon successful verification, the protocol executes a Cross-Program Invocation (CPI) to the Token2022 program to mint a compliance-gated RWA marker (`Z-RWA-COMPLY`).
 
----
+## Technical Features
+- **Client-Side OCR Gate**: Integration of `tesseract.js` for local document scanning and validation.
+- **SP1 RISC-V Proving**: Efficient proof generation with ~7.4M constraints and optimized proving times (~1.4s).
+- **Embedded Groth16 Verifier**: Hardcoded verification keys (`ZK_RAG_VKEY`) within the Anchor program for immutable validation.
+- **Token2022 Compliance**: Native support for Solana's latest token standard, enabling permanent delegates and compliance metadata.
 
-## Technical Benchmarks
+## Technical Stack
+- **Blockchain**: Solana (Anchor 0.31.1+)
+- **ZK Proof System**: SP1 (Succinct), Groth16
+- **Smart Contracts**: Rust (Anchor Framework)
+- **Frontend**: Next.js, Tailwind CSS, Solana Web3.js
+- **OCR Engine**: Tesseract.js (WASM)
 
-| Metric | Value |
-|--------|-------|
-| Proof System | SP1 Groth16 v3.0.0 |
-| Proof Size | 260 bytes |
-| Constraints | 7,493,634 |
-| Proving Time | **~1.2 seconds** (Web-optimized) |
-| On-chain Verification | Sub-second |
-| Token Standard | Token2022 |
+## Installation & Setup
 
----
+### Prerequisites
+- Node.js v20+
+- Anchor CLI v0.31.0+
+- Solana CLI v1.18+
 
-## 🏗 Architecture
+### Execution Flow
 
-```text
-[User Device]
-   │
-   ├─► Document (NEVER leaves device)
-   │
-[SP1 Local Prover]
-   │
-   ├─► Groth16 Proof (260 bytes)
-   │
-[Solana z-rwa Program]
-   │
-   ├─► VKey Verification (sub-second)
-   │
-[Token2022 Mint]
-   │
-   ▼
-[User Wallet] ← RWA Compliance Token Issued
-```
-
----
-
-## 🚀 Quick Start
-
-Ensure you have Node.js and npm installed.
-
+1. **Deploy Solana Program**:
 ```bash
-# Navigate to the frontend app
-cd apps/web
-
-# Install dependencies
-npm install
-
-# Start the development server (Defaults to MOCK_MODE=true for faster UI iteration)
-npm run dev
-```
-
-Visit `http://localhost:3000` to interact with the portal.
-
----
-
-## 🇮🇳 The Problem & Solution
-
-### The Bottleneck for Indian RWAs
-Asset owners in India face strict KYC requirements to participate in global DeFi protocols. However, uploading documents like **Aadhaar cards** or **PAN cards** to IPFS or exposing them on public block explorers is a severe violation of privacy, preventing the onboarding of legitimate RWA liquidity.
-
-### The Z-RWA Solution
-- **Zero-data exposure**: The compliance document is checked entirely locally within a secure executing environment using SP1.
-- **On-chain verifiability**: A Groth16 proof accompanied by a public document hash is posted to Solana.
-- **Composability**: Upon successful verification, a Token2022 is mapped directly to the user's wallet containing permanent limits/delegates ensuring they are certified clean.
-
----
-
-## Solana Program Deployment
-
-*(Program code is located in `/programs/z-rwa/`)*
-
-```bash
+cd Z-RWA
 anchor build
-anchor test
 anchor deploy --provider.cluster devnet
 ```
 
-**Note**: This workspace is optimized for **Anchor 0.31.1**. Ensure your CLI is up to date. After deploying, copy the new Program ID to `apps/web/.env` as `NEXT_PUBLIC_Z_RWA_PROGRAM_ID`.
+2. **Launch Dashboard**:
+```bash
+cd apps/web
+npm install
+npm run dev
+```
 
----
+The application will be accessible at `http://localhost:3000`.
 
-## Grant Context: Superteam India
+## Architecture & Data Flow
+Detailed technical documentation on the cryptographic pipeline can be found in [flow.md](./flow.md).
 
-This project is built to showcase a highly secure, privacy-preserving path to tokenize Indian assets on Solana for Superteam. The focus is specifically addressing India's complex regulatory intersections by combining local SP1 proving and blazing-fast Solana verifications.
-
----
-
-## 🗺 Roadmap
-
-- [x] **Phase 1**: Aadhaar/PAN compliance portal with SP1 Groth16 proofs
-- [ ] **Phase 2**: Integration with Land records (Digital Bhulekh)
-- [ ] **Phase 3**: Credit score validity proofs (CIBIL integration)
-- [ ] **Phase 4**: Cross-chain settlement (UPE integration)
+## User Journey
+A comprehensive guide for institutional users and verifiers is available in [walkthrough.md](./walkthrough.md).
 
 ## License
-
-MIT Copyright (c) 2026 Z-RWA Protocol
+Distributed under the MIT License. Copyright (c) 2026 Z-RWA Protocol.

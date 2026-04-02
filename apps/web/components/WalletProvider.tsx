@@ -16,10 +16,10 @@ export default function SolanaWalletProvider({ children }: { children: React.Rea
 
   const wallets = useMemo(
     () => [
-      new PhantomWalletAdapter(),
-      new SolflareWalletAdapter(),
+      new PhantomWalletAdapter({ network }),
+      new SolflareWalletAdapter({ network }),
     ],
-    []
+    [network]
   );
   return (
     // @ts-ignore - Next.js/React 18 types conflict with Solana Wallet Adapter

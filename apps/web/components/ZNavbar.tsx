@@ -3,26 +3,18 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function ZNavbar() {
   const { connected } = useWallet();
-  const [isDark, setIsDark] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
-
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-800 bg-gray-950/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[var(--background)]/90 backdrop-blur-xl transition-colors duration-200">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Left Side (Brand) */}
         <div className="flex items-center gap-4">
@@ -39,10 +31,10 @@ export default function ZNavbar() {
             <span className="relative text-sm font-bold text-green-500 font-mono">Z</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tight text-white font-space">
+            <span className="text-xl font-bold tracking-tight text-[var(--foreground)] font-space">
               Z-RWA <span className="text-green-500">Compliance</span>
             </span>
-            <span className="text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] mt-0.5">
+            <span className="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-[0.3em] mt-0.5">
               🟢 v1.0.0-beta • Local Device
             </span>
           </div>
@@ -51,26 +43,17 @@ export default function ZNavbar() {
         {/* Right Side (Controls) */}
         <div className="flex items-center gap-4">
           {/* Network Badge */}
-          <div className="hidden sm:flex items-center gap-2 rounded-full border border-yellow-500/50 bg-yellow-950/40 px-3 py-1.5 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-            <span className="text-[11px] font-mono font-bold text-yellow-500 uppercase tracking-wider">
+          <div className="hidden sm:flex items-center gap-2 rounded-full border border-yellow-500/30 dark:border-yellow-500/50 bg-yellow-500/5 dark:bg-yellow-950/40 px-3 py-1.5 shadow-[0_0_10px_rgba(234,179,8,0.1)] dark:shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+            <span className="text-[11px] font-mono font-bold text-yellow-600 dark:text-yellow-500 uppercase tracking-wider">
               🟡 Solana Devnet
             </span>
           </div>
 
-          {/* Theme Toggle */}
-          <button 
-            onClick={() => setIsDark(!isDark)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:border-gray-600 transition-colors"
-          >
-            {isDark ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            )}
-          </button>
+          {/* New Cyberpunk Theme Toggle */}
+          <ThemeToggle />
 
           {/* Wallet Integration Button */}
-          <div className="[&>button]:!bg-gray-900 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-white [&>button]:!border [&>button]:!border-purple-500/50 [&>button:hover]:!border-purple-400 [&>button:hover]:!bg-gray-800 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg [&>button]:!h-10 [&>button]:!px-4">
+          <div className="[&>button]:!bg-gray-100 dark:[&>button]:!bg-gray-900 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-gray-900 dark:[&>button]:!text-white [&>button]:!border [&>button]:!border-purple-500/30 dark:[&>button]:!border-purple-500/50 [&>button:hover]:!border-purple-400 [&>button:hover]:!bg-gray-200 dark:[&>button:hover]:!bg-gray-800 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg [&>button]:!h-10 [&>button]:!px-4">
             {mounted && <WalletMultiButton />}
           </div>
         </div>
