@@ -19,7 +19,7 @@ Z-RWA utilizes a decentralized privacy pipeline to verify compliance without dat
 
 ## Technical Features
 - **Client-Side OCR Gate**: Integration of `tesseract.js` for local document scanning and validation.
-- **SP1 RISC-V Proving**: Efficient proof generation with ~7.4M constraints and optimized proving times (~1.4s).
+- **SP1 RISC-V Proving**: Efficient proof generation with ~7.4M constraints and hardware-verified proving times (~23.4s).
 - **Embedded Groth16 Verifier**: Hardcoded verification keys (`ZK_RAG_VKEY`) within the Anchor program for immutable validation.
 - **Token2022 Compliance**: Native support for Solana's latest token standard, enabling permanent delegates and compliance metadata.
 

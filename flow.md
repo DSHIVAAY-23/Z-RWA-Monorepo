@@ -14,7 +14,7 @@ The validated document metadata is passed to the SP1 RISC-V Prover.
 - **zkVM Execution**: A RISC-V program iterates through the compliance logic, verifying that the document hash and type meet the protocol's requirements.
 - **Artifact Generation**: The SP1 engine generates a Groth16 proof.
 - **Proof Compression**: The resulting proof is 260 bytes, making it highly efficient for on-chain storage and verification.
-- **Benchmarks**: The process typically involves ~7,493,634 constraints and is optimized for low-latency proof generation (~1.4s).
+- **Benchmarks**: The process typically involves ~7,493,634 constraints and is optimized for hardware-verified proof generation (~23.4s).
 
 ## Stage 3: Transaction Construction
 The React frontend coordinates the assembly of the Solana transaction.

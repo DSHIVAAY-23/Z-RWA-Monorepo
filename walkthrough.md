@@ -15,7 +15,7 @@ Once validated, the user triggers the SP1 Proving Engine.
   - **Constraint Count**: ~7,493,634
   - **Proof Format**: Groth16 (SP1)
   - **Proof Size**: 260 bytes
-  - **Proving Time**: ~1.4 seconds
+  - **Proving Time**: ~23.4 seconds
 - **Binding**: The terminal confirms "VK Binding to ZK_RAG_VKEY", ensuring the proof is architecturally locked to the protocol's verification parameters.
 
 ## Step 3: Wallet Integration & On-Chain Minting

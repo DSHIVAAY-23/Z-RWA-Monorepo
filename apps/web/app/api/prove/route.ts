@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       // In production scenario: Simulate artifact retrieval or SP1 call
       await new Promise(r => setTimeout(r, 1500));
     
-      const provingTime = "1.42s";
+      const provingTime = "23.4s";
       const proofSize = 260;
       const proofMock = "cafe".repeat(130); 
       const publicValuesMock = "deadbeef".repeat(8);

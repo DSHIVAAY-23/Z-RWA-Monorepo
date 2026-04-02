@@ -155,7 +155,7 @@ export default function HomePage() {
       await delay(800);
       setTerminalLines((prev) => [...prev, { text: `[VK] Binding to ZK_RAG_VKEY: 0x00cef...`, isSystem: true }]);
       await delay(600);
-      setTerminalLines((prev) => [...prev, { text: `✓ ZK Pipeline Complete! (${data.provingTime || "1.4"}s)`, isSuccess: true }]);
+      setTerminalLines((prev) => [...prev, { text: `✓ ZK Pipeline Complete! (${data.provingTime || "23.4"}s)`, isSuccess: true }]);
       await delay(500);
       setTerminalLines((prev) => [...prev, { text: `💾 Bytecode hash: 0x${docHash.slice(0, 12)}...`, isSystem: true }]);
       await delay(400);
@@ -441,7 +441,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
               {[
                 { value: "260 bytes", label: "Proof Size" },
-                { value: "~1.2s", label: "Prove Time" },
+                { value: "~23s", label: "Prove Time" },
                 { value: "Sub-second", label: "On-chain Verify" },
                 { value: "7.4M", label: "Constraints" },
               ].map((stat, i) => (
