@@ -61,5 +61,18 @@ Detailed technical documentation on the cryptographic pipeline can be found in [
 ## User Journey
 A comprehensive guide for institutional users and verifiers is available in [walkthrough.md](./walkthrough.md).
 
+## Roadmap & Future Architecture
+
+The Z-RWA V1 MVP establishes the core cryptographic pipeline for off-chain document verification and Token2022 minting. Upcoming phases will harden the protocol for institutional mainnet deployment.
+
+### Phase 2: Protocol Hardening & Institutional Gating
+* **Token2022 Transfer Hooks**: Upgrading the `z_rwa` marker to implement `spl_transfer_hook_interface`. This will enforce that RWA tokens can only be transferred to destination wallets that hold a valid, ZK-verified Compliance Record PDA, effectively creating a fully gated compliance ecosystem.
+* **zk-Regex Integration**: Shifting the OCR validation from the client-side frontend directly into the SP1 RISC-V circuit. This guarantees cryptographically that the hidden document contains valid government ID formats before the proof is generated.
+
+### Phase 3: Developer Abstraction & Mainnet
+* **Z-RWA Developer SDK**: Releasing an NPM package that abstracts the SP1 verification logic, allowing any Solana dApp to integrate privacy-preserving KYC with minimal overhead.
+* **Circuit Audits**: Comprehensive security audits of the 7.4M constraint Groth16 circuit prior to Solana Mainnet deployment.
+* **Nullifier Registry**: Implementing a strict 1-to-1 nullifier PDA registry to prevent proof-replay attacks and ensure sybil resistance.
+
 ## License
 Distributed under the MIT License. Copyright (c) 2026 Z-RWA Protocol.
