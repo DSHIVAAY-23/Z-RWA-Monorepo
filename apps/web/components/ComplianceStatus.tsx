@@ -13,7 +13,8 @@ interface ComplianceStatusProps {
 }
 
 export default function ComplianceStatus({ proof, publicValues, docHash, isActive }: ComplianceStatusProps) {
-  const { connected } = useWallet();
+  const wallet = useWallet();
+  const { connected } = wallet;
   const [status, setStatus] = useState<'pending' | 'verifying' | 'success' | 'error'>('pending');
   const [txHash, setTxHash] = useState<string>('');
   const [mintAddress, setMintAddress] = useState<string>('');
@@ -23,7 +24,7 @@ export default function ComplianceStatus({ proof, publicValues, docHash, isActiv
 
     setStatus('verifying');
     try {
-      const result = await submitProof(proof, publicValues, docHash);
+      const result = await submitProof(wallet, proof, publicValues, docHash);
       if (result.success) {
         setTxHash(result.txHash);
         setMintAddress(result.mintAddress);
