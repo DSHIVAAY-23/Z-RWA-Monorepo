@@ -55,6 +55,34 @@ npm run dev
 
 The application will be accessible at `http://localhost:3000`.
 
+## Dodo Payments Integration
+
+Z-RWA integrates Dodo Payments as the fiat onboarding layer for 
+Indian retail investors. Investors pay in INR via UPI or card — 
+Dodo handles the fiat collection, Z-RWA handles the compliant 
+on-chain delivery.
+
+### Flow
+1. Investor enters Aadhaar/PAN (hashed locally, never transmitted)
+2. Selects INR amount → redirected to Dodo checkout
+3. Pays via UPI / credit card / net banking
+4. Dodo webhook triggers ZK proof generation
+5. Groth16 compliance proof submitted to Solana
+6. Token2022 RWA token minted and delivered
+
+### Why Dodo + Solana beats the status quo
+| | Traditional | Z-RWA + Dodo |
+|---|---|---|
+| Settlement time | T+2 days | < 60 seconds |
+| KYC storage | Centralized DB | ZK proof on-chain |
+| Minimum investment | ₹50,000+ | ₹1,000 |
+| Payment methods | NEFT/RTGS only | UPI, card, netbanking |
+
+### Setup
+Add DODO_API_KEY and DODO_WEBHOOK_SECRET to .env
+Run webhook locally: npx ngrok http 3000
+Set webhook URL in Dodo dashboard to: https://[ngrok-url]/api/dodo-webhook
+
 ## Architecture & Data Flow
 Detailed technical documentation on the cryptographic pipeline can be found in [flow.md](./flow.md).
 

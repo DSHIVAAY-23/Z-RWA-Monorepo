@@ -1,3 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/create-checkout/route": "app/api/create-checkout/route.js",
+  "/api/dodo-webhook/route": "app/api/dodo-webhook/route.js",
+  "/api/payment-status/[paymentId]/route": "app/api/payment-status/[paymentId]/route.js",
+  "/api/prove/route": "app/api/prove/route.js",
+  "/invest/page": "app/invest/page.js",
   "/page": "app/page.js"
 }
