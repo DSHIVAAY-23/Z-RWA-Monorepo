@@ -16,8 +16,8 @@ import { Buffer } from "buffer";
 import idl from "./idl/z_rwa.json";
 import { ZRwa } from "./idl/z_rwa";
 
-export const SOLANA_NETWORK = "devnet";
-export const RPC_URL = clusterApiUrl("devnet");
+export const SOLANA_NETWORK = process.env.NEXT_PUBLIC_SOLANA_NETWORK || "devnet";
+export const RPC_URL = process.env.RPC_ENDPOINT || process.env.NEXT_PUBLIC_RPC_URL || clusterApiUrl("devnet");
 
 export const PROGRAM_ID = new PublicKey(idl.address);
 const Z_RWA_PROGRAM_ID = new PublicKey("3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC");

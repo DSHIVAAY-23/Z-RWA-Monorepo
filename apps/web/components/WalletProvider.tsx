@@ -12,7 +12,7 @@ export default function SolanaWalletProvider({ children }: { children: React.Rea
   const network = WalletAdapterNetwork.Devnet;
 
   // In a real app we might load this from env
-  const endpoint = useMemo(() => process.env.NEXT_PUBLIC_RPC_URL || 'https://api.devnet.solana.com', []);
+  const endpoint = useMemo(() => process.env.NEXT_PUBLIC_RPC_URL || process.env.RPC_ENDPOINT || 'https://api.devnet.solana.com', []);
 
   const wallets = useMemo(
     () => [
