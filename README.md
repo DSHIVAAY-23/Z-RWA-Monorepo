@@ -21,6 +21,9 @@ compliance without sacrificing privacy.
 ## Live Demo
 [Vercel URL - To Be Deployed]
 
+## Security & Audits
+See our full threat model and security architecture in [SECURITY.md](SECURITY.md). We are prioritizing a professional audit from Adevar Labs to harden our ZK circuit soundness and Token2022 transfer hook integrations.
+
 ## Setup
 ```bash
 # 1. Install dependencies
