@@ -14,7 +14,7 @@ export default function SolanaWalletProvider({ children }: { children: React.Rea
   // Uses NEXT_PUBLIC_QUICKNODE_RPC_URL or standard RPC_URL
   const endpoint = useMemo(() => 
     process.env.NEXT_PUBLIC_QUICKNODE_RPC_URL || 
-    process.env.NEXT_PUBLIC_RPC_URL || 
+    process.env.NEXT_PUBLIC_RPC_URL || process.env.RPC_ENDPOINT ||
     'https://frequent-alpha-pool.solana-devnet.quiknode.pro/5f06a41cf6e077af5ca7ac464fbf1caed5c84d42/', 
   []);
 

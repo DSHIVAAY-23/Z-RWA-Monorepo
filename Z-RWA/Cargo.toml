@@ -1,6 +1,7 @@
 [workspace]
 members = [
-    "programs/z-rwa"
+    "programs/z-rwa",
+    "programs/compliance-vault"
 ]
 exclude = [
     "programs/base-token-program",
