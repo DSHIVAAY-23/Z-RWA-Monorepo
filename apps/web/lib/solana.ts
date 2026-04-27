@@ -17,7 +17,9 @@ import idl from "./idl/z_rwa.json";
 import { ZRwa } from "./idl/z_rwa";
 
 export const SOLANA_NETWORK = "devnet";
-export const RPC_URL = clusterApiUrl("devnet");
+export const RPC_URL = 
+  process.env.NEXT_PUBLIC_QUICKNODE_RPC_URL || 
+  "https://frequent-alpha-pool.solana-devnet.quiknode.pro/5f06a41cf6e077af5ca7ac464fbf1caed5c84d42/";
 
 export const PROGRAM_ID = new PublicKey(idl.address);
 const Z_RWA_PROGRAM_ID = new PublicKey("3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC");

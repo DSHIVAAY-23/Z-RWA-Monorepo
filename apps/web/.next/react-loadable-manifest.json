@@ -1,9 +1,17 @@
 {
+  "app/page.tsx -> ../lib/quicknode": {
+    "id": "app/page.tsx -> ../lib/quicknode",
+    "files": []
+  },
   "app/page.tsx -> ../lib/solana": {
     "id": "app/page.tsx -> ../lib/solana",
     "files": [
       "static/chunks/_app-pages-browser_lib_solana_ts.js"
     ]
+  },
+  "app/page.tsx -> @solana/web3.js": {
+    "id": "app/page.tsx -> @solana/web3.js",
+    "files": []
   },
   "node_modules/@particle-network/auth/es/index.js -> draggabilly": {
     "id": "node_modules/@particle-network/auth/es/index.js -> draggabilly",

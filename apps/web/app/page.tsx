@@ -4,8 +4,10 @@ import { useState, useCallback, useEffect } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import ZNavbar from "../components/ZNavbar";
+import { QuickNodeStatusBar } from "../components/QuickNodeStatusBar";
 import ZTerminal, { TerminalLine } from "../components/ZTerminal";
 import { getExplorerUrl } from "../lib/solana";
+import { getOptimalPriorityFee } from "../lib/quicknode";
 import Tesseract from 'tesseract.js';
 
 // Web3 & Anchor Imports
@@ -261,6 +263,15 @@ export default function HomePage() {
       const { blockhash } = await connection.getLatestBlockhash('confirmed');
       transaction.recentBlockhash = blockhash;
 
+      // Add optimal priority fee using QuickNode API
+      const priorityFee = await getOptimalPriorityFee();
+      const priorityFeeInstruction = ComputeBudgetProgram.setComputeUnitPrice({
+        microLamports: priorityFee,
+      });
+
+      // 0. Prepend priority fee instruction
+      transaction.add(priorityFeeInstruction);
+
       // 1. Add all pre-instructions (Compute Budget + ATA)
       transaction.add(...preInstructions);
 
@@ -351,6 +362,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[var(--background)] grid-bg transition-colors duration-200 font-sans text-[var(--foreground)]">
       <ZNavbar />
+      <QuickNodeStatusBar />
 
       {/* 2. Sub-Ticker Bar */}
       <div className="border-b border-gray-200 dark:border-gray-900 bg-[var(--background)] opacity-80 backdrop-blur-md transition-colors duration-200">
@@ -660,6 +672,16 @@ export default function HomePage() {
                         </a>
                       </div>
                     </div>
+
+                    <div className="mt-6 border border-gray-800 rounded-lg bg-gray-950 overflow-hidden">
+                      <div className="bg-gray-900 px-4 py-2 text-xs font-mono text-gray-400 border-b border-gray-800 flex justify-between items-center">
+                        <span>Recent Activity (via QuickNode)</span>
+                        <span className="text-[10px] text-green-500/70 border border-green-500/20 px-2 rounded-sm">LIVE</span>
+                      </div>
+                      <div className="p-4 flex flex-col gap-3">
+                        <TransactionHistory walletAddress={anchorWallet?.publicKey?.toBase58() || ""} />
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
@@ -723,5 +745,73 @@ export default function HomePage() {
 
       </main>
     </div>
+  );
+}
+
+// Transaction History Component
+function TransactionHistory({ walletAddress }: { walletAddress: string }) {
+  const [history, setHistory] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchHistory() {
+      if (!walletAddress) return;
+      try {
+        const { quicknodeConnection } = await import("../lib/quicknode");
+        const { PublicKey } = await import("@solana/web3.js");
+        
+        const pubkey = new PublicKey(walletAddress);
+        const signatures = await quicknodeConnection.getSignaturesForAddress(
+          pubkey, 
+          { limit: 3 }
+        );
+        
+        setHistory(signatures.map(sig => ({
+          signature: sig.signature,
+          slot: sig.slot,
+          err: sig.err,
+          blockTime: sig.blockTime,
+        })));
+      } catch (err) {
+        console.error("Failed to fetch QuickNode history", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchHistory();
+  }, [walletAddress]);
+
+  if (loading) return <div className="text-xs text-gray-500 font-mono animate-pulse">Fetching history from QuickNode...</div>;
+  if (history.length === 0) return <div className="text-xs text-gray-500 font-mono">No recent transactions.</div>;
+
+  return (
+    <>
+      {history.map((tx, idx) => {
+        const timeAgo = tx.blockTime 
+          ? Math.floor((Date.now() / 1000 - tx.blockTime) / 60)
+          : 0;
+        const timeStr = timeAgo < 1 ? "Just now" : timeAgo < 60 ? `${timeAgo}m ago` : `${Math.floor(timeAgo/60)}h ago`;
+        
+        return (
+          <div key={idx} className="flex justify-between text-xs font-mono text-gray-400">
+            <span className="flex gap-4">
+              <span className={tx.err ? "text-red-400" : "text-green-400"}>
+                {tx.signature.slice(0, 16)}...
+              </span>
+              <span className="opacity-60">{tx.slot}</span>
+              <span className="opacity-60 hidden sm:inline">{timeStr}</span>
+            </span>
+            <a 
+              href={`https://explorer.solana.com/tx/${tx.signature}?cluster=devnet`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-400 hover:text-purple-300 underline"
+            >
+              explorer
+            </a>
+          </div>
+        );
+      })}
+    </>
   );
 }

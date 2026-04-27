@@ -23,6 +23,22 @@ Z-RWA utilizes a decentralized privacy pipeline to verify compliance without dat
 - **Embedded Groth16 Verifier**: Hardcoded verification keys (`ZK_RAG_VKEY`) within the Anchor program for immutable validation.
 - **Token2022 Compliance**: Native support for Solana's latest token standard, enabling permanent delegates and compliance metadata.
 
+## QuickNode Integration
+
+Z-RWA uses **QuickNode** as its primary Solana RPC provider across all critical operations:
+
+- **ZK Proof Submission**: All Groth16 proof transactions route through QuickNode. Standard public endpoints drop large proof payloads (~260 bytes) under load.
+- **Priority Fees**: `qn_estimatePriorityFees` API ensures optimal fees for every proof transaction — no manual guessing.
+- **Real-time Status**: Live slot, TPS, and fee data from QuickNode displayed in the UI (10-second refresh).
+- **Transaction History**: `getSignaturesForAddress` powers the wallet activity panel in the compliance checker.
+
+### QuickNode Endpoint Configuration
+```env
+NEXT_PUBLIC_QUICKNODE_RPC_URL=https://frequent-alpha-pool.solana-devnet.quiknode.pro/5f06a41cf6e077af5ca7ac464fbf1caed5c84d42/
+```
+**Why QuickNode (not public devnet)?**
+Groth16 proofs for 7.4M constraint circuits generate extremely large transactions. Standard RPC endpoints have strict payload limits and aggressive rate limits that cause proof submissions to fail under load. QuickNode's dedicated endpoint handles this reliably.
+
 ## Technical Stack
 - **Blockchain**: Solana (Anchor 0.31.1+)
 - **ZK Proof System**: SP1 (Succinct), Groth16

@@ -11,8 +11,12 @@ require('@solana/wallet-adapter-react-ui/styles.css');
 export default function SolanaWalletProvider({ children }: { children: React.ReactNode }) {
   const network = WalletAdapterNetwork.Devnet;
 
-  // In a real app we might load this from env
-  const endpoint = useMemo(() => process.env.NEXT_PUBLIC_RPC_URL || 'https://api.devnet.solana.com', []);
+  // Uses NEXT_PUBLIC_QUICKNODE_RPC_URL or standard RPC_URL
+  const endpoint = useMemo(() => 
+    process.env.NEXT_PUBLIC_QUICKNODE_RPC_URL || 
+    process.env.NEXT_PUBLIC_RPC_URL || 
+    'https://frequent-alpha-pool.solana-devnet.quiknode.pro/5f06a41cf6e077af5ca7ac464fbf1caed5c84d42/', 
+  []);
 
   const wallets = useMemo(
     () => [
