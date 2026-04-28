@@ -1,0 +1,16 @@
+{
+  "name": "zerion-compliance-agent",
+  "version": "1.0.0",
+  "description": "ZK-gated autonomous RWA compliance agent built on Zerion CLI",
+  "main": "src/agent.ts",
+  "scripts": {
+    "start": "ts-node src/agent.ts",
+    "demo": "ts-node src/demo.ts",
+    "test-policy": "ts-node src/test-policy.ts"
+  },
+  "dependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "dotenv": "^16.0.0"
+  }
+}
