@@ -45,19 +45,24 @@ export async function POST(req: Request) {
     console.log(`Minting RWA token for ${walletAddress}...`);
     const result = await mintRwaTokenAfterProof(connection, payer, recipient, mintAddress, TOKEN_2022_PROGRAM_ID);
 
-    // Update stats
-    if (fs.existsSync(PROOF_LOG_PATH)) {
-      const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
-      logData.tokensMinted = (logData.tokensMinted || 0) + 1;
-      logData.walletsVerified = (logData.walletsVerified || 0) + 1;
-      logData.logs.push({ 
-        walletAddress, 
-        timestamp: Date.now(), 
-        type: 'TOKEN_MINTED', 
-        signature: result.signature 
-      });
-      fs.writeFileSync(PROOF_LOG_PATH, JSON.stringify(logData, null, 2));
+    // Update stats (Resilient to Read-only filesystems)
+    try {
+      if (fs.existsSync(PROOF_LOG_PATH)) {
+        const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
+        logData.tokensMinted = (logData.tokensMinted || 0) + 1;
+        logData.walletsVerified = (logData.walletsVerified || 0) + 1;
+        logData.logs.push({ 
+          walletAddress, 
+          timestamp: Date.now(), 
+          type: 'TOKEN_MINTED', 
+          signature: result.signature 
+        });
+        fs.writeFileSync(PROOF_LOG_PATH, JSON.stringify(logData, null, 2));
+      }
+    } catch (e) {
+      console.warn("Skipping proof log update in mint-token (Read-only environment)");
     }
+
 
     return NextResponse.json({ 
       success: true, 

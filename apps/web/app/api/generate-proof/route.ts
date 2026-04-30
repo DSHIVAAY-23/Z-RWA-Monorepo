@@ -9,10 +9,15 @@ const PROOF_LOG_PATH = path.join(process.cwd(), 'proof_log.json');
 
 // Initialize log if it doesn't exist
 function initLog() {
-  if (!fs.existsSync(PROOF_LOG_PATH)) {
-    fs.writeFileSync(PROOF_LOG_PATH, JSON.stringify({ proofsGenerated: 0, walletsVerified: 0, tokensMinted: 0, logs: [] }));
+  try {
+    if (!fs.existsSync(PROOF_LOG_PATH)) {
+      fs.writeFileSync(PROOF_LOG_PATH, JSON.stringify({ proofsGenerated: 0, walletsVerified: 0, tokensMinted: 0, logs: [] }));
+    }
+  } catch (e) {
+    console.warn("Could not initialize local log (Read-only filesystem):", e);
   }
 }
+
 
 // In-Memory Cache for Verification Key to optimize verification speed
 let cachedVKey: any = null;
@@ -106,16 +111,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Proof generated but failed local verification.' }, { status: 400 });
     }
 
-    // Save to proof log
-    initLog();
-    const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
-    
-    const proofId = uuidv4();
-    const timestamp = Date.now();
-    
-    logData.proofsGenerated += 1;
-    logData.logs.push({ proofId, walletAddress, timestamp, type: 'PROOF_GENERATED' });
-    fs.writeFileSync(PROOF_LOG_PATH, JSON.stringify(logData, null, 2));
+    // Save to proof log (Resilient to Read-only filesystems)
+    try {
+      initLog();
+      if (fs.existsSync(PROOF_LOG_PATH)) {
+        const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
+        logData.proofsGenerated += 1;
+        logData.logs.push({ proofId, walletAddress, timestamp, type: 'PROOF_GENERATED' });
+        fs.writeFileSync(PROOF_LOG_PATH, JSON.stringify(logData, null, 2));
+      }
+    } catch (e) {
+      console.warn("Skipping proof log update (Read-only environment)");
+    }
+
 
     return NextResponse.json({ 
       proof, 
