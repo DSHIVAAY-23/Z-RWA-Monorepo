@@ -65,10 +65,16 @@ export async function POST(req: Request) {
       wasmPath = await getPath('compliance.wasm', req.url);
       zkeyPath = await getPath('compliance_final.zkey', req.url);
       vkeyPath = await getPath('verification_key.json', req.url);
+      console.log("Paths resolved:", { wasmPath, zkeyPath, vkeyPath });
     } catch (err: any) {
-      console.error("Path Resolution Error:", err.message);
-      return NextResponse.json({ error: `Environment Error: ${err.message}` }, { status: 500 });
+      console.error("Environment Error:", err.message);
+      return NextResponse.json({ 
+        error: `Environment Error: ${err.message}`,
+        stack: err.stack,
+        cwd: process.cwd()
+      }, { status: 500 });
     }
+
 
 
 
@@ -86,7 +92,9 @@ export async function POST(req: Request) {
       minKycScore
     };
 
+    // Set a timeout for the proof generation to prevent Vercel hanging
     const { proof, publicSignals } = await snarkjs.groth16.fullProve(input, wasmPath, zkeyPath);
+
 
     // Optimized Verification: Use cached vKey if available to save I/O overhead
     if (!cachedVKey) {
@@ -118,7 +126,12 @@ export async function POST(req: Request) {
     });
 
   } catch (error: any) {
-    console.error('Error generating proof:', error);
-    return NextResponse.json({ error: error.message || 'Failed to generate proof' }, { status: 500 });
+    console.error('CRITICAL PROOF ERROR:', error);
+    return NextResponse.json({ 
+      error: error.message || 'Failed to generate proof',
+      stack: error.stack,
+      details: "This often happens on Vercel due to WASM or memory constraints. Check function logs."
+    }, { status: 500 });
   }
 }
+
