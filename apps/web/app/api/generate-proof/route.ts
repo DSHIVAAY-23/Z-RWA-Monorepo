@@ -111,8 +111,12 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Proof generated but failed local verification.' }, { status: 400 });
     }
 
+    const proofId = uuidv4();
+    const timestamp = Date.now();
+
     // Save to proof log (Resilient to Read-only filesystems)
     try {
+
       initLog();
       if (fs.existsSync(PROOF_LOG_PATH)) {
         const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
