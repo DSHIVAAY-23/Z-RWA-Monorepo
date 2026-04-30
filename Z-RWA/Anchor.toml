@@ -2,28 +2,30 @@
 anchor_version = "0.31.1"
 
 [features]
-seeds = false
+resolution = true
 skip-lint = false
 
-[programs.localnet]
-fund-contract = "H9txrMrTfGU6LXYWBzMHzmzuQWbNYcW1vHFLRcxCYiKn"
-token-program = "33pHXYQbe41JJSA7oXor6h7JFY74eqH25xtSjBysmTYo"
-base-token-program = "7iaDbVGbVJdhZcKXWQmMw783nBqfDyx6K8V4yF6Kv8iq"
-interop-core = "5dyQmihDcQqCBerQg82J19QxMByjpxbwdtmCuPkT9ePD"
-interop-multisig = "2uuBHq3teujBvfE3AnRm4LZFYk7sHUiC36Z9MdkgcJ2N"
-treasury-bond = "53cKZWTPTwLjXD7E6NHCQzn5Gs9KL81u5xqicHEJwNgE"
-z-rwa = "3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC"
-compliance_vault = "CPvaLtbD6WeA5j1Q5sR7T5rJ6n1VbM5Fj8yQd1d11Zq"
-
 [programs.devnet]
-fund-contract = "H9txrMrTfGU6LXYWBzMHzmzuQWbNYcW1vHFLRcxCYiKn"
-token-program = "33pHXYQbe41JJSA7oXor6h7JFY74eqH25xtSjBysmTYo"
 base-token-program = "7iaDbVGbVJdhZcKXWQmMw783nBqfDyx6K8V4yF6Kv8iq"
+compliance_vault = "CPvaLtbD6WeA5j1Q5sR7T5rJ6n1VbM5Fj8yQd1d11Zq"
+fund-contract = "H9txrMrTfGU6LXYWBzMHzmzuQWbNYcW1vHFLRcxCYiKn"
 interop-core = "5dyQmihDcQqCBerQg82J19QxMByjpxbwdtmCuPkT9ePD"
 interop-multisig = "2uuBHq3teujBvfE3AnRm4LZFYk7sHUiC36Z9MdkgcJ2N"
+token-program = "33pHXYQbe41JJSA7oXor6h7JFY74eqH25xtSjBysmTYo"
 treasury-bond = "53cKZWTPTwLjXD7E6NHCQzn5Gs9KL81u5xqicHEJwNgE"
 z-rwa = "3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC"
+z_rwa_verifier = "GL8vm2SxWV7yHQbwoZegM7SkbJbEbEDn6A9m9W2XjeQe"
+
+[programs.localnet]
+base-token-program = "7iaDbVGbVJdhZcKXWQmMw783nBqfDyx6K8V4yF6Kv8iq"
 compliance_vault = "CPvaLtbD6WeA5j1Q5sR7T5rJ6n1VbM5Fj8yQd1d11Zq"
+fund-contract = "H9txrMrTfGU6LXYWBzMHzmzuQWbNYcW1vHFLRcxCYiKn"
+interop-core = "5dyQmihDcQqCBerQg82J19QxMByjpxbwdtmCuPkT9ePD"
+interop-multisig = "2uuBHq3teujBvfE3AnRm4LZFYk7sHUiC36Z9MdkgcJ2N"
+token-program = "33pHXYQbe41JJSA7oXor6h7JFY74eqH25xtSjBysmTYo"
+treasury-bond = "53cKZWTPTwLjXD7E6NHCQzn5Gs9KL81u5xqicHEJwNgE"
+z-rwa = "3SN3zAmuW5HWgJy5mcWjvy8vwDZRLosEajqydbuxiEZC"
+
 [registry]
 url = "https://api.apr.dev"
 
@@ -31,8 +33,5 @@ url = "https://api.apr.dev"
 cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
-
-
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
-# test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/test-2.ts"

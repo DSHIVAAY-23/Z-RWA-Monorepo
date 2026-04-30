@@ -20,6 +20,7 @@ export default function ZNavbar() {
     { href: "/#compliance-flow", label: "Generate Proof", primary: true },
     { href: "/check", label: "Check Wallet", primary: false },
     { href: "/community", label: "Community", primary: false },
+    { href: "/agent", label: "Agent UI", primary: false },
   ];
 
   return (

@@ -1,0 +1,55 @@
+{
+  "proofsGenerated": 6,
+  "walletsVerified": 2,
+  "tokensMinted": 2,
+  "logs": [
+    {
+      "proofId": "64f9c3cf-bccd-4738-ab3e-378c6daed6ec",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777545287105,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "proofId": "16b2ef86-d8e3-4e82-9766-249416ec49e1",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777549213137,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "proofId": "d1f93623-5b89-4b44-8348-0b973b1d5c44",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777550192250,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "proofId": "8737dc4b-7add-4baa-995e-9ba8914dd2b2",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777550712844,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "proofId": "837dafd5-7a4e-4322-adb6-2a092b738abc",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777551665089,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777551682813,
+      "type": "TOKEN_MINTED",
+      "signature": "2DcpoWgxLicCddUNxs1EJurYM3THcfTsFTU6VpxLpptXeWTPaYCXrGMxaHjebVtxrmqWEvgCujZWT11XqHbzvgLb"
+    },
+    {
+      "proofId": "7a576890-3dc9-4133-a7f0-ff34fdc7190b",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777552169531,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777552183633,
+      "type": "TOKEN_MINTED",
+      "signature": "2EqWJg6GFR2mYQKWk5hJUYyPxmHxN3qMZaAfQWYCx6GGS56JkoKRdzdDsW2K7A3BcyLM8ZMoE26VsXHScuSauTTg"
+    }
+  ]
+}
