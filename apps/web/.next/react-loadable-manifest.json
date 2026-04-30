@@ -1,61 +1,56 @@
 {
   "app/page.tsx -> ../lib/solana": {
-    "id": 1277,
+    "id": "app/page.tsx -> ../lib/solana",
     "files": [
-      "static/chunks/3a91511d-a277c9e75ef4b559.js",
-      "static/chunks/2f0b94e8.27f318ee35579691.js",
-      "static/chunks/97b52221.fc24882ccc4a709b.js",
-      "static/chunks/136-3dd9109597c2a2f8.js",
-      "static/chunks/10.6338fa3b41709f04.js",
-      "static/chunks/542.c75b4f907d729bc2.js"
+      "static/chunks/_app-pages-browser_lib_solana_ts.js"
     ]
   },
   "node_modules/@particle-network/auth/es/index.js -> draggabilly": {
-    "id": null,
+    "id": "node_modules/@particle-network/auth/es/index.js -> draggabilly",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-fractal/lib/esm/adapter.js -> @fractalwagmi/solana-wallet-adapter": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-fractal/lib/esm/adapter.js -> @fractalwagmi/solana-wallet-adapter",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-keystone/lib/esm/adapter.js -> @keystonehq/sol-keyring": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-keystone/lib/esm/adapter.js -> @keystonehq/sol-keyring",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-ledger/lib/esm/adapter.js -> @ledgerhq/hw-transport-webhid": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-ledger/lib/esm/adapter.js -> @ledgerhq/hw-transport-webhid",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-particle/lib/esm/adapter.js -> @particle-network/solana-wallet": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-particle/lib/esm/adapter.js -> @particle-network/solana-wallet",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-salmon/lib/esm/adapter.js -> salmon-adapter-sdk": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-salmon/lib/esm/adapter.js -> salmon-adapter-sdk",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-solflare/lib/esm/adapter.js -> @solflare-wallet/sdk": {
-    "id": 5955,
+    "id": "node_modules/@solana/wallet-adapter-solflare/lib/esm/adapter.js -> @solflare-wallet/sdk",
     "files": [
-      "static/chunks/955.1b4b97bfe5dacc42.js"
+      "static/chunks/_app-pages-browser_node_modules_solflare-wallet_sdk_lib_esm_index_js.js"
     ]
   },
   "node_modules/@solana/wallet-adapter-solflare/lib/esm/metamask/wallet.js -> @solflare-wallet/metamask-sdk": {
-    "id": 3985,
+    "id": "node_modules/@solana/wallet-adapter-solflare/lib/esm/metamask/wallet.js -> @solflare-wallet/metamask-sdk",
     "files": [
-      "static/chunks/985.cdb764ee6e87f859.js"
+      "static/chunks/_app-pages-browser_node_modules_solflare-wallet_metamask-sdk_lib_esm_index_js.js"
     ]
   },
   "node_modules/@solana/wallet-adapter-torus/lib/esm/adapter.js -> @toruslabs/solana-embed": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-torus/lib/esm/adapter.js -> @toruslabs/solana-embed",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-trezor/lib/esm/adapter.js -> @trezor/connect-web": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-trezor/lib/esm/adapter.js -> @trezor/connect-web",
     "files": []
   },
   "node_modules/@solana/wallet-adapter-walletconnect/lib/esm/adapter.js -> @jnwng/walletconnect-solana": {
-    "id": null,
+    "id": "node_modules/@solana/wallet-adapter-walletconnect/lib/esm/adapter.js -> @jnwng/walletconnect-solana",
     "files": []
   }
 }

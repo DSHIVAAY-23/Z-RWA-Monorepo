@@ -32,10 +32,23 @@ export async function POST(req: Request) {
       formattedPanHash = `0x${panHash}`;
     }
     
-    // We expect the wasm and zkey to be in public/circuits which we copied in setup.sh
-    const wasmPath = path.join(process.cwd(), 'public', 'circuits', 'compliance.wasm');
-    const zkeyPath = path.join(process.cwd(), 'public', 'circuits', 'compliance_final.zkey');
-    const vkeyPath = path.join(process.cwd(), 'public', 'circuits', 'verification_key.json');
+    // Resilient path resolution for Vercel
+    const getPath = (file: string) => {
+      const paths = [
+        path.join(process.cwd(), 'apps', 'web', 'public', 'circuits', file),
+        path.join(process.cwd(), 'public', 'circuits', file),
+        path.join(process.cwd(), '.next', 'server', 'public', 'circuits', file)
+      ];
+      for (const p of paths) {
+        if (fs.existsSync(p)) return p;
+      }
+      return path.join(process.cwd(), 'public', 'circuits', file);
+    };
+
+    const wasmPath = getPath('compliance.wasm');
+    const zkeyPath = getPath('compliance_final.zkey');
+    const vkeyPath = getPath('verification_key.json');
+
 
     // The template has public inputs [minAge, minKycScore] and private inputs [age, panHash, kycScore].
     // minAge = 18, minKycScore = 700 are hardcoded here or passed as constants.

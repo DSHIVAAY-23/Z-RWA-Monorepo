@@ -24,9 +24,20 @@ export async function POST(req: Request) {
     
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     
-    // Load backend authority keypair
-    const secretKey = JSON.parse(fs.readFileSync(BACKEND_WALLET_PATH, 'utf-8'));
-    const payer = Keypair.fromSecretKey(Uint8Array.from(secretKey));
+    // Load backend authority keypair (from Env Var or File)
+    let payer: Keypair;
+    const envSecret = process.env.BACKEND_WALLET_SECRET;
+    
+    if (envSecret) {
+      console.log('Loading authority from environment variable...');
+      const secretKey = Uint8Array.from(JSON.parse(envSecret));
+      payer = Keypair.fromSecretKey(secretKey);
+    } else {
+      console.log(`Loading authority from file: ${BACKEND_WALLET_PATH}`);
+      const secretKey = JSON.parse(fs.readFileSync(BACKEND_WALLET_PATH, 'utf-8'));
+      payer = Keypair.fromSecretKey(Uint8Array.from(secretKey));
+    }
+
 
     const recipient = new PublicKey(walletAddress);
     const mintAddress = new PublicKey(MINT_ADDRESS);

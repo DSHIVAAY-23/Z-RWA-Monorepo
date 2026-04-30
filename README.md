@@ -42,6 +42,18 @@ npm run start
 - **Constraints**: 7.4M SP1-compatible constraints
 
 
+## 🌐 Vercel Deployment
+
+To deploy this project to Vercel, follow these steps:
+
+1. **Root Directory**: Set the "Root Directory" to `apps/web` in your Vercel project settings.
+2. **Environment Variables**:
+   - `BACKEND_WALLET_SECRET`: Paste the contents of your `id.json` (the numeric array) to allow the backend to mint tokens.
+   - `NEXT_PUBLIC_SOLANA_NETWORK`: `devnet`
+3. **Framework Preset**: Ensure "Next.js" is selected.
+
+---
+
 ## 📜 Project Structure
 - `circuits/`: ZK circuits and setup scripts.
 - `apps/web/`: Next.js frontend and ZK-backend.
