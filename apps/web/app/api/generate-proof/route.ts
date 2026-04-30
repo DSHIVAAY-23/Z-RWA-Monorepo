@@ -37,17 +37,34 @@ export async function POST(req: Request) {
       const paths = [
         path.join(process.cwd(), 'apps', 'web', 'public', 'circuits', file),
         path.join(process.cwd(), 'public', 'circuits', file),
-        path.join(process.cwd(), '.next', 'server', 'public', 'circuits', file)
+        path.join(process.cwd(), 'circuits', file),
+        path.join(process.cwd(), '.next', 'server', 'public', 'circuits', file),
+        path.join(process.cwd(), '.next', 'standalone', 'apps', 'web', 'public', 'circuits', file),
+        path.resolve('./public/circuits', file),
+        path.resolve('./apps/web/public/circuits', file)
       ];
+
+      
+      console.log(`Searching for ${file}...`);
       for (const p of paths) {
-        if (fs.existsSync(p)) return p;
+        if (fs.existsSync(p)) {
+          console.log(`✅ Found ${file} at: ${p}`);
+          return p;
+        }
       }
-      return path.join(process.cwd(), 'public', 'circuits', file);
+      throw new Error(`CRITICAL: File ${file} not found in any expected location. process.cwd() is ${process.cwd()}`);
     };
 
-    const wasmPath = getPath('compliance.wasm');
-    const zkeyPath = getPath('compliance_final.zkey');
-    const vkeyPath = getPath('verification_key.json');
+    let wasmPath, zkeyPath, vkeyPath;
+    try {
+      wasmPath = getPath('compliance.wasm');
+      zkeyPath = getPath('compliance_final.zkey');
+      vkeyPath = getPath('verification_key.json');
+    } catch (err: any) {
+      console.error(err.message);
+      return NextResponse.json({ error: err.message }, { status: 500 });
+    }
+
 
 
     // The template has public inputs [minAge, minKycScore] and private inputs [age, panHash, kycScore].

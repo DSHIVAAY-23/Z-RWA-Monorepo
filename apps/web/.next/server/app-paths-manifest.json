@@ -1,17 +1,1 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/badge/[wallet]/route": "app/api/badge/[wallet]/route.js",
-  "/agent/page": "app/agent/page.js",
-  "/api/mint-token/route": "app/api/mint-token/route.js",
-  "/api/generate-proof/route": "app/api/generate-proof/route.js",
-  "/api/prove/route": "app/api/prove/route.js",
-  "/api/proof-stats/route": "app/api/proof-stats/route.js",
-  "/api/stats/route": "app/api/stats/route.js",
-  "/api/verify/[wallet]/docs/route": "app/api/verify/[wallet]/docs/route.js",
-  "/api/verify/[wallet]/route": "app/api/verify/[wallet]/route.js",
-  "/check/page": "app/check/page.js",
-  "/community/page": "app/community/page.js",
-  "/page": "app/page.js",
-  "/vault/page": "app/vault/page.js",
-  "/privacy/page": "app/privacy/page.js"
-}
+{}
