@@ -32,38 +32,44 @@ export async function POST(req: Request) {
       formattedPanHash = `0x${panHash}`;
     }
     
-    // Resilient path resolution for Vercel
-    const getPath = (file: string) => {
-      const paths = [
+    // Resilient path resolution for Vercel (Fetch & Temp strategy)
+    const getPath = async (file: string, reqUrl: string) => {
+      // 1. Try local filesystem first
+      const localPaths = [
         path.join(process.cwd(), 'apps', 'web', 'public', 'circuits', file),
         path.join(process.cwd(), 'public', 'circuits', file),
-        path.join(process.cwd(), 'circuits', file),
         path.join(process.cwd(), '.next', 'server', 'public', 'circuits', file),
-        path.join(process.cwd(), '.next', 'standalone', 'apps', 'web', 'public', 'circuits', file),
-        path.resolve('./public/circuits', file),
-        path.resolve('./apps/web/public/circuits', file)
       ];
-
       
-      console.log(`Searching for ${file}...`);
-      for (const p of paths) {
-        if (fs.existsSync(p)) {
-          console.log(`✅ Found ${file} at: ${p}`);
-          return p;
-        }
+      for (const p of localPaths) {
+        if (fs.existsSync(p)) return p;
       }
-      throw new Error(`CRITICAL: File ${file} not found in any expected location. process.cwd() is ${process.cwd()}`);
+
+      // 2. If on Vercel and local file not found, fetch from self and write to /tmp
+      const tmpPath = path.join('/tmp', file);
+      if (fs.existsSync(tmpPath)) return tmpPath;
+
+      console.log(`Downloading ${file} to /tmp...`);
+      const origin = new URL(reqUrl).origin;
+      const response = await fetch(`${origin}/circuits/${file}`);
+      if (!response.ok) throw new Error(`Failed to fetch ${file} from ${origin}`);
+      
+      const buffer = Buffer.from(await response.arrayBuffer());
+      fs.writeFileSync(tmpPath, buffer);
+      console.log(`✅ ${file} saved to /tmp`);
+      return tmpPath;
     };
 
     let wasmPath, zkeyPath, vkeyPath;
     try {
-      wasmPath = getPath('compliance.wasm');
-      zkeyPath = getPath('compliance_final.zkey');
-      vkeyPath = getPath('verification_key.json');
+      wasmPath = await getPath('compliance.wasm', req.url);
+      zkeyPath = await getPath('compliance_final.zkey', req.url);
+      vkeyPath = await getPath('verification_key.json', req.url);
     } catch (err: any) {
-      console.error(err.message);
-      return NextResponse.json({ error: err.message }, { status: 500 });
+      console.error("Path Resolution Error:", err.message);
+      return NextResponse.json({ error: `Environment Error: ${err.message}` }, { status: 500 });
     }
+
 
 
 
