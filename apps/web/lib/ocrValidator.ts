@@ -19,7 +19,17 @@ const AADHAAR_NUM_REGEX  = /\d{4}\s?\d{4}\s?\d{4}/;
 const DOB_REGEX          = /(\d{2})[\/\-\.](\d{2})[\/\-\.](\d{4})/;
 
 const PAN_KEYWORDS    = ['INCOME TAX', 'PERMANENT ACCOUNT', 'GOVT OF INDIA'];
-const AADHAAR_KEYWORDS = ['AADHAAR', 'UIDAI', 'UNIQUE IDENTIFICATION'];
+const AADHAAR_KEYWORDS = [
+  'AADHAAR',
+  'UIDAI',
+  'UNIQUE IDENTIFICATION',
+  'GOVERNMENT OF INDIA',    // Front face of Aadhaar cards
+  'GOVT OF INDIA',
+  'VID',                    // VID number appears on Aadhaar front
+  'MERA AADHAAR',
+  'BHARAT SARKAR',          // भारत सरकार transliterated
+  'DOB',                    // Aadhaar cards print "DOB:" explicitly
+];
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 function containsKeyword(text: string, keywords: string[]): boolean {
