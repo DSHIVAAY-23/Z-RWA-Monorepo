@@ -66,7 +66,9 @@ export default function HomePage() {
     docType: DocType;
     extractedAge: number | null;
     reason?: string;
+    rejectionLayer?: 'blocked' | 'checksum' | 'age' | 'ocr';
   } | null>(null);
+
 
 
   // Step 2: Proof
@@ -501,10 +503,23 @@ export default function HomePage() {
                             {docValidation?.extractedAge && <span className="opacity-60 ml-2">Age: {docValidation.extractedAge}</span>}
                           </div>
                         ) : docStatus === 'error' ? (
-                          <div className="text-xs text-red-400 font-mono mt-1">{docValidation?.reason || 'Validation failed'}</div>
+                          <div className={`text-xs font-mono mt-1 flex items-start gap-1.5 leading-relaxed
+                            ${docValidation?.rejectionLayer === 'age'
+                              ? 'text-orange-400'
+                              : 'text-red-400'
+                            }`}>
+                            <span className="shrink-0 mt-px">
+                              {docValidation?.rejectionLayer === 'blocked'   ? '⛔'
+                               : docValidation?.rejectionLayer === 'checksum' ? '❌'
+                               : docValidation?.rejectionLayer === 'age'      ? '⚠️'
+                               : '🔍'}
+                            </span>
+                            <span>{docValidation?.reason || 'Validation failed'}</span>
+                          </div>
                         ) : (
                           <div className="text-xs text-green-400 font-mono mt-1">Hash: {docHash.slice(0, 16)}...</div>
                         )}
+
                       </div>
                     </div>
 
