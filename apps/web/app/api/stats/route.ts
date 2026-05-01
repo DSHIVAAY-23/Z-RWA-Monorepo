@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getStats } from "../../../lib/statsStore";
 import path from 'path';
 import fs from 'fs';
 
@@ -6,35 +7,25 @@ const PROOF_LOG_PATH = path.join(process.cwd(), 'proof_log.json');
 
 export async function GET() {
   try {
-    if (!fs.existsSync(PROOF_LOG_PATH)) {
+    // On Vercel: use in-memory store (file system is read-only)
+    // On local: merge real log file data with in-memory store
+    const baseStats = getStats();
+
+    if (fs.existsSync(PROOF_LOG_PATH)) {
+      const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
       return NextResponse.json({
-        proofs_generated: 47, // Default mock for first run
-        wallets_verified: 12,
-        tokens_minted: 8,
+        proofs_generated: baseStats.proofs_generated + (logData.proofsGenerated || 0),
+        wallets_verified: baseStats.wallets_verified + (logData.walletsVerified || 0),
+        tokens_minted: baseStats.tokens_minted + (logData.tokensMinted || 0),
         last_updated: new Date().toISOString(),
       });
     }
 
-    const logData = JSON.parse(fs.readFileSync(PROOF_LOG_PATH, 'utf-8'));
-    
-    // Merge real logs with base metrics for demo purposes
-    const BASE_PROOFS = 47;
-    const BASE_WALLETS = 12;
-    const BASE_TOKENS = 8;
+    return NextResponse.json(baseStats);
 
-    return NextResponse.json({
-      proofs_generated: (logData.proofsGenerated || 0) + BASE_PROOFS,
-      wallets_verified: (logData.walletsVerified || 0) + BASE_WALLETS,
-      tokens_minted: (logData.tokensMinted || 0) + BASE_TOKENS,
-      last_updated: new Date().toISOString(),
-    });
   } catch (error) {
     console.error('Error reading stats:', error);
-    return NextResponse.json({ 
-      proofs_generated: 47,
-      wallets_verified: 12,
-      tokens_minted: 8,
-      last_updated: new Date().toISOString() 
-    });
+    return NextResponse.json(getStats());
   }
 }
+

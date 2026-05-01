@@ -4,6 +4,8 @@ import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
 // @ts-ignore
 import * as snarkjs from 'snarkjs';
+import { incrementProof } from '../../../lib/statsStore';
+
 
 const PROOF_LOG_PATH = path.join(process.cwd(), 'proof_log.json');
 
@@ -114,7 +116,11 @@ export async function POST(req: Request) {
     const proofId = uuidv4();
     const timestamp = Date.now();
 
+    // Increment in-memory stats counter (works on Vercel)
+    incrementProof();
+
     // Save to proof log (Resilient to Read-only filesystems)
+
     try {
 
       initLog();

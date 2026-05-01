@@ -4,6 +4,8 @@ import { TOKEN_2022_PROGRAM_ID } from '@solana/spl-token';
 import { mintRwaTokenAfterProof } from '../../../lib/mintRwaToken';
 import path from 'path';
 import fs from 'fs';
+import { incrementMint } from '../../../lib/statsStore';
+
 
 const PROOF_LOG_PATH = path.join(process.cwd(), 'proof_log.json');
 const BACKEND_WALLET_PATH = process.env.BACKEND_WALLET_PATH || '/home/user/.config/solana/id.json';
@@ -32,11 +34,14 @@ export async function POST(req: Request) {
       console.log('Loading authority from environment variable...');
       const secretKey = Uint8Array.from(JSON.parse(envSecret));
       payer = Keypair.fromSecretKey(secretKey);
-    } else {
+    } else if (fs.existsSync(BACKEND_WALLET_PATH)) {
       console.log(`Loading authority from file: ${BACKEND_WALLET_PATH}`);
       const secretKey = JSON.parse(fs.readFileSync(BACKEND_WALLET_PATH, 'utf-8'));
       payer = Keypair.fromSecretKey(Uint8Array.from(secretKey));
+    } else {
+      throw new Error("BACKEND_WALLET_SECRET environment variable is missing. Please add it to Vercel settings.");
     }
+
 
 
     const recipient = new PublicKey(walletAddress);
@@ -44,6 +49,9 @@ export async function POST(req: Request) {
 
     console.log(`Minting RWA token for ${walletAddress}...`);
     const result = await mintRwaTokenAfterProof(connection, payer, recipient, mintAddress, TOKEN_2022_PROGRAM_ID);
+
+    // Increment in-memory stats counter (works on Vercel)
+    incrementMint(walletAddress);
 
     // Update stats (Resilient to Read-only filesystems)
     try {
