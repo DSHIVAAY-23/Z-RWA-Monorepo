@@ -27,11 +27,27 @@ let cachedVKey: any = null;
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { age, panHash, kycScore, walletAddress } = body;
+    const { age, panHash, kycScore, walletAddress, docType } = body;
 
     if (!age || !panHash || !kycScore || !walletAddress) {
       return NextResponse.json({ error: 'Missing required inputs' }, { status: 400 });
     }
+
+    // ── Layer 3: API gate — reject unvalidated documents ──────────────────────
+    if (!docType || docType === 'unknown') {
+      return NextResponse.json(
+        { error: 'Document type is unknown. Please upload a valid Aadhaar or PAN card.' },
+        { status: 400 }
+      );
+    }
+
+    if (typeof age !== 'number' || age < 18) {
+      return NextResponse.json(
+        { error: `Must be 18+ for compliance proof. Extracted age: ${age}` },
+        { status: 400 }
+      );
+    }
+    // ─────────────────────────────────────────────────────────────────────────
 
     // Ensure panHash is a valid BigInt string (add 0x if missing for hex)
     let formattedPanHash = panHash;

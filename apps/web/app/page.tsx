@@ -8,6 +8,10 @@ import ZTerminal, { TerminalLine } from "../components/ZTerminal";
 import { getExplorerUrl } from "../lib/solana";
 import Tesseract from 'tesseract.js';
 import Link from "next/link";
+import { validateDocumentFile } from '../lib/documentValidator';
+import { validateExtractedFields } from '../lib/ocrValidator';
+import type { DocType } from '../lib/ocrValidator';
+
 
 // Web3 & Anchor Imports
 import { useConnection, useAnchorWallet } from '@solana/wallet-adapter-react';
@@ -58,6 +62,12 @@ export default function HomePage() {
   const [docHash, setDocHash] = useState("");
   const [isScanning, setIsScanning] = useState(false);
   const [docStatus, setDocStatus] = useState<'success' | 'error' | null>(null);
+  const [docValidation, setDocValidation] = useState<{
+    docType: DocType;
+    extractedAge: number | null;
+    reason?: string;
+  } | null>(null);
+
 
   // Step 2: Proof
   const [terminalLines, setTerminalLines] = useState<TerminalLine[]>([]);
@@ -84,49 +94,50 @@ export default function HomePage() {
       setFile(selectedFile);
       setIsScanning(true);
       setDocStatus(null);
+      setDocValidation(null);
 
       try {
-        // 1. Run lightweight local OCR via Tesseract
-        // For better stability, we use ObjectURL for the image input
-        const imageUrl = URL.createObjectURL(selectedFile);
-        
-        // Safeguard: Tesseract.js handles images (PNG/JPG), not PDFs directly
-        if (selectedFile.type === "application/pdf") {
-          throw new Error("PDF_NOT_SUPPORTED");
+        // ── Layer 1: File validation ─────────────────────────────────────────
+        const fileCheck = await validateDocumentFile(selectedFile);
+        if (!fileCheck.valid) {
+          setDocStatus('error');
+          setDocValidation({ docType: 'unknown', extractedAge: null, reason: fileCheck.reason });
+          setTerminalLines(prev => [...prev, { text: `[REJECT] ${fileCheck.reason}`, isError: true }]);
+          return;
         }
 
+        // ── Layer 2: OCR + field validation ─────────────────────────────────
+        const imageUrl = URL.createObjectURL(selectedFile);
         const result = await Tesseract.recognize(imageUrl, 'eng', {
           logger: m => console.log(m)
         });
-
-        // Cleanup URL
         URL.revokeObjectURL(imageUrl);
 
-        const extractedText = result.data.text.toUpperCase().replace(/\s+/g, '');
+        const rawText = result.data.text;
+        const ocrResult = validateExtractedFields(rawText);
 
-        // 2. The Forgiving Regex (Aadhaar: 10-12 digits | PAN: standard format)
-        const isValid = /\d{10,12}/.test(extractedText) || /[A-Z]{5}[0-9]{4}[A-Z]{1}/.test(extractedText);
-
-        if (isValid) {
-          setDocStatus('success');
-          // Generate Hash
-          const mockSha = Array.from(crypto.getRandomValues(new Uint8Array(32)))
-            .map((b) => b.toString(16).padStart(2, "0"))
-            .join("");
-          setDocHash(mockSha);
-          setTerminalLines(prev => [...prev, { text: `✓ ${selectedDoc} verified via Client-side OCR`, isSuccess: true }]);
-        } else {
-          console.log("OCR Extracted (Failed): ", extractedText);
+        if (!ocrResult.valid) {
           setDocStatus('error');
-          setTerminalLines(prev => [...prev, { text: `[OCR FAIL] Valid ID patterns not found in ${selectedFile.name}`, isError: true }]);
+          setDocValidation(ocrResult);
+          setTerminalLines(prev => [...prev, { text: `[OCR FAIL] ${ocrResult.reason}`, isError: true }]);
+          return;
         }
+
+        // ── All layers passed ────────────────────────────────────────────────
+        setDocStatus('success');
+        setDocValidation(ocrResult);
+        const mockSha = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        setDocHash(mockSha);
+        const label = ocrResult.docType === 'pan' ? 'PAN Detected ✓' : 'Aadhaar Detected ✓';
+        setTerminalLines(prev => [...prev, { text: `✓ ${label} — Age: ${ocrResult.extractedAge ?? 'N/A'} — Proceeding to ZK Proof`, isSuccess: true }]);
+
       } catch (err: any) {
-        console.error("OCR Error:", err);
+        console.error("Validation Error:", err);
         setDocStatus('error');
-        const errorMsg = err.message === "PDF_NOT_SUPPORTED" 
-          ? "PDF OCR not supported. Please upload PNG/JPG." 
-          : `Scanning failed for ${selectedFile.name}`;
-        setTerminalLines(prev => [...prev, { text: `[OCR ERR] ${errorMsg}`, isError: true }]);
+        setDocValidation({ docType: 'unknown', extractedAge: null, reason: `Scanning failed: ${err.message}` });
+        setTerminalLines(prev => [...prev, { text: `[ERR] ${err.message}`, isError: true }]);
       } finally {
         setIsScanning(false);
       }
@@ -134,6 +145,7 @@ export default function HomePage() {
   };
 
   const handleGenerateProof = useCallback(async () => {
+
     if (isProving) return;
     setIsProving(true);
     setTerminalLines([]);
@@ -161,12 +173,14 @@ export default function HomePage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          age: 25, 
+          age: docValidation?.extractedAge ?? 25,
           panHash: `0x${docHash.slice(0, 15)}`, 
           kycScore: 750,
-          walletAddress: wallet.publicKey?.toBase58() || "unknown"
+          walletAddress: wallet.publicKey?.toBase58() || "unknown",
+          docType: docValidation?.docType ?? 'unknown',
         })
       });
+
       const endTime = Date.now();
       const duration = ((endTime - startTime) / 1000).toFixed(1);
 
@@ -209,7 +223,8 @@ export default function HomePage() {
     } finally {
       setIsProving(false);
     }
-  }, [isProving, docHash]);
+  }, [isProving, docHash, docValidation]);
+
 
   const handleMint = async () => {
     if (isMinting || !connected || !proofData || !anchorWallet) {
@@ -465,7 +480,12 @@ export default function HomePage() {
                     <div className="inline-flex items-center gap-2 text-xs text-green-400 font-mono bg-green-400/10 px-3 py-1.5 rounded-full border border-green-400/20">
                       🔒 Zero data leaves your device
                     </div>
-                    <input type="file" className="hidden" accept=".pdf,.png,.jpg,.jpeg" onChange={handleFileDrop} />
+                    <div className="mt-3 text-[10px] text-gray-600 font-mono leading-relaxed">
+                      ⚠️ For demo: Use a sample Aadhaar/PAN template.<br />
+                      Real documents are never uploaded to any server.
+                    </div>
+                    <input type="file" className="hidden" accept=".png,.jpg,.jpeg,.webp" onChange={handleFileDrop} />
+
                   </label>
                 ) : (
                   <div className="flex items-center justify-between bg-gray-950/80 border border-gray-700 p-4 rounded-xl">
@@ -477,16 +497,17 @@ export default function HomePage() {
                           <div className="text-xs text-yellow-500 animate-pulse mt-1 font-mono">Scanning document (OCR)...</div>
                         ) : docStatus === 'success' ? (
                           <div className="text-xs text-green-400 font-mono mt-1 flex items-center gap-1">
-                            <span>✓ Valid ID Detected</span>
-                            <span className="opacity-60 ml-2">Hash: {docHash.slice(0, 12)}...</span>
+                            <span>✓ {docValidation?.docType === 'pan' ? 'PAN Detected ✓' : 'Aadhaar Detected ✓'}</span>
+                            {docValidation?.extractedAge && <span className="opacity-60 ml-2">Age: {docValidation.extractedAge}</span>}
                           </div>
                         ) : docStatus === 'error' ? (
-                          <div className="text-xs text-red-400 font-mono mt-1">OCR failed: Valid Aadhaar/PAN pattern not found.</div>
+                          <div className="text-xs text-red-400 font-mono mt-1">{docValidation?.reason || 'Validation failed'}</div>
                         ) : (
                           <div className="text-xs text-green-400 font-mono mt-1">Hash: {docHash.slice(0, 16)}...</div>
                         )}
                       </div>
                     </div>
+
                     <button onClick={() => { setFile(null); setTerminalLines([]); setProofDone(false); setMintDone(false); setPaymentDone(false); setDocStatus(null); }} className="text-xs text-gray-500 dark:text-gray-400 hover:text-[var(--foreground)] transition-colors underline underline-offset-2">Change</button>
                   </div>
                 )}
