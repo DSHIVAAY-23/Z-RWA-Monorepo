@@ -1,7 +1,7 @@
 {
-  "proofsGenerated": 6,
-  "walletsVerified": 2,
-  "tokensMinted": 2,
+  "proofsGenerated": 7,
+  "walletsVerified": 3,
+  "tokensMinted": 3,
   "logs": [
     {
       "proofId": "64f9c3cf-bccd-4738-ab3e-378c6daed6ec",
@@ -50,6 +50,18 @@
       "timestamp": 1777552183633,
       "type": "TOKEN_MINTED",
       "signature": "2EqWJg6GFR2mYQKWk5hJUYyPxmHxN3qMZaAfQWYCx6GGS56JkoKRdzdDsW2K7A3BcyLM8ZMoE26VsXHScuSauTTg"
+    },
+    {
+      "proofId": "98f1e7df-7a49-4b77-a09a-9e36226d74ff",
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777829071273,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "DHEi2Q72C5mdAvnak3wFhTk7jMHsZ76MGhNeTg4yenXw",
+      "timestamp": 1777829078545,
+      "type": "TOKEN_MINTED",
+      "signature": "56AoX4Bt4F2TPc46hiwRgjfEomfg8vEUd3kEYsaTuo6opSoEeaw6cKk7YS8Qr5TuWRBxLjqjdTUH9eutCweBEsPw"
     }
   ]
 }
