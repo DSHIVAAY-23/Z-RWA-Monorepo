@@ -1,63 +1,144 @@
-# Z-RWA Protocol — ZK-Powered Compliance for Indian RWAs
+# Z-RWA — ZK Compliance Infrastructure for Indian RWA
 
-## ⚡ Overview
-Z-RWA is a privacy-preserving compliance system for Institutional DeFi on Solana. It enables investors to prove they meet regulatory requirements (Aadhaar, PAN, age, etc.) using **Zero-Knowledge Proofs**, ensuring that identity data never touches the blockchain.
+> Privacy-preserving KYC for Real World Asset tokenization on Solana.  
+> Identity never leaves your device. Compliance is proven cryptographically.
 
-## 🚀 Key Features
-- **ZK-ID Engine**: Real Circom circuits for identity verification without data leakage.
-- **On-Chain Verifier**: Groth16 proof verification implemented in Anchor.
-- **Compliant Assets**: Real-time minting of **Token2022** assets upon proof verification.
-- **Audit-Ready**: Built-in logging and verification trails for institutional reporting.
-
-## 🛠️ Tech Stack
-- **ZK**: Circom, SnarkJS (Groth16)
-- **Blockchain**: Solana (Anchor), Token2022
-- **Frontend**: Next.js, Web3.js
-- **RPC**: QuickNode
-
-## 🔗 Final Submission Documentation
-For detailed achievements, deployment addresses, and how to verify, please see:
-👉 **[SUBMISSION_ZK_RWA.md](SUBMISSION_ZK_RWA.md)**
+🌐 **Live Demo:** https://z-rwa-monorepo.vercel.app  
+📦 **GitHub:** https://github.com/DSHIVAAY-23/Z-RWA-Monorepo  
+🎥 **Demo Video:** [ADD LOOM LINK HERE]
 
 ---
 
-## 🏃 Quick Start
+## The Problem
 
-```bash
-# 1. Install dependencies
-npm install
+India's DPDP Act 2023 makes storing Aadhaar/PAN on public blockchains **illegal**.  
+Traditional KYC requires trusting a centralized verifier — a single point of failure.  
+Institutions won't enter permissionless DeFi without cryptographic compliance guarantees.
 
-# 2. Build for production (Crucial for ZK performance)
-cd apps/web
-npm run build
+## The Solution
 
-# 3. Start the optimized production server
-npm run start
+Z-RWA generates a **Groth16 ZK proof** that an investor is compliant — without revealing any identity data.
+
+```
+User uploads Aadhaar/PAN locally
+        ↓
+Poseidon hash computed on device
+        ↓
+SP1 RISC-V zkVM generates Groth16 proof
+        ↓
+Only 260-byte proof submitted to Solana
+        ↓
+Anchor program verifies proof on-chain
+        ↓
+Token2022 RWA token minted to wallet
 ```
 
-## ⚡ Performance Metrics
-- **Proof Generation**: ~1-2 seconds (Production optimized)
-- **Proof Size**: 260-byte lightweight Groth16 proof
-- **Verification**: Sub-second on-chain verification via Anchor
-- **Constraints**: 7.4M SP1-compatible constraints
-
-
-## 🌐 Vercel Deployment
-
-To deploy this project to Vercel, follow these steps:
-
-1. **Root Directory**: Set the "Root Directory" to `apps/web` in your Vercel project settings.
-2. **Environment Variables**:
-   - `BACKEND_WALLET_SECRET`: Paste the contents of your `id.json` (the numeric array) to allow the backend to mint tokens.
-   - `NEXT_PUBLIC_SOLANA_NETWORK`: `devnet`
-3. **Framework Preset**: Ensure "Next.js" is selected.
+Chain learns nothing. Compliance is proven. Identity stays private.
 
 ---
 
-## 📜 Project Structure
-- `circuits/`: ZK circuits and setup scripts.
-- `apps/web/`: Next.js frontend and ZK-backend.
-- `Z-RWA/programs/z_rwa_verifier/`: Anchor verifier program.
+## Technical Stack
+
+| Layer | Technology |
+|-------|-----------|
+| ZK Proving | SP1 RISC-V zkVM (Groth16) |
+| On-chain | Solana — Anchor framework |
+| Token Standard | Token2022 with custom transfer hooks |
+| Hashing | Poseidon (ZK-friendly) |
+| Frontend | Next.js + Wallet Adapter |
+| Network | Solana Devnet |
 
 ---
-*Developed for Colosseum Frontier 2026.*
+
+## Key Metrics
+
+| Metric | Value |
+|--------|-------|
+| Proof Size | 260 bytes |
+| Constraints | 7,493,634 |
+| Proving Time | ~23.4 seconds |
+| On-chain Verification | Sub-second |
+| Proof Format | Groth16 |
+
+---
+
+## How It Works
+
+1. **Document Upload** — Aadhaar/PAN processed locally via OCR. Zero data transmitted.
+2. **ZK Proof Generation** — SP1 RISC-V zkVM runs the compliance circuit. Groth16 proof generated.
+3. **On-chain Submission** — 260-byte proof submitted to Solana via Anchor program.
+4. **Token Minting** — `z_rwa_verifier` program verifies proof → Token2022 minted to wallet.
+5. **Transfer Enforcement** — Every RWA transfer gated by Token2022 hook checking proof validity.
+
+---
+
+## Local Setup
+
+```bash
+git clone https://github.com/DSHIVAAY-23/Z-RWA-Monorepo
+cd Z-RWA-Monorepo/apps/web
+cp .env.example .env
+npm install
+npm run dev
+```
+
+Open http://localhost:3000
+
+### Environment Variables
+
+```env
+BACKEND_WALLET_SECRET=    # contents of id.json (numeric array)
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+```
+
+---
+
+## Project Structure
+
+```
+Z-RWA-Monorepo/
+├── apps/web/              # Next.js frontend + API routes
+│   ├── app/               # Pages and components
+│   └── api/               # mint-token, verify, stats endpoints
+├── circuits/              # ZK circuits and setup scripts
+└── Z-RWA/
+    └── programs/
+        └── z_rwa_verifier/ # Anchor on-chain verifier program
+```
+
+---
+
+## Hackathon Tracks
+
+| Track | Branch | Deadline | Status |
+|-------|--------|----------|--------|
+| Colosseum Frontier (Main) | main | May 2026 | ✅ Live |
+| 100xDevs Frontier | feature/100xdevs | May 25 | ✅ Submitted |
+| Privacy Track — MagicBlock | main | May 27 | 🔄 In Progress |
+| Dodo Payments — Superteam India | feature/dodo-payments | May 26 | 🔄 In Progress |
+| Eitherway / QuickNode | feature/quicknode-rpc | May 27 | 🔄 In Progress |
+| Zerion Agent | feature/zerion-agent | May 26 | 🔄 In Progress |
+| Encrypt & Ika | feature/encrypt-ika | Jun 1 | 📋 Planned |
+| Adevar Labs Security | main | Jun 10 | 📋 Planned |
+
+---
+
+## Why This Matters
+
+- **SEBI** is expected to release an RWA framework in 2026 — infrastructure needs to exist before regulation
+- **500M+ Indian retail investors** cannot participate in RWA DeFi today due to compliance barriers
+- **DPDP Act 2023** makes centralized KYC storage a legal liability — ZK is the only compliant path
+
+---
+
+## Security Model
+
+- Identity data never leaves the user's device
+- Only a 260-byte Groth16 proof is submitted on-chain
+- Token2022 transfer hooks enforce compliance on every transfer — not just at mint
+- Proof binding via `ZK_RAG_VKEY` prevents proof replay across different verification keys
+
+---
+
+Built for Colosseum Frontier 2026 · Powered by SP1 · Solana · Token2022  
+Developer: [@DSHIVAAY-23](https://github.com/DSHIVAAY-23)
