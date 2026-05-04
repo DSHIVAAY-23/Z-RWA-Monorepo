@@ -83,7 +83,7 @@ export default function HomePage() {
   const [mintAddress, setMintAddress] = useState("");
   const [mintStatus, setMintStatus] = useState<'idle' | 'awaiting_signature' | 'processing' | 'success' | 'error'>('idle');
   const [txHash, setTxHash] = useState("");
-  const [actualStats, setActualStats] = useState({ size: "260 bytes", time: "~23s" });
+  const [actualStats, setActualStats] = useState({ size: "260 bytes", time: "~2-3s" });
 
   // Step 4: Payment
   const [isPaying, setIsPaying] = useState(false);
@@ -676,7 +676,7 @@ export default function HomePage() {
                 )}
               </div>
 
-              {/* STEP 4: Private Payment via MagicBlock — Phase 2 */}
+              {/* Phase 2 Roadmap */}
               <div className="rounded-xl border border-gray-800 bg-black/20 p-6 md:p-8 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div className="flex items-center gap-3">
@@ -684,7 +684,7 @@ export default function HomePage() {
                       4
                     </div>
                     <span className="font-semibold text-gray-500 font-space text-lg">
-                      💸 Private RWA Purchase
+                      Phase 2 Roadmap
                     </span>
                   </div>
                   <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-gray-800 text-gray-500 border border-gray-700 tracking-widest font-bold w-fit">
@@ -692,10 +692,35 @@ export default function HomePage() {
                   </span>
                 </div>
                 
-                <div className="rounded-xl border border-gray-800 bg-gray-950/60 p-6 space-y-4">
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    MagicBlock Ephemeral Rollup integration for shielded RWA payments — planned for Phase 2. Your compliance proof (generated above) will be used to authorize private settlement.
-                  </p>
+                <div className="rounded-xl border border-gray-800 bg-gray-950/60 p-6 space-y-6">
+                  <div className="space-y-6">
+                    {[
+                      {
+                        icon: "🏛️",
+                        title: "DigiLocker Integration",
+                        desc: "Documents pulled directly from India's government vault. Zero fake document risk."
+                      },
+                      {
+                        icon: "⚡",
+                        title: "MPC Prover Network",
+                        desc: "Distributed proving — proofs in under 3 seconds. No single party sees full input."
+                      },
+                      {
+                        icon: "🏗️",
+                        title: "Full RWA Platform",
+                        desc: "End-to-end tokenization of land, bonds, commodities. Compliance enforced on every transfer via Token2022 hooks."
+                      }
+                    ].map((item, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="text-xl shrink-0">{item.icon}</div>
+                        <div>
+                          <h4 className="text-gray-200 font-bold text-sm mb-0.5 font-space">{item.title}</h4>
+                          <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       disabled
@@ -712,9 +737,6 @@ export default function HomePage() {
                       Read Integration Plan →
                     </a>
                   </div>
-                  <p className="text-gray-600 text-xs font-mono">
-                    Architecture documented in SUBMISSION_MAGICBLOCK.md · SP1 proof ↔ MagicBlock PER bridge designed
-                  </p>
                 </div>
               </div>
             </div>
