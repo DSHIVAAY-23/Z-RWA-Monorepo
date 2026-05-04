@@ -45,7 +45,17 @@ export async function generateAndSubmitProof(params: {
      
      // 2. Submit proof to Solana and Mint RWA
      const serverKeyStr = process.env.SERVER_PRIVATE_KEY;
-     const serverKey = serverKeyStr ? Keypair.fromSecretKey(bs58.decode(serverKeyStr)) : Keypair.generate();
+     const backendSecret = process.env.BACKEND_WALLET_SECRET;
+     
+     let serverKey: Keypair;
+     if (serverKeyStr) {
+       serverKey = Keypair.fromSecretKey(bs58.decode(serverKeyStr));
+     } else if (backendSecret) {
+       serverKey = Keypair.fromSecretKey(Uint8Array.from(JSON.parse(backendSecret)));
+     } else {
+       serverKey = Keypair.generate();
+     }
+     
      const serverWallet = new MockNodeWallet(serverKey);
 
      // Note: In hackathon if there is no serverKey configured, it will generate a new Keypair without SOL.

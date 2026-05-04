@@ -6,26 +6,57 @@ import Link from 'next/link';
 export default function InvestSuccessPage() {
   const [paymentId, setPaymentId] = useState<string>('');
   const [walletAddress, setWalletAddress] = useState<string>('');
+  const [status, setStatus] = useState<string>('pending');
+  const [txSignature, setTxSignature] = useState<string>('');
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     // Extract URL params client-side
     const params = new URLSearchParams(window.location.search);
-    const session = params.get('session') || params.get('paymentId') || '';
-    const wallet = params.get('wallet') || '';
+    
+    // session or paymentId could be provided
+    let session = params.get('session') || params.get('paymentId') || '';
+    let wallet = params.get('wallet') || '';
+
+    // BUG FIX: Handle malformed redirects where params are concatenated with '?' instead of '&'
+    // e.g. wallet=ADDR?paymentId=ID
+    if (wallet.includes('?')) {
+      const parts = wallet.split('?');
+      wallet = parts[0];
+      if (!session && parts[1].includes('paymentId=')) {
+        session = parts[1].split('paymentId=')[1];
+      }
+    }
+
     setPaymentId(session);
     setWalletAddress(wallet);
 
-    // Also try to recover wallet from paymentStore via payment-status endpoint
-    if (session && !wallet) {
-      fetch(`/api/payment-status/${session}`)
-        .then((r) => r.json())
-        .then((data) => {
-          if (data?.walletAddress) setWalletAddress(data.walletAddress);
-        })
-        .catch(() => {});
+    // Initial fetch
+    if (session) {
+      checkStatus(session);
+      
+      // Setup polling every 3 seconds
+      const interval = setInterval(() => {
+        checkStatus(session);
+      }, 3000);
+      
+      return () => clearInterval(interval);
     }
   }, []);
+
+  const checkStatus = async (id: string) => {
+    try {
+      const res = await fetch(`/api/payment-status/${id}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.status) setStatus(data.status);
+        if (data.txSignature) setTxSignature(data.txSignature);
+        if (data.walletAddress && !walletAddress) setWalletAddress(data.walletAddress);
+      }
+    } catch (err) {
+      console.error("Failed to poll status:", err);
+    }
+  };
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -34,7 +65,9 @@ export default function InvestSuccessPage() {
     });
   };
 
-  const explorerUrl = walletAddress
+  const explorerUrl = txSignature
+    ? `https://explorer.solana.com/tx/${txSignature}?cluster=devnet`
+    : walletAddress
     ? `https://explorer.solana.com/address/${walletAddress}?cluster=devnet`
     : 'https://explorer.solana.com/?cluster=devnet';
 
@@ -158,14 +191,14 @@ export default function InvestSuccessPage() {
           <p
             style={{
               textAlign: 'center',
-              color: '#a855f7',
+              color: status === 'complete' ? '#22c55e' : '#a855f7',
               fontWeight: 600,
               fontSize: '15px',
               marginBottom: '28px',
               letterSpacing: '0.02em',
             }}
           >
-            ZK Proof Being Generated...
+            {status === 'complete' ? 'Investment Complete!' : status === 'processing' ? 'ZK Proof Being Generated...' : 'Verifying Payment...'}
           </p>
 
           {/* Progress steps */}
@@ -179,9 +212,9 @@ export default function InvestSuccessPage() {
             }}
           >
             {[
-              { label: 'INR Payment Confirmed', done: true },
-              { label: 'ZK Compliance Proof Generating', done: false, active: true },
-              { label: 'Token2022 RWA Token Minting', done: false },
+              { label: 'INR Payment Confirmed', done: status === 'processing' || status === 'complete' },
+              { label: 'ZK Compliance Proof Generating', done: status === 'complete', active: status === 'processing' },
+              { label: 'Token2022 RWA Token Minting', done: status === 'complete', active: status === 'complete' && !txSignature },
             ].map((step, i) => (
               <div
                 key={i}
@@ -345,7 +378,7 @@ export default function InvestSuccessPage() {
                 transition: 'opacity 0.2s',
               }}
             >
-              View on Solana Explorer ↗
+              {txSignature ? 'View Transaction ↗' : 'View Wallet on Explorer ↗'}
             </a>
 
             <Link

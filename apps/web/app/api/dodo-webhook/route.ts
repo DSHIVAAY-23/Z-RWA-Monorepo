@@ -19,46 +19,47 @@ export async function POST(request: Request) {
     console.log(`[Webhook] Event type: ${event.type || 'unknown'}`);
 
     // 2. Handle payment.succeeded
-    // Note: Dodo events usually follow the structure { type: 'payment.succeeded', data: { ... } }
     if (event.type === 'payment.succeeded') {
       const paymentData = event.data;
       const metadata = paymentData?.metadata || {};
       const walletAddress = metadata.wallet_address;
+      const paymentId = paymentData.payment_id;
 
-      if (walletAddress) {
-        console.log(`[Webhook] Payment succeeded for wallet: ${walletAddress}. Triggering mint...`);
+      if (walletAddress && paymentId) {
+        console.log(`[Webhook] Payment ${paymentId} succeeded for ${walletAddress}. Triggering ZK flow...`);
         
-        // Call existing /api/mint-token
-        // We use the absolute URL to ensure it works in all environments
-        const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-        
-        // Trigger the minting process. 
-        // We pass a dummy txSignature if the existing endpoint requires it, 
-        // or we assume it's been updated to handle payment-triggered mints.
-        try {
-          const mintResponse = await fetch(`${appUrl}/api/mint-token`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-              walletAddress,
-              txSignature: `DODO_${paymentData.payment_id || Date.now()}` // Internal ref
-            }),
-          });
-          
-          if (mintResponse.ok) {
-            console.log(`[Webhook] Minting triggered successfully for ${walletAddress}`);
-          } else {
-            const err = await mintResponse.text();
-            console.error(`[Webhook] Minting failed: ${err}`);
-          }
-        } catch (mintErr) {
-          console.error('[Webhook] Error calling mint-token API:', mintErr);
+        // 3. Update state to 'processing' for the UI poller
+        const { paymentStore } = await import('../../../lib/paymentStore');
+        const state = paymentStore.get(paymentId);
+        if (state) {
+          state.status = 'processing';
+          paymentStore.set(paymentId, state);
         }
+
+        // 4. Trigger ZK Orchestrator (Background-ish)
+        // Note: In a real prod environment, this should be a background job.
+        // For the hackathon, we trigger it here.
+        const { generateAndSubmitProof } = await import('../../../lib/zkMintOrchestrator');
+        
+        // We don't 'await' here to avoid webhook timeout, but Vercel might kill the process
+        // unless we use edge functions or a queue. For the demo, we'll try to let it run.
+        generateAndSubmitProof({
+          aadhaarHash: metadata.aadhaar_hash || '00000000',
+          panHash: metadata.pan_hash || '00000000',
+          walletAddress: walletAddress,
+          paymentId: paymentId
+        }).then(result => {
+          console.log(`[Webhook] ZK Flow completed for ${paymentId}:`, result.txSignature);
+        }).catch(err => {
+          console.error(`[Webhook] ZK Flow failed for ${paymentId}:`, err);
+          if (state) {
+            state.status = 'failed';
+            paymentStore.set(paymentId, state);
+          }
+        });
       } else {
-        console.warn('[Webhook] No wallet_address found in payment metadata');
+        console.warn('[Webhook] No wallet_address or payment_id found');
       }
-    } else {
-      console.log(`[Webhook] Event ${event.type} received, no action taken.`);
     }
 
     // Always return 200 to acknowledge receipt

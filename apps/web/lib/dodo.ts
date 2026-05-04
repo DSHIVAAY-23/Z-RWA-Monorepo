@@ -18,33 +18,43 @@ export async function createCheckoutSession(params: {
   redirectUrl: string;
   webhookUrl: string;
 }): Promise<{ checkoutUrl: string; paymentId: string }> {
-
   try {
-     // Dodo Checkout Sessions Create using dynamic cart if possible
-     const checkoutSession = await dodo.checkoutSessions.create({
-        product_cart: [{
-             name: "Z-RWA Investment Token",
-             // To support dynamic pricing in test environments
-             amount: params.amount,
-             price: params.amount,
-             currency: params.currency,
-             quantity: 1,
-        } as any],
-        return_url: params.redirectUrl,
-        metadata: params.metadata,
-     });
+    const productId = process.env.NEXT_PUBLIC_DODO_PRODUCT_ID;
+    if (!productId || productId === 'your_product_id_here') {
+       throw new Error("NEXT_PUBLIC_DODO_PRODUCT_ID is not configured.");
+    }
+
+    // Dodo Checkout Sessions Create using SDK v2 structure
+    const checkoutSession = await dodo.checkoutSessions.create({
+      product_cart: [
+        {
+          product_id: productId,
+          quantity: 1,
+          amount: params.amount, // Represented in lowest denomination (paise)
+        },
+      ],
+      return_url: params.redirectUrl,
+      metadata: params.metadata,
+    });
      
-     return {
-         checkoutUrl: (checkoutSession as any).checkout_url || `${params.redirectUrl}?paymentId=${checkoutSession.session_id}`,
-         paymentId: (checkoutSession as any).payment_id || checkoutSession.session_id
-     };
-  } catch (error) {
-     console.error("Dodo API error, falling back to mock:", error);
-     const mockPayId = `mock_payment_${Date.now()}`;
-     return {
-         checkoutUrl: `${params.redirectUrl}?paymentId=${mockPayId}`,
-         paymentId: mockPayId
-     }
+    return {
+      checkoutUrl: (checkoutSession as any).checkout_url || `${params.redirectUrl}&paymentId=${checkoutSession.session_id}`,
+      paymentId: (checkoutSession as any).payment_id || checkoutSession.session_id
+    };
+
+  } catch (error: any) {
+    console.error("[Dodo] API Error Details:", {
+      message: error.message,
+      status: error.status,
+      data: error.data,
+    });
+    
+    // Fallback for demo purposes if API fails
+    const mockPayId = `mock_payment_${Date.now()}`;
+    return {
+      checkoutUrl: `${params.redirectUrl}&paymentId=${mockPayId}`,
+      paymentId: mockPayId
+    };
   }
 }
 
