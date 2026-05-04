@@ -140,5 +140,54 @@ Z-RWA-Monorepo/
 
 ---
 
+## Dodo Payments Integration
+
+**Superteam India × Dodo Payments Hackathon Track**
+
+### Flow
+
+```
+INR Payment (UPI / Card / Net Banking)
+        ↓  Dodo Payments hosted checkout
+Payment Confirmed (webhook → /api/dodo-webhook)
+        ↓  Signature verified via standardwebhooks
+ZK Proof Generated (SP1 Groth16 — identity stays private)
+        ↓  260-byte proof submitted to Solana
+Token2022 RWA Token Minted to Investor Wallet
+```
+
+### Setup
+
+1. Get a **testmode API key** from [app.dodopayments.com](https://app.dodopayments.com)
+2. Create a **one-time payment product** in the Dodo dashboard — note the Product ID
+3. Add the following to your `.env` file:
+   ```env
+   DODO_API_KEY=your_dodo_testmode_api_key_here
+   DODO_WEBHOOK_SECRET=your_webhook_secret_here
+   NEXT_PUBLIC_DODO_PRODUCT_ID=your_product_id_here
+   NEXT_PUBLIC_APP_URL=https://your-vercel-url.vercel.app
+   ```
+4. In the Dodo dashboard, set your **Webhook URL** to:
+   ```
+   https://your-domain.vercel.app/api/dodo-webhook
+   ```
+
+### Key API Routes
+
+| Route | Method | Purpose |
+|-------|--------|---------|
+| `/api/create-payment` | POST | Creates Dodo checkout session, returns `checkoutUrl` |
+| `/api/dodo-webhook` | POST | Verifies signature, triggers ZK proof + mint |
+| `/api/payment-status/:id` | GET | Polls payment/mint status for UI |
+| `/invest` | GET | INR investment UI (3-step: ID → Pay → Receive) |
+| `/invest/success` | GET | Post-payment success page with ZK status |
+
+### Live Demo
+
+- **Invest page:** https://z-rwa-dodo.vercel.app/invest
+- **Branch:** `feature/dodo-payments`
+
+---
+
 Built for Colosseum Frontier 2026 · Powered by SP1 · Solana · Token2022  
 Developer: [@DSHIVAAY-23](https://github.com/DSHIVAAY-23)
