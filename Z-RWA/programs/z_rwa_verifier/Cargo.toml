@@ -1,0 +1,30 @@
+[workspace]
+
+[package]
+name = "z_rwa_verifier"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "z_rwa_verifier"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+
+
+[dependencies]
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+groth16-solana = "0.2.0"
+blake3 = "=1.8.2"
+toml_datetime = "=0.6.11"
+
+[patch.crates-io]
+curve25519-dalek = { git = "https://github.com/solana-labs/curve25519-dalek.git", rev = "b500cdc2a920cd5bff9e2dd974d7b97349d61464" }

@@ -1,106 +1,144 @@
-# Z-RWA: Privacy-Preserving Compliance Infrastructure for Indian RWAs
+# Z-RWA — ZK Compliance Infrastructure for Indian RWA
 
-![Solana Devnet](https://img.shields.io/badge/Solana-Devnet-14F195?style=flat-square&logo=solana&logoColor=white) 
-![SP1 Groth16](https://img.shields.io/badge/SP1-Groth16-7C3AED?style=flat-square) 
-![Anchor Framework](https://img.shields.io/badge/Anchor-Framework-000000?style=flat-square) 
-![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)
+> Privacy-preserving KYC for Real World Asset tokenization on Solana.  
+> Identity never leaves your device. Compliance is proven cryptographically.
 
-Z-RWA is a technical framework designed to bridge the $3.5T Indian Real-World Asset (RWA) market with decentralized finance on Solana. The protocol addresses a fundamental friction point: the requirement for identity verification (KYC/Aadhaar/PAN) against the privacy risks of publishing Personally Identifiable Information (PII) on a public ledger.
+🌐 **Live Demo:** https://z-rwa-monorepo.vercel.app  
+📦 **GitHub:** https://github.com/DSHIVAAY-23/Z-RWA-Monorepo  
+🎥 **Demo Video:** [ADD LOOM LINK HERE]
 
-## Core Problem
-Tokenizing Indian physical assets currently necessitates the exposure of sensitive government-issued document data on-chain or via centralized intermediaries. This creates a privacy-compliance paradox where regulatory transparency conflicts with individual data security, effectively stalling institutional adoption of on-chain RWAs.
+---
 
-## Protocol Solution
-Z-RWA utilizes a decentralized privacy pipeline to verify compliance without data leakage:
-- **Local Verification**: Government documents (Aadhaar/PAN/Land Records) are processed entirely on the user's device using local OCR and hashing.
-- **SP1 zkVM Integration**: A Succinct SP1 RISC-V program generates a Zero-Knowledge proof (Groth16) confirming document validity against specific criteria.
-- **On-Chain Assertion**: The Solana program verifies the proof artifacts (260 bytes) in sub-second time.
-- **Native Issuance**: Upon successful verification, the protocol executes a Cross-Program Invocation (CPI) to the Token2022 program to mint a compliance-gated RWA marker (`Z-RWA-COMPLY`).
+## The Problem
 
-## Technical Features
-- **Client-Side OCR Gate**: Integration of `tesseract.js` for local document scanning and validation.
-- **SP1 RISC-V Proving**: Efficient proof generation with ~7.4M constraints and hardware-verified proving times (~23.4s).
-- **Embedded Groth16 Verifier**: Hardcoded verification keys (`ZK_RAG_VKEY`) within the Anchor program for immutable validation.
-- **Token2022 Compliance**: Native support for Solana's latest token standard, enabling permanent delegates and compliance metadata.
+India's DPDP Act 2023 makes storing Aadhaar/PAN on public blockchains **illegal**.  
+Traditional KYC requires trusting a centralized verifier — a single point of failure.  
+Institutions won't enter permissionless DeFi without cryptographic compliance guarantees.
 
-## Technical Stack
-- **Blockchain**: Solana (Anchor 0.31.1+)
-- **ZK Proof System**: SP1 (Succinct), Groth16
-- **Smart Contracts**: Rust (Anchor Framework)
-- **Frontend**: Next.js, Tailwind CSS, Solana Web3.js
-- **OCR Engine**: Tesseract.js (WASM)
+## The Solution
 
-## Installation & Setup
+Z-RWA generates a **Groth16 ZK proof** that an investor is compliant — without revealing any identity data.
 
-### Prerequisites
-- Node.js v20+
-- Anchor CLI v0.31.0+
-- Solana CLI v1.18+
-
-### Execution Flow
-
-1. **Deploy Solana Program**:
-```bash
-cd Z-RWA
-anchor build
-anchor deploy --provider.cluster devnet
+```
+User uploads Aadhaar/PAN locally
+        ↓
+Poseidon hash computed on device
+        ↓
+SP1 RISC-V zkVM generates Groth16 proof
+        ↓
+Only 260-byte proof submitted to Solana
+        ↓
+Anchor program verifies proof on-chain
+        ↓
+Token2022 RWA token minted to wallet
 ```
 
-2. **Launch Dashboard**:
+Chain learns nothing. Compliance is proven. Identity stays private.
+
+---
+
+## Technical Stack
+
+| Layer | Technology |
+|-------|-----------|
+| ZK Proving | SP1 RISC-V zkVM (Groth16) |
+| On-chain | Solana — Anchor framework |
+| Token Standard | Token2022 with custom transfer hooks |
+| Hashing | Poseidon (ZK-friendly) |
+| Frontend | Next.js + Wallet Adapter |
+| Network | Solana Devnet |
+
+---
+
+## Key Metrics
+
+| Metric | Value |
+|--------|-------|
+| Proof Size | 260 bytes |
+| Constraints | 7,493,634 |
+| Proving Time | ~23.4 seconds |
+| On-chain Verification | Sub-second |
+| Proof Format | Groth16 |
+
+---
+
+## How It Works
+
+1. **Document Upload** — Aadhaar/PAN processed locally via OCR. Zero data transmitted.
+2. **ZK Proof Generation** — SP1 RISC-V zkVM runs the compliance circuit. Groth16 proof generated.
+3. **On-chain Submission** — 260-byte proof submitted to Solana via Anchor program.
+4. **Token Minting** — `z_rwa_verifier` program verifies proof → Token2022 minted to wallet.
+5. **Transfer Enforcement** — Every RWA transfer gated by Token2022 hook checking proof validity.
+
+---
+
+## Local Setup
+
 ```bash
-cd apps/web
+git clone https://github.com/DSHIVAAY-23/Z-RWA-Monorepo
+cd Z-RWA-Monorepo/apps/web
+cp .env.example .env
 npm install
 npm run dev
 ```
 
-The application will be accessible at `http://localhost:3000`.
+Open http://localhost:3000
 
-## Dodo Payments Integration
+### Environment Variables
 
-Z-RWA integrates Dodo Payments as the fiat onboarding layer for 
-Indian retail investors. Investors pay in INR via UPI or card — 
-Dodo handles the fiat collection, Z-RWA handles the compliant 
-on-chain delivery.
+```env
+BACKEND_WALLET_SECRET=    # contents of id.json (numeric array)
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+```
 
-### Flow
-1. Investor enters Aadhaar/PAN (hashed locally, never transmitted)
-2. Selects INR amount → redirected to Dodo checkout
-3. Pays via UPI / credit card / net banking
-4. Dodo webhook triggers ZK proof generation
-5. Groth16 compliance proof submitted to Solana
-6. Token2022 RWA token minted and delivered
+---
 
-### Why Dodo + Solana beats the status quo
-| | Traditional | Z-RWA + Dodo |
-|---|---|---|
-| Settlement time | T+2 days | < 60 seconds |
-| KYC storage | Centralized DB | ZK proof on-chain |
-| Minimum investment | ₹50,000+ | ₹1,000 |
-| Payment methods | NEFT/RTGS only | UPI, card, netbanking |
+## Project Structure
 
-### Setup
-Add DODO_API_KEY and DODO_WEBHOOK_SECRET to .env
-Run webhook locally: npx ngrok http 3000
-Set webhook URL in Dodo dashboard to: https://[ngrok-url]/api/dodo-webhook
+```
+Z-RWA-Monorepo/
+├── apps/web/              # Next.js frontend + API routes
+│   ├── app/               # Pages and components
+│   └── api/               # mint-token, verify, stats endpoints
+├── circuits/              # ZK circuits and setup scripts
+└── Z-RWA/
+    └── programs/
+        └── z_rwa_verifier/ # Anchor on-chain verifier program
+```
 
-## Architecture & Data Flow
-Detailed technical documentation on the cryptographic pipeline can be found in [flow.md](./flow.md).
+---
 
-## User Journey
-A comprehensive guide for institutional users and verifiers is available in [walkthrough.md](./walkthrough.md).
+## Hackathon Tracks
 
-## Roadmap & Future Architecture
+| Track | Branch | Deadline | Status |
+|-------|--------|----------|--------|
+| Colosseum Frontier (Main) | main | May 2026 | ✅ Live |
+| 100xDevs Frontier | feature/100xdevs | May 25 | ✅ Submitted |
+| Privacy Track — MagicBlock | main | May 27 | 🔄 In Progress |
+| Dodo Payments — Superteam India | feature/dodo-payments | May 26 | 🔄 In Progress |
+| Eitherway / QuickNode | feature/quicknode-rpc | May 27 | 🔄 In Progress |
+| Zerion Agent | feature/zerion-agent | May 26 | 🔄 In Progress |
+| Encrypt & Ika | feature/encrypt-ika | Jun 1 | 📋 Planned |
+| Adevar Labs Security | main | Jun 10 | 📋 Planned |
 
-The Z-RWA V1 MVP establishes the core cryptographic pipeline for off-chain document verification and Token2022 minting. Upcoming phases will harden the protocol for institutional mainnet deployment.
+---
 
-### Phase 2: Protocol Hardening & Institutional Gating
-* **Token2022 Transfer Hooks**: Upgrading the `z_rwa` marker to implement `spl_transfer_hook_interface`. This will enforce that RWA tokens can only be transferred to destination wallets that hold a valid, ZK-verified Compliance Record PDA, effectively creating a fully gated compliance ecosystem.
-* **zk-Regex Integration**: Shifting the OCR validation from the client-side frontend directly into the SP1 RISC-V circuit. This guarantees cryptographically that the hidden document contains valid government ID formats before the proof is generated.
+## Why This Matters
 
-### Phase 3: Developer Abstraction & Mainnet
-* **Z-RWA Developer SDK**: Releasing an NPM package that abstracts the SP1 verification logic, allowing any Solana dApp to integrate privacy-preserving KYC with minimal overhead.
-* **Circuit Audits**: Comprehensive security audits of the 7.4M constraint Groth16 circuit prior to Solana Mainnet deployment.
-* **Nullifier Registry**: Implementing a strict 1-to-1 nullifier PDA registry to prevent proof-replay attacks and ensure sybil resistance.
+- **SEBI** is expected to release an RWA framework in 2026 — infrastructure needs to exist before regulation
+- **500M+ Indian retail investors** cannot participate in RWA DeFi today due to compliance barriers
+- **DPDP Act 2023** makes centralized KYC storage a legal liability — ZK is the only compliant path
 
-## License
-Distributed under the MIT License. Copyright (c) 2026 Z-RWA Protocol.
+---
+
+## Security Model
+
+- Identity data never leaves the user's device
+- Only a 260-byte Groth16 proof is submitted on-chain
+- Token2022 transfer hooks enforce compliance on every transfer — not just at mint
+- Proof binding via `ZK_RAG_VKEY` prevents proof replay across different verification keys
+
+---
+
+Built for Colosseum Frontier 2026 · Powered by SP1 · Solana · Token2022  
+Developer: [@DSHIVAAY-23](https://github.com/DSHIVAAY-23)

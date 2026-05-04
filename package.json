@@ -1,0 +1,20 @@
+{
+  "name": "z-rwa-monorepo",
+  "version": "1.0.0",
+  "description": "![RPC](https://img.shields.io/badge/RPC-RPC%20Fast-00c4a0?style=flat-square) ![Solana Devnet](https://img.shields.io/badge/Solana-Devnet-14F195?style=flat-square&logo=solana&logoColor=white)  ![SP1 Groth16](https://img.shields.io/badge/SP1-Groth16-7C3AED?style=flat-square)  ![Anchor Framework](https://img.shields.io/badge/Anchor-Framework-000000?style=flat-square)  ![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "benchmark": "npx ts-node scripts/rpc_benchmark.ts",
+    "privacy-demo": "npx ts-node scripts/privacy_demo.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "dotenv": "^17.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

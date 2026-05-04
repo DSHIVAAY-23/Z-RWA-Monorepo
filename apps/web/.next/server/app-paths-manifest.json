@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/create-checkout/route": "app/api/create-checkout/route.js",
@@ -7,3 +8,6 @@
   "/invest/page": "app/invest/page.js",
   "/page": "app/page.js"
 }
+=======
+{}
+>>>>>>> main
