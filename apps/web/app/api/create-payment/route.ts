@@ -31,7 +31,14 @@ export async function POST(request: Request) {
     }
 
     const walletTrimmed = wallet_address.trim();
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    
+    // Dynamically determine app URL from headers if env is missing or localhost
+    const host = request.headers.get('host');
+    const protocol = host?.includes('localhost') ? 'http' : 'https';
+    let appUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
+    
+    // Ensure no trailing slash
+    if (appUrl.endsWith('/')) appUrl = appUrl.slice(0, -1);
 
     console.log(`[create-payment] Initiating INR ${amount_inr} payment for wallet ${walletTrimmed}`);
 

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import ZNavbar from '../components/ZNavbar';
+import ZNavbar from '../../components/ZNavbar';
 
 export default function InvestPage() {
   const { publicKey } = useWallet();
