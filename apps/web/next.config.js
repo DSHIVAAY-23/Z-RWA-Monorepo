@@ -2,10 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  /* 
-    This tells Vercel to explicitly include these static files 
-    in the serverless function bundle for the proof API.
-  */
+  generateBuildId: async () => null,
   outputFileTracingIncludes: {
     '/api/generate-proof': ['./public/circuits/**/*'],
   },
