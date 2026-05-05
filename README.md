@@ -4,8 +4,7 @@
 > Identity never leaves your device. Compliance is proven cryptographically.
 
 🌐 **Live Demo:** https://z-rwa-monorepo.vercel.app  
-📦 **GitHub:** https://github.com/DSHIVAAY-23/Z-RWA-Monorepo  
-🎥 **Demo Video:** [ADD LOOM LINK HERE]
+🎥 **Demo Video:** https://www.loom.com/share/7bf935bef303412ebae2f0a1cee35e24
 
 ---
 
@@ -56,7 +55,7 @@ Chain learns nothing. Compliance is proven. Identity stays private.
 |--------|-------|
 | Proof Size | 260 bytes |
 | Constraints | 7,493,634 |
-| Proving Time | ~23.4 seconds |
+| Proving Time | ~2-3s (distributed) |
 | On-chain Verification | Sub-second |
 | Proof Format | Groth16 |
 
@@ -84,6 +83,16 @@ npm run dev
 
 Open http://localhost:3000
 
+## Deployed Contracts (Solana Devnet)
+
+| Contract | Address |
+|----------|---------|
+| Z-RWA Verifier Program | `GL8vm2SxWV7yHQbwoZegM7SkbJbEbEDn6A9m9W2XjeQe` |
+| RWA Compliance Mint (Token2022) | `8GWCAZsHLMw3XaBACPxZzSz5Q2bqSKAZXx8NwYqkJcaa` |
+| Backend Authority | `GsPrDLXoqVbcWwofYpRZFJg4h5dzHEjyNfPyzPrcUKGd` |
+
+Verify on [Solana Explorer (Devnet)](https://explorer.solana.com/?cluster=devnet)
+
 ### Environment Variables
 
 ```env
@@ -95,31 +104,32 @@ NEXT_PUBLIC_SOLANA_NETWORK=devnet
 
 ## Project Structure
 
-```
 Z-RWA-Monorepo/
-├── apps/web/              # Next.js frontend + API routes
-│   ├── app/               # Pages and components
-│   └── api/               # mint-token, verify, stats endpoints
-├── circuits/              # ZK circuits and setup scripts
-└── Z-RWA/
-    └── programs/
-        └── z_rwa_verifier/ # Anchor on-chain verifier program
-```
+├── apps/web/                    # Next.js frontend + API routes
+│   ├── app/                     # Pages, components, API handlers
+│   ├── lib/                     # Solana, ZK, Dodo SDK wrappers
+│   └── public/                  # Static assets
+├── circuits/                    # Circom circuits + trusted setup
+│   ├── compliance.circom        # Main KYC compliance circuit
+│   └── setup/                   # Powers of Tau ceremony outputs
+├── ZK-RAG/                      # ZK-RAG prover service
+├── Z-RWA/
+│   └── programs/
+│       └── z_rwa_verifier/      # Anchor on-chain verifier (Rust)
+└── scripts/                     # Deployment + utility scripts
 
 ---
 
 ## Hackathon Tracks
 
-| Track | Branch | Deadline | Status |
-|-------|--------|----------|--------|
-| Colosseum Frontier (Main) | main | May 2026 | ✅ Live |
-| 100xDevs Frontier | feature/100xdevs | May 25 | ✅ Submitted |
-| Privacy Track — MagicBlock | main | May 27 | 🔄 In Progress |
-| Dodo Payments — Superteam India | feature/dodo-payments | May 26 | 🔄 In Progress |
-| Eitherway / QuickNode | feature/quicknode-rpc | May 27 | 🔄 In Progress |
-| Zerion Agent | feature/zerion-agent | May 26 | 🔄 In Progress |
-| Encrypt & Ika | feature/encrypt-ika | Jun 1 | 📋 Planned |
-| Adevar Labs Security | main | Jun 10 | 📋 Planned |
+| Track | Sponsor | Branch | Status |
+|-------|---------|--------|--------|
+| Colosseum Frontier | Colosseum | main | ✅ Submitted |
+| 100xDevs Frontier | 100xDevs | feature/100xdevs | ✅ Submitted |
+| Dodo Payments | Superteam India | feature/dodo-payments | ✅ Submitted |
+| Privacy Track | MagicBlock | main | ✅ Submitted |
+| Security Audit | Adevar Labs | main | ✅ Submitted |
+| Infrastructure | RPC Fast | main | ✅ Submitted |
 
 ---
 
@@ -140,5 +150,4 @@ Z-RWA-Monorepo/
 
 ---
 
-Built for Colosseum Frontier 2026 · Powered by SP1 · Solana · Token2022  
-Developer: [@DSHIVAAY-23](https://github.com/DSHIVAAY-23)
+Built for Colosseum Frontier 2026 · SP1 · Anchor · Token2022 · Solana Devnet
