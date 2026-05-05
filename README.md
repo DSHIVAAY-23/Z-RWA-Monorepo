@@ -104,6 +104,7 @@ NEXT_PUBLIC_SOLANA_NETWORK=devnet
 
 ## Project Structure
 
+```text
 Z-RWA-Monorepo/
 ├── apps/web/                    # Next.js frontend + API routes
 │   ├── app/                     # Pages, components, API handlers
@@ -117,6 +118,7 @@ Z-RWA-Monorepo/
 │   └── programs/
 │       └── z_rwa_verifier/      # Anchor on-chain verifier (Rust)
 └── scripts/                     # Deployment + utility scripts
+```
 
 ---
 
