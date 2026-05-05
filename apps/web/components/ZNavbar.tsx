@@ -18,6 +18,7 @@ export default function ZNavbar() {
 
   const navLinks = [
     { href: "/#compliance-flow", label: "Generate Proof", primary: true },
+    { href: "/invest", label: "Invest", primary: false },
     { href: "/check", label: "Check Wallet", primary: false },
     { href: "/community", label: "Community", primary: false },
     { href: "/agent", label: "Agent UI", primary: false },

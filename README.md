@@ -150,4 +150,20 @@ Z-RWA-Monorepo/
 
 ---
 
+---
+
+## Dodo Payments Integration
+
+**Flow:** INR Payment (UPI/Card) → Dodo Webhook → ZK Proof Generation → Token2022 Mint
+
+**Live:** https://z-rwa-monorepo.vercel.app/invest
+
+Setup:
+1. Get testmode API key from app.dodopayments.com
+2. Create a one-time payment product in Dodo dashboard  
+3. Add to .env: DODO_API_KEY, DODO_WEBHOOK_SECRET, NEXT_PUBLIC_DODO_PRODUCT_ID
+4. Set webhook URL to: https://z-rwa-monorepo.vercel.app/api/dodo-webhook
+
+---
+
 Built for Colosseum Frontier 2026 · SP1 · Anchor · Token2022 · Solana Devnet

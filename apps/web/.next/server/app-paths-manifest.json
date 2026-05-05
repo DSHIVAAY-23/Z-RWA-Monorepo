@@ -1,1 +1,24 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/agent/page": "app/agent/page.js",
+  "/api/badge/[wallet]/route": "app/api/badge/[wallet]/route.js",
+  "/api/create-checkout/route": "app/api/create-checkout/route.js",
+  "/api/create-payment/route": "app/api/create-payment/route.js",
+  "/api/dodo-webhook/route": "app/api/dodo-webhook/route.js",
+  "/api/generate-proof/route": "app/api/generate-proof/route.js",
+  "/api/mint-token/route": "app/api/mint-token/route.js",
+  "/api/payment-status/[paymentId]/route": "app/api/payment-status/[paymentId]/route.js",
+  "/api/proof-stats/route": "app/api/proof-stats/route.js",
+  "/api/prove/route": "app/api/prove/route.js",
+  "/api/stats/route": "app/api/stats/route.js",
+  "/api/verify/[wallet]/docs/route": "app/api/verify/[wallet]/docs/route.js",
+  "/api/verify/[wallet]/route": "app/api/verify/[wallet]/route.js",
+  "/check/page": "app/check/page.js",
+  "/community/page": "app/community/page.js",
+  "/invest/page": "app/invest/page.js",
+  "/invest/success/page": "app/invest/success/page.js",
+  "/page": "app/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/submission/page": "app/submission/page.js",
+  "/vault/page": "app/vault/page.js"
+}
