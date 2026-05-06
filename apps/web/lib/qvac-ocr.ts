@@ -16,6 +16,18 @@ async function ensureProvider(): Promise<string> {
     const start = Date.now();
     console.log('[QVAC] Initializing local AI engine...');
     
+    // On Vercel/Serverless, we bundle models to avoid 100MB+ downloads on cold starts.
+    // We point the SDK to our bundled qvac-data directory.
+    const projectRoot = process.cwd();
+    const bundledHome = path.join(projectRoot, 'qvac-data');
+    console.log(`[QVAC] Setting bundled HOME to: ${bundledHome}`);
+    process.env.HOME = bundledHome;
+    
+    // Ensure bare binary is in PATH for spawning
+    const bareBinPath = path.join(projectRoot, 'node_modules', 'bare-runtime', 'bin');
+    process.env.PATH = `${bareBinPath}:${process.env.PATH}`;
+    console.log(`[QVAC] Updated PATH with: ${bareBinPath}`);
+    
     // We skip startQVACProvider() because it triggers DHT bootstrapping, 
     // which is slow and not needed for local-only inference.
     // getRPC() is handled internally by loadModel().
