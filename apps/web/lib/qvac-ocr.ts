@@ -28,11 +28,11 @@ async function ensureProvider(): Promise<string> {
     const modelsToDownload = [
       { 
         name: '7c3f97207b725d40_recognizer_latin.onnx', 
-        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/feature/qvac-tether/apps/web/qvac-data/.qvac/models/7c3f97207b725d40_recognizer_latin.onnx' 
+        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/b35fb170ff4a620cb9e7007c468474001226a554/apps/web/qvac-data/.qvac/models/7c3f97207b725d40_recognizer_latin.onnx' 
       },
       { 
         name: 'e5341e191b8b1ea6_detector_craft.onnx', 
-        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/feature/qvac-tether/apps/web/qvac-data/.qvac/models/e5341e191b8b1ea6_detector_craft.onnx' 
+        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/b35fb170ff4a620cb9e7007c468474001226a554/apps/web/qvac-data/.qvac/models/e5341e191b8b1ea6_detector_craft.onnx' 
       }
     ];
 
