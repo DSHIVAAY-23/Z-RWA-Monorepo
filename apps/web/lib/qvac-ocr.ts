@@ -16,14 +16,51 @@ async function ensureProvider(): Promise<string> {
     const start = Date.now();
     console.log('[QVAC] Initializing local AI engine...');
     
-    // On Vercel/Serverless, we bundle models to avoid 100MB+ downloads on cold starts.
-    // We point the SDK to our bundled qvac-data directory.
-    const projectRoot = process.cwd();
-    const bundledHome = path.join(projectRoot, 'qvac-data');
-    console.log(`[QVAC] Setting bundled HOME to: ${bundledHome}`);
+    // On Vercel, serverless functions have a 50MB size limit, so we cannot bundle 95MB models.
+    // Instead, we download them from the repo to /tmp on the first request.
+    const isVercel = process.env.VERCEL === '1';
+    const bundledHome = isVercel ? '/tmp/qvac' : path.join(process.cwd(), 'qvac-data');
+    
+    if (isVercel) {
+      console.log(`[QVAC] Vercel detected. Ensuring models are in ${bundledHome}...`);
+      const fs = require('fs');
+      const https = require('https');
+      
+      const modelsToDownload = [
+        { 
+          name: '7c3f97207b725d40_recognizer_latin.onnx', 
+          url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/7c3f97207b725d40_recognizer_latin.onnx' 
+        },
+        { 
+          name: 'e5341e191b8b1ea6_detector_craft.onnx', 
+          url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/e5341e191b8b1ea6_detector_craft.onnx' 
+        }
+      ];
+
+      const modelDir = path.join(bundledHome, '.qvac', 'models');
+      if (!fs.existsSync(modelDir)) fs.mkdirSync(modelDir, { recursive: true });
+
+      for (const model of modelsToDownload) {
+        const dest = path.join(modelDir, model.name);
+        if (!fs.existsSync(dest)) {
+          console.log(`[QVAC] Downloading ${model.name}...`);
+          await new Promise((resolve, reject) => {
+            const file = fs.createWriteStream(dest);
+            https.get(model.url, (response) => {
+              response.pipe(file);
+              file.on('finish', () => { file.close(); resolve(true); });
+            }).on('error', (err) => { fs.unlink(dest); reject(err); });
+          });
+          console.log(`[QVAC] Downloaded ${model.name}`);
+        }
+      }
+    }
+
+    console.log(`[QVAC] Setting HOME to: ${bundledHome}`);
     process.env.HOME = bundledHome;
     
-    // Ensure bare binary is in PATH for spawning
+    // Ensure bare binary is in PATH
+    const projectRoot = process.cwd();
     const bareBinPath = path.join(projectRoot, 'node_modules', 'bare-runtime', 'bin');
     process.env.PATH = `${bareBinPath}:${process.env.PATH}`;
     console.log(`[QVAC] Updated PATH with: ${bareBinPath}`);

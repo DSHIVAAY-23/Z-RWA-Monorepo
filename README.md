@@ -178,9 +178,9 @@ npm install @qvac/sdk @qvac/ocr-onnx
 
 ### Vercel / Serverless Optimization
 To run QVAC efficiently on Vercel:
-1. **Bundle Models**: The project includes pre-downloaded models in `apps/web/qvac-data/`.
+1. **Dynamic /tmp Loading**: Since Vercel has a 50MB function size limit, we cannot bundle 95MB models. The system is configured to automatically download models from a CDN/GitHub to `/tmp` on the first request.
 2. **Increase Memory**: In your Vercel Dashboard, set the Function Memory to at least **2048MB** (3008MB recommended).
-3. **External Packages**: `next.config.js` is configured to treat `@qvac/sdk` and `bare-runtime` as external to ensure native binaries load correctly.
+3. **External Packages**: `next.config.js` treats `@qvac/sdk` and `bare-runtime` as external.
 
 ---
 
