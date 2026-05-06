@@ -17,12 +17,14 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(arrayBuffer);
 
     // Primary: QVAC server-side OCR (zero external data transmission)
-    // Race with a 5s timeout — if QVAC provider isn't running it hangs rather than throwing
+    // Race with a 2.5s timeout — if QVAC provider isn't running it hangs rather than throwing
+    const start = Date.now();
     try {
       const qvacTimeout = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error('QVAC provider timeout')), 5000)
+        setTimeout(() => reject(new Error('QVAC engine timeout')), 30000)
       );
       const result = await Promise.race([extractTextFromDocument(buffer), qvacTimeout]);
+      console.log(`[QVAC] Success in ${Date.now() - start}ms`);
       return NextResponse.json({
         text: result.text,
         confidence: result.confidence,
@@ -30,14 +32,17 @@ export async function POST(request: NextRequest) {
       });
     } catch (qvacErr: any) {
       // QVAC provider not running on this host — fall back to Tesseract (server-side)
-      console.warn('[QVAC] Provider unavailable, falling back to Tesseract:', qvacErr?.message);
+      console.warn('[QVAC] Falling back to Tesseract:', qvacErr?.message);
 
+      const tesseractStart = Date.now();
       const { createWorker } = await import('tesseract.js');
       const worker = await createWorker('eng');
       const {
         data: { text, confidence },
       } = await worker.recognize(buffer);
       await worker.terminate();
+
+      console.log(`[OCR] Tesseract fallback complete in ${Date.now() - tesseractStart}ms`);
 
       return NextResponse.json({
         text,
@@ -46,7 +51,7 @@ export async function POST(request: NextRequest) {
       });
     }
   } catch (err: any) {
-    console.error('[OCR] Fatal error:', err?.message);
-    return NextResponse.json({ error: err?.message ?? 'OCR failed' }, { status: 500 });
+    console.error('[QVAC] Fatal error:', err?.message);
+    return NextResponse.json({ error: err?.message ?? 'QVAC scanning failed' }, { status: 500 });
   }
 }

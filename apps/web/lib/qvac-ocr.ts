@@ -1,17 +1,39 @@
 import {
   ocr,
   startQVACProvider,
+  loadModel,
+  OCR_LATIN_RECOGNIZER_1,
+  OCR_CRAFT_DETECTOR,
   type OCRTextBlock,
 } from '@qvac/sdk';
 
-const MODEL_ID = process.env.QVAC_OCR_MODEL_ID ?? 'qvac-ocr-latin';
+let providerInitPromise: Promise<string> | null = null;
 
-let providerReady = false;
+async function ensureProvider(): Promise<string> {
+  if (providerInitPromise) return providerInitPromise;
 
-async function ensureProvider(): Promise<void> {
-  if (providerReady) return;
-  await startQVACProvider();
-  providerReady = true;
+  providerInitPromise = (async () => {
+    const start = Date.now();
+    console.log('[QVAC] Initializing local AI engine...');
+    
+    // We skip startQVACProvider() because it triggers DHT bootstrapping, 
+    // which is slow and not needed for local-only inference.
+    // getRPC() is handled internally by loadModel().
+    
+    console.log('[QVAC] Loading OCR model (Latin + CRAFT Detector)...');
+    const modelId = await loadModel({
+      modelSrc: OCR_LATIN_RECOGNIZER_1.src,
+      modelType: 'onnx-ocr',
+      modelConfig: {
+        detectorModelSrc: OCR_CRAFT_DETECTOR.src
+      }
+    });
+    
+    console.log(`[QVAC] Engine ready in ${Date.now() - start}ms (Model ID: ${modelId})`);
+    return modelId;
+  })();
+
+  return providerInitPromise;
 }
 
 export type QVACOcrResult = {
@@ -23,7 +45,7 @@ export type QVACOcrResult = {
 
 /**
  * Extracts text from a document image using the QVAC OCR engine (server-side).
- * Requires QVAC provider process running on the server — see QVAC_OCR_MODEL_ID env var.
+ * Performs local inference using ONNX models (Latin Recognizer + CRAFT Detector).
  *
  * Privacy note: image bytes are processed entirely within this server process.
  * No data is forwarded to any third-party API.
@@ -33,10 +55,10 @@ export async function extractTextFromDocument(
 ): Promise<QVACOcrResult> {
   console.log('[QVAC] Local OCR engine — zero data transmitted');
 
-  await ensureProvider();
+  const modelId = await ensureProvider();
 
   const { blocks: blocksPromise } = ocr({
-    modelId: MODEL_ID,
+    modelId: modelId,
     image,
     options: { paragraph: false },
   });

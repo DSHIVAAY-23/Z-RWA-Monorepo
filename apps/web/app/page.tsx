@@ -108,18 +108,19 @@ export default function HomePage() {
         }
 
         // ── Layer 2: OCR via QVAC server-side engine ─────────────────────────
+        setTerminalLines(prev => [...prev, { text: `[QVAC] Initializing local AI engine...`, isSystem: true }]);
         const ocrFormData = new FormData();
         ocrFormData.append('image', selectedFile);
         const ocrRes = await fetch('/api/ocr', { method: 'POST', body: ocrFormData });
         if (!ocrRes.ok) throw new Error('OCR service unavailable');
         const { text: rawText, engine: ocrEngine } = await ocrRes.json();
-        setTerminalLines(prev => [...prev, { text: `[${ocrEngine === 'qvac-local' ? 'QVAC' : 'OCR'}] Document scanned — zero data transmitted`, isSystem: true }]);
+        setTerminalLines(prev => [...prev, { text: `[${ocrEngine === 'qvac-local' ? 'QVAC' : 'OCR'}] Local scan complete — zero data transmitted`, isSystem: true }]);
         const ocrResult = validateExtractedFields(rawText);
 
         if (!ocrResult.valid) {
           setDocStatus('error');
           setDocValidation(ocrResult);
-          setTerminalLines(prev => [...prev, { text: `[OCR FAIL] ${ocrResult.reason}`, isError: true }]);
+          setTerminalLines(prev => [...prev, { text: `[QVAC FAIL] ${ocrResult.reason}`, isError: true }]);
           return;
         }
 
@@ -478,7 +479,7 @@ export default function HomePage() {
                       PDF, PNG, JPG (MAX. 10MB)
                     </div>
                     <div className="inline-flex items-center gap-2 text-xs text-green-400 font-mono bg-green-400/10 px-3 py-1.5 rounded-full border border-green-400/20">
-                      🔒 Zero data leaves your device
+                      🔒 Local Processing (QVAC)
                     </div>
                     <div className="mt-3 text-[10px] text-gray-600 font-mono leading-relaxed">
                       ⚠️ For demo: Use a sample Aadhaar/PAN template.<br />
@@ -494,7 +495,7 @@ export default function HomePage() {
                       <div>
                         <div className="text-sm font-semibold text-[var(--foreground)]">{file.name}</div>
                         {isScanning ? (
-                          <div className="text-xs text-yellow-500 animate-pulse mt-1 font-mono">Scanning document (OCR)...</div>
+                        <div className="text-xs text-yellow-500 animate-pulse mt-1 font-mono">Local QVAC AI Processing...</div>
                         ) : docStatus === 'success' ? (
                           <div className="mt-1 space-y-0.5">
                             <div className="text-xs text-green-400 font-mono flex items-center gap-1">
