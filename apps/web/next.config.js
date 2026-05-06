@@ -14,8 +14,8 @@ const nextConfig = {
   },
   outputFileTracingIncludes: {
     '/api/generate-proof': ['./public/circuits/**/*'],
+    '/api/ocr': ['./qvac-data/**/*'],
   },
 }
 
 module.exports = nextConfig
-
