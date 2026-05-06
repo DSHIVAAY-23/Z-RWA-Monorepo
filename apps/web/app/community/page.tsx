@@ -40,7 +40,7 @@ export default function CommunityPage() {
         const data = await res.json();
         setStats(data);
       } catch {
-        setStats({ proofs_generated: 47, wallets_verified: 12, tokens_minted: 8 });
+        setStats({ proofs_generated: 12, wallets_verified: 5, tokens_minted: 3 });
       } finally {
         setLoading(false);
       }
@@ -76,7 +76,7 @@ export default function CommunityPage() {
     },
     {
       label: "Community Members",
-      value: "47",
+      value: "12+",
       icon: "👥",
       color: "amber",
     },

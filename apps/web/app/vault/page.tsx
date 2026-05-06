@@ -24,8 +24,8 @@ export default function VaultPage() {
     setTxHash("");
     
     try {
-      // Task 4: Generate ZK proof using existing SP1 endpoint
-      console.log("Requesting SP1 Compliance Proof...");
+      // Task 4: Generate ZK proof using existing ZK prove endpoint
+      console.log("Requesting ZK Compliance Proof...");
       const proofRes = await fetch("/api/prove", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -98,7 +98,7 @@ export default function VaultPage() {
           disabled={!publicKey || isGeneratingProof || !depositAmount}
           className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition"
         >
-          {isGeneratingProof ? "Generating SP1 ZK Proof & Estimating QN Fees..." : "Deposit with Compliance Proof"}
+          {isGeneratingProof ? "Generating ZK Proof & Estimating QN Fees..." : "Deposit with Compliance Proof"}
         </button>
 
         {txHash && (

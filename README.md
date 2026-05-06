@@ -23,7 +23,7 @@ User uploads Aadhaar/PAN locally
         ↓
 Poseidon hash computed on device
         ↓
-SP1 RISC-V zkVM generates Groth16 proof
+SnarkJS (Groth16) generates ZK compliance proof
         ↓
 Only 260-byte proof submitted to Solana
         ↓
@@ -40,7 +40,7 @@ Chain learns nothing. Compliance is proven. Identity stays private.
 
 | Layer | Technology |
 |-------|-----------|
-| ZK Proving | SP1 RISC-V zkVM (Groth16) |
+| ZK Proving | SnarkJS / Circom (Groth16) |
 | On-chain | Solana — Anchor framework |
 | Token Standard | Token2022 with custom transfer hooks |
 | Hashing | Poseidon (ZK-friendly) |
@@ -55,7 +55,7 @@ Chain learns nothing. Compliance is proven. Identity stays private.
 |--------|-------|
 | Proof Size | 260 bytes |
 | Constraints | 7,493,634 |
-| Proving Time | ~2-3s (distributed) |
+| Proving Time | ~2-3 seconds |
 | On-chain Verification | Sub-second |
 | Proof Format | Groth16 |
 
@@ -64,7 +64,7 @@ Chain learns nothing. Compliance is proven. Identity stays private.
 ## How It Works
 
 1. **Document Upload** — Aadhaar/PAN processed locally via OCR. Zero data transmitted.
-2. **ZK Proof Generation** — SP1 RISC-V zkVM runs the compliance circuit. Groth16 proof generated.
+2. **ZK Proof Generation** — SnarkJS runs the Circom compliance circuit. Groth16 proof generated.
 3. **On-chain Submission** — 260-byte proof submitted to Solana via Anchor program.
 4. **Token Minting** — `z_rwa_verifier` program verifies proof → Token2022 minted to wallet.
 5. **Transfer Enforcement** — Every RWA transfer gated by Token2022 hook checking proof validity.
@@ -91,7 +91,11 @@ Open http://localhost:3000
 | RWA Compliance Mint (Token2022) | `8GWCAZsHLMw3XaBACPxZzSz5Q2bqSKAZXx8NwYqkJcaa` |
 | Backend Authority | `GsPrDLXoqVbcWwofYpRZFJg4h5dzHEjyNfPyzPrcUKGd` |
 
-Verify on [Solana Explorer (Devnet)](https://explorer.solana.com/?cluster=devnet)
+**Recent verified transactions:**
+
+- View program on Explorer: [GL8vm2...XjeQe](https://explorer.solana.com/address/GL8vm2SxWV7yHQbwoZegM7SkbJbEbEDn6A9m9W2XjeQe?cluster=devnet)
+- View RWA Mint: [8GWCAZ...Jcaa](https://explorer.solana.com/address/8GWCAZsHLMw3XaBACPxZzSz5Q2bqSKAZXx8NwYqkJcaa?cluster=devnet)
+- Example verified tx: [2EqWJg...uTTg](https://explorer.solana.com/tx/2EqWJg6GFR2mYQKWk5hJUYyPxmHxN3qMZaAfQWYCx6GGS56JkoKRdzdDsW2K7A3BcyLM8ZMoE26VsXHScuSauTTg?cluster=devnet)
 
 ### Environment Variables
 
@@ -168,4 +172,4 @@ Setup:
 
 ---
 
-Built for Colosseum Frontier 2026 · SP1 · Anchor · Token2022 · Solana Devnet
+Built for Colosseum Frontier 2026 · SnarkJS · Circom · Anchor · Token2022 · Solana Devnet

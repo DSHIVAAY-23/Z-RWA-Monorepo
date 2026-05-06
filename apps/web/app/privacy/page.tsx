@@ -17,7 +17,7 @@ export default function PrivacyPage() {
           </p>
           <div className="flex justify-center gap-4 pt-4">
             <span className="px-5 py-2 rounded-full border border-purple-500/50 bg-purple-500/10 text-purple-400 font-mono text-sm tracking-wide shadow-[0_0_15px_rgba(168,85,247,0.2)]">
-              SP1 Groth16
+              SnarkJS Groth16
             </span>
             <span className="px-5 py-2 rounded-full border border-teal-500/50 bg-teal-500/10 text-teal-400 font-mono text-sm tracking-wide shadow-[0_0_15px_rgba(20,184,166,0.2)]">
               MagicBlock Private Payments
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
               Who you are stays private
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Aadhaar/PAN hashed via Poseidon locally. SP1 circuit generates Groth16 proof. Chain sees only the proof — never your identity.
+              Aadhaar/PAN hashed via Poseidon locally. Circom circuit generates Groth16 proof via SnarkJS. Chain sees only the proof — never your identity.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
             {/* Step 2 */}
             <div className="flex flex-col items-center w-full md:w-1/5">
               <div className="p-5 rounded-xl border border-purple-500/50 bg-purple-900/20 w-full text-center shadow-lg relative z-10 shrink-0 h-[140px] flex flex-col justify-center">
-                <div className="text-purple-400 font-space font-semibold mb-2">SP1 Circuit</div>
+                <div className="text-purple-400 font-space font-semibold mb-2">Circom Circuit</div>
                 <div className="text-xs text-purple-300 font-mono">Local computation<br/>Groth16 proof out</div>
               </div>
             </div>

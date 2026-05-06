@@ -3,11 +3,11 @@
 ## Project
 Z-RWA: ZK-Proven RWA Compliance Infrastructure on Solana
 
-Z-RWA aims to bridge the $3.5T Indian Real-World Asset (RWA) market with decentralized finance on Solana. By leveraging SP1 RISC-V to generate Groth16 proofs natively on a user's device, we allow off-chain Aadhaar/PAN validation that is later asserted on-chain. Token2022 transfer hooks ensure that Z-RWA marker movement respects privacy without compromising the requirement for decentralized KYC verifications.
+Z-RWA aims to bridge the $3.5T Indian Real-World Asset (RWA) market with decentralized finance on Solana. By leveraging SnarkJS to generate Groth16 proofs natively in the browser via a Circom circuit, we allow off-chain Aadhaar/PAN validation that is later asserted on-chain. Token2022 transfer hooks ensure that Z-RWA marker movement respects privacy without compromising the requirement for decentralized KYC verifications.
 
 ## Why We Use RPC Fast
 
-Our Groth16 proofs stem from a 7.4M-constraint SP1 circuit, which naturally yields large instruction payloads that must be asserted on-chain. Standard public RPC endpoints (such as `devnet.solana.com`) rigorously enforce strict payload size limits and extremely aggressive rate limitations. This consistently causes our proof transactions to either fail validation or drop completely under load. 
+Our Groth16 proofs stem from a 7.4M-constraint Circom circuit, which naturally yields large instruction payloads that must be asserted on-chain. Standard public RPC endpoints (such as `devnet.solana.com`) rigorously enforce strict payload size limits and extremely aggressive rate limitations. This consistently causes our proof transactions to either fail validation or drop completely under load. 
 
 RPC Fast mitigates this entirely. It provides reliable and high payload tolerance critical for verifying complex ZK proof representations directly on-chain. Furthermore, the 500 req/s rate limits alongside unlimited bandwidth and low-latency dedicated infrastructure ensures robust uptime for our institutional-gated compliance infrastructure, even under heavy volume.
 

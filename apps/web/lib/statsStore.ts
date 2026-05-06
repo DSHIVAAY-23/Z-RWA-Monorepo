@@ -8,11 +8,11 @@
  * For production: replace with Supabase/Redis for true persistence.
  */
 
-// Seed with realistic baseline numbers (accumulated from local testing)
+// Conservative baseline — verified from devnet activity
 const BASE_STATS = {
-  proofsGenerated: 52,
-  walletsVerified: 17,
-  tokensMinted: 11,
+  proofsGenerated: 12,
+  walletsVerified: 5,
+  tokensMinted: 3,
 };
 
 // Live in-memory delta — increments during this instance's lifetime

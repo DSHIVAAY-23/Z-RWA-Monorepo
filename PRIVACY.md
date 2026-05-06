@@ -10,8 +10,8 @@
 
 1. User enters Aadhaar/PAN locally in the browser
 2. Data is hashed using Poseidon (Solana-native ZK-friendly hash function)
-3. Hashed values are fed into the SP1 RISC-V circuit as private inputs
-4. SP1 circuit verifies compliance logic, outputs a Groth16 proof
+3. Hashed values are fed into the Circom circuit as private inputs
+4. SnarkJS executes the Circom circuit locally, outputs a Groth16 proof
 5. Only the proof is submitted to Solana — no raw or hashed identity data
 6. Anchor program verifies the proof on-chain
 7. Token2022 transfer hook checks proof validity before every RWA transfer

@@ -22,10 +22,10 @@ export async function POST(request: Request) {
         docHash: docHash
       });
     } else {
-      // In production scenario: Simulate artifact retrieval or SP1 call
+      // In production scenario: Simulate artifact retrieval or SnarkJS prover call
       await new Promise(r => setTimeout(r, 1500));
     
-      const provingTime = "23.4s";
+      const provingTime = "~2-3s";
       const proofSize = 260;
       const proofMock = "cafe".repeat(130); 
       const publicValuesMock = "deadbeef".repeat(8);

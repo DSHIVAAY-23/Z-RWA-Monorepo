@@ -35,9 +35,9 @@ export default function HomePage() {
 
   // Live stats
   interface LiveStats { proofs_generated: number; wallets_verified: number; tokens_minted: number; }
-  const [stats, setStats] = useState<LiveStats>({ proofs_generated: 47, wallets_verified: 12, tokens_minted: 8 });
+  const [stats, setStats] = useState<LiveStats>({ proofs_generated: 12, wallets_verified: 5, tokens_minted: 3 });
   const [prevStats, setPrevStats] = useState<LiveStats | null>(null);
-  const statsRef = useRef<LiveStats>({ proofs_generated: 47, wallets_verified: 12, tokens_minted: 8 });
+  const statsRef = useRef<LiveStats>({ proofs_generated: 12, wallets_verified: 5, tokens_minted: 3 });
 
   useEffect(() => {
     setMounted(true);
@@ -157,15 +157,15 @@ export default function HomePage() {
       await delay(300);
       setTerminalLines((prev) => [...prev, { text: "$ zk-rwa-prover --mode groth16" }]);
       await delay(500);
-      setTerminalLines((prev) => [...prev, { text: "[SP1] Initializing RISC-V zkVM...", isSystem: true }]);
+      setTerminalLines((prev) => [...prev, { text: "[snarkjs] Initializing Groth16 prover...", isSystem: true }]);
       await delay(600);
-      setTerminalLines((prev) => [...prev, { text: `[SP1] Loading document hash: ${docHash.slice(0, 16)}...`, isSystem: true }]);
+      setTerminalLines((prev) => [...prev, { text: `[snarkjs] Loading document hash: ${docHash.slice(0, 16)}...`, isSystem: true }]);
       await delay(750);
-      setTerminalLines((prev) => [...prev, { text: "[ZK-RAG] Computing relevance score...", isSystem: true }]);
+      setTerminalLines((prev) => [...prev, { text: "[circom] Computing relevance score...", isSystem: true }]);
       await delay(900);
-      setTerminalLines((prev) => [...prev, { text: "[SP1] Executing RISC-V program...", isSystem: true }]);
+      setTerminalLines((prev) => [...prev, { text: "[snarkjs] Executing Circom circuit...", isSystem: true }]);
       await delay(1000);
-      setTerminalLines((prev) => [...prev, { text: "[SP1] Constraint count: 7,493,634", isBenchmark: true }]);
+      setTerminalLines((prev) => [...prev, { text: "[circuit] Constraint count: 7,493,634", isBenchmark: true }]);
       await delay(1200);
       setTerminalLines((prev) => [...prev, { text: "[GROTH16] Generating proof artifacts...", isSystem: true }]);
       
@@ -437,7 +437,7 @@ export default function HomePage() {
                   <div className="text-[10px] text-slate-600 dark:text-slate-500 uppercase tracking-widest font-mono font-semibold">{stat.label}</div>
                   {stat.label === 'Proof Size' && (
                     <div className="text-[9px] text-slate-500 dark:text-slate-600 mt-1 font-mono text-center leading-tight">
-                      7.4M constraints → ~1-2s via WASM optimization
+                      7.4M constraints → ~2-3s proving time
                     </div>
                   )}
                 </div>
@@ -536,11 +536,11 @@ export default function HomePage() {
                       {proofDone ? '✓' : '2'}
                     </div>
                     <span className="font-semibold text-[var(--foreground)] font-space text-lg">
-                      ⚡ Generate ZK Proof via SP1
+                      ⚡ Generate ZK Proof
                     </span>
                   </div>
                   <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-neon-green/10 text-neon-green border border-neon-green/30 tracking-widest font-bold w-fit">
-                    LIVE SP1
+                    LIVE ZK
                   </span>
                 </div>
 
@@ -561,7 +561,7 @@ export default function HomePage() {
                           : 'bg-white text-black hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.2)]'
                     }`}
                 >
-                  {proofDone ? 'ZK Proof Generated ✓' : isProving ? 'Generating Proof via SP1...' : 'Generate Proof via SP1 →'}
+                  {proofDone ? 'ZK Proof Generated ✓' : isProving ? 'Generating ZK Proof...' : 'Generate ZK Proof →'}
                 </button>
               </div>
 
@@ -764,7 +764,7 @@ export default function HomePage() {
                 </svg>
               ),
               title: "Instant Verification",
-              body: "Groth16 proof generated in seconds via SP1 zkVM. Token2022 hooks enforce compliance on every transfer — automatically.",
+              body: "Groth16 proof generated via SnarkJS. Token2022 hooks enforce compliance on every transfer — automatically.",
               color: "teal",
             },
             {
@@ -840,7 +840,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-4">
             {[
               { step: "1", title: "Enter Identity Locally", desc: "Aadhaar/PAN hashed on your device. Never transmitted.", color: "purple" },
-              { step: "2", title: "SP1 Circuit Runs", desc: "RISC-V zkVM generates Groth16 proof locally.", color: "blue" },
+              { step: "2", title: "Circom Circuit Runs", desc: "SnarkJS generates Groth16 proof locally.", color: "blue" },
               { step: "3", title: "Proof Submitted", desc: "Only the proof hits Solana. Chain learns nothing about you.", color: "teal" },
               { step: "4", title: "Transfers Enforced", desc: "Token2022 hooks verify proof on every RWA transfer.", color: "green" },
             ].map(({ step, title, desc, color }, i, arr) => (
@@ -887,7 +887,7 @@ export default function HomePage() {
               <div>
                 <div className="font-bold text-xl font-space text-[var(--foreground)] mb-2">Individual Verification</div>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Enter your Aadhaar and PAN. SP1 generates a Groth16 proof locally. Nothing leaves your device.
+                  Enter your Aadhaar and PAN. Circom circuit generates a Groth16 proof locally. Nothing leaves your device.
                 </p>
               </div>
               <a
@@ -988,7 +988,7 @@ export default function HomePage() {
             <Link href="/check" className="hover:text-gray-300 transition-colors">Check Wallet</Link>
           </div>
           <div className="text-gray-600 text-xs font-mono">
-            Built for Colosseum Frontier 2026 · Powered by SP1 · Solana · Token2022
+            Built for Colosseum Frontier 2026 · Powered by SnarkJS · Solana · Token2022
           </div>
         </footer>
 

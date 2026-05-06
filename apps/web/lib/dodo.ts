@@ -48,25 +48,21 @@ export async function createCheckoutSession(params: {
       status: error.status,
       data: error.data,
     });
-    
-    // Fallback for demo purposes if API fails
-    const mockPayId = `mock_payment_${Date.now()}`;
-    return {
-      checkoutUrl: `${params.redirectUrl}&paymentId=${mockPayId}`,
-      paymentId: mockPayId
-    };
+    throw error;
   }
 }
 
 export function verifyWebhookSignature(payload: string, signature: string, secret: string): boolean {
-    if (!signature || !secret || secret === 'your_webhook_secret_here') {
-       return true; // Bypass in dev if secret not configured
+    if (!signature || !secret) {
+       console.error("[Webhook] Missing signature or secret");
+       return false;
     }
     try {
         const wh = new Webhook(secret);
         wh.verify(payload, { 'webhook-signature': signature } as any);
         return true;
-    } catch {
+    } catch (err: any) {
+        console.error("[Webhook] Verification failed:", err.message);
         return false;
     }
 }

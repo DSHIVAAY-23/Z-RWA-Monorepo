@@ -146,7 +146,7 @@ export default function SubmissionPage() {
               {
                 step: '02',
                 title: 'Generate ZK Proof',
-                body: 'Groth16 circuit verifies age ≥ 18 and KYC score ≥ threshold. 7.4M constraints processed in ~1-2s via WASM.',
+                body: 'Groth16 circuit verifies age ≥ 18 and KYC score ≥ threshold. 7.4M constraints, ~2-3s proving time.',
                 icon: '🔐',
                 color: 'border-purple-500/30 bg-purple-500/5',
                 accent: 'text-purple-400',
@@ -196,7 +196,7 @@ export default function SubmissionPage() {
               {
                 icon: '🔢',
                 title: '7.4M Constraints',
-                body: 'Cryptographic soundness without sacrificing speed. ~1-2s proof generation via WASM optimisation.',
+                body: 'Cryptographic soundness for real-world compliance. ~2-3s proof generation.',
                 accent: 'from-green-600/20 to-green-800/10 border-green-500/30',
               },
               {

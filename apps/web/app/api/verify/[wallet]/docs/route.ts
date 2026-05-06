@@ -5,7 +5,7 @@ const DOCS = `Z-RWA Compliance Oracle
 GET /api/verify/{wallet_address}
 
 Returns compliance status for a Solana wallet address.
-A compliant wallet has submitted a valid ZK proof of identity (SP1 Groth16)
+A compliant wallet has submitted a valid ZK proof of identity (SnarkJS Groth16)
 via the Z-RWA protocol and holds a Token2022 compliance token on Solana Devnet.
 
 Response schema:
@@ -29,7 +29,7 @@ Rate limit: 60 requests per IP per minute.
 CORS: Access-Control-Allow-Origin: * (open for AI agents)
 
 Learn more: https://github.com/DSHIVAAY-23/Z-RWA-Monorepo
-Built for Colosseum Frontier 2026 | Powered by SP1 · Solana · Token2022
+Built for Colosseum Frontier 2026 | Powered by SnarkJS · Solana · Token2022
 `;
 
 export async function GET() {

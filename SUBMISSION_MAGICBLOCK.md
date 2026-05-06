@@ -4,7 +4,7 @@
 Z-RWA: Full-Stack Privacy for Indian RWA Tokenization
 
 ## One Line
-ZK-proven identity privacy (SP1 Groth16) + MagicBlock payment 
+ZK-proven identity privacy (SnarkJS Groth16) + MagicBlock payment 
 privacy = the first fully private, fully compliant RWA system on Solana.
 
 ## The Problem
@@ -16,10 +16,10 @@ Indian RWA tokenization has a fundamental privacy paradox:
 ## The Solution
 Z-RWA resolves the paradox with two privacy layers:
 
-**Layer 1 — Identity Privacy (SP1 + Groth16)**
-Aadhaar/PAN never leaves the user's device. SP1 RISC-V zkVM 
-generates a Groth16 proof of compliance locally. Only the proof 
-hits the chain. Regulators can verify compliance; no one can 
+**Layer 1 — Identity Privacy (SnarkJS + Groth16)**
+Aadhaar/PAN never leaves the user's device. SnarkJS runs the Circom compliance circuit,
+generating a Groth16 proof locally. Only the proof
+hits the chain. Regulators can verify compliance; no one can
 learn the investor's identity.
 
 **Layer 2 — Payment Privacy (MagicBlock PER)**
@@ -60,19 +60,19 @@ export async function makePrivateRWAPayment(params: {
 ```
 
 ## Architecture
-User Device → SP1 Circuit (local) → Groth16 Proof → Solana Anchor 
+User Device → Circom Circuit / SnarkJS (local) → Groth16 Proof → Solana Anchor 
 → Token2022 Hook → MagicBlock Private Payment → RWA Token Delivered
 
 ## Why This Wins
 Privacy is not an add-on in Z-RWA — it is the architecture.
 Every component is chosen for its privacy properties:
-Poseidon hash (ZK-native), SP1 (local proving), 
+Poseidon hash (ZK-native), SnarkJS/Circom (local proving), 
 Token2022 (programmable compliance), MagicBlock (shielded payments).
 
 ## Live Demo
 - Frontend: https://z-rwa-monorepo-fzeb4r6c1-dshivaay23s-projects.vercel.app/privacy
 - GitHub: https://github.com/DSHIVAAY-23/Z-RWA-Monorepo
-- Demo video: [add Loom URL]
+- Demo video: https://www.loom.com/share/7bf935bef303412ebae2f0a1cee35e24
 
 ## Regulatory Context
 DPDP Act 2023 + SEBI RWA framework = Z-RWA is positioned as 

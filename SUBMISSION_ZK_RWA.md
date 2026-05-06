@@ -56,7 +56,7 @@ npm run start
 ### 3. Frontend Walkthrough
 1. **Connect Wallet**: Use the "Connect Wallet" button to bind your Solana Devnet address.
 2. **Upload Document**: Select "Aadhaar Card" or "PAN Card" and upload a sample image. The client-side OCR will verify the document pattern and generate a secure hash.
-3. **Generate ZK Proof**: Click **"Generate Proof via SP1"**. In production mode, this computes the 7.4M constraints in ~1-2 seconds.
+3. **Generate ZK Proof**: Click **"Generate ZK Proof"**. In production mode, this computes the 7.4M constraints in ~2-3 seconds.
 4. **Submit On-Chain**: Click **"Submit Proof & Mint Token"**. This verifies the 260-byte Groth16 proof on Solana Devnet.
 5. **Receive Asset**: Once verified, the backend mints 1 RWA Compliance Token (Token2022) directly to your wallet.
 

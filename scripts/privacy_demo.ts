@@ -11,9 +11,9 @@ console.log("Input:  PAN ABCXX1234X (masked)");
 setTimeout(() => {
     console.log("Step 1: Poseidon hash computed locally ✓");
 
-    // Simulating SP1 circuit execution
+    // Simulating Circom circuit execution via SnarkJS
     setTimeout(() => {
-        console.log("Step 2: SP1 circuit executed locally ✓");  
+        console.log("Step 2: Circom circuit executed locally via SnarkJS ✓");
         
         setTimeout(() => {
             console.log("Step 3: Groth16 proof generated ✓");
@@ -31,8 +31,7 @@ setTimeout(() => {
                     console.log("\n✓ Identity never left the device.");
                     console.log("✓ Chain knows only: proof is valid.");
                     
-                    // Note: Mocked for reliable demo presentation due to SP1 hardware constraints
-                    // In real execution, a local RISC-V executor handles the proof computation.
+                    // Note: Mocked for reliable demo presentation. In real execution, SnarkJS runs the Circom circuit locally in the browser.
                 }, 800);
             }, 1000);
         }, 1200);

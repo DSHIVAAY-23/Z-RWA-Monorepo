@@ -4,14 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 
 const PROVER_LOGS = [
   { text: "$ zk-rag-prover --mode groth16", delay: 0 },
-  { text: "[SP1] Initializing RISC-V zkVM...", delay: 400 },
-  { text: "[SP1] Loading document hash: sha256(doc)", delay: 800 },
-  { text: "[ZK-RAG] Computing relevance score...", delay: 1200 },
-  { text: "[SP1] Executing RISC-V program...", delay: 1600 },
-  { text: "[SP1] Constraint count: 7,493,634", delay: 2000 },
+  { text: "[snarkjs] Initializing Groth16 prover...", delay: 400 },
+  { text: "[snarkjs] Loading document hash: sha256(doc)", delay: 800 },
+  { text: "[circom] Computing relevance score...", delay: 1200 },
+  { text: "[snarkjs] Executing Circom circuit...", delay: 1600 },
+  { text: "[circuit] Constraint count: 7,493,634", delay: 2000 },
   { text: "[GROTH16] Generating proof artifacts...", delay: 2400 },
   { text: "[GROTH16] Proof size: 260 bytes", delay: 2800 },
-  { text: "[VK] Binding to ZK_RAG_VKEY: 0x00cef...", delay: 3200 },
+  { text: "[vkey] Loading verification key: 0x00cef...", delay: 3200 },
   { text: "✓ Proof generated successfully!", delay: 3600, color: "text-accent-green font-bold glow-green" },
   { text: "💾 proof_groth16.bin saved", delay: 4000 },
   { text: "[READY] Submit to Solana z-rwa program →", delay: 4400, color: "text-accent-gold" },
@@ -94,11 +94,11 @@ export default function ProverConsole({ docHash, onProofGenerated, isActive }: P
             {isDone ? '✓' : '2'}
           </div>
           <span className="font-semibold text-white">
-            ⚡ Generate ZK Proof via SP1
+            ⚡ Generate ZK Proof
           </span>
         </div>
         <span className={`px-2 py-1 rounded text-xs font-mono border ${isMockMode ? 'bg-orange-500/20 text-orange-400 border-orange-500/30' : 'bg-accent-green/20 text-accent-green border-accent-green/30'}`}>
-          {isMockMode ? 'DEMO MODE' : 'LIVE SP1'}
+          {isMockMode ? 'DEMO MODE' : 'LIVE ZK'}
         </span>
       </div>
       
@@ -108,7 +108,7 @@ export default function ProverConsole({ docHash, onProofGenerated, isActive }: P
             <div className="w-3 h-3 rounded-full bg-red-500 opacity-80"/>
             <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-80"/>
             <div className="w-3 h-3 rounded-full bg-accent-green opacity-80"/>
-            <span className="ml-2 text-gray-500">zk-rag-prover — sp1 — bash</span>
+            <span className="ml-2 text-gray-500">zk-rwa-prover — snarkjs — bash</span>
           </div>
           {isGenerating && (
             <span className="text-accent-gold animate-pulse">Est. {timeLeft}s</span>
@@ -143,7 +143,7 @@ export default function ProverConsole({ docHash, onProofGenerated, isActive }: P
               : 'bg-accent-green text-black hover:bg-green-300 shadow-[0_0_15px_rgba(0,255,136,0.3)] disabled:opacity-40 disabled:shadow-none'
           }`}
       >
-        {isDone ? 'ZK Proof Generated ✓' : isGenerating ? 'Generating Proof...' : 'Generate Proof via SP1 →'}
+        {isDone ? 'ZK Proof Generated ✓' : isGenerating ? 'Generating Proof...' : 'Generate ZK Proof →'}
       </button>
     </div>
   );

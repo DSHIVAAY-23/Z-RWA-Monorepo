@@ -411,7 +411,7 @@ export default function InvestSuccessPage() {
             color: '#4b5563',
           }}
         >
-          Powered by Z-RWA · SP1 ZK Proofs · Token2022 · Solana Devnet
+          Powered by Z-RWA · SnarkJS Groth16 · Token2022 · Solana Devnet
         </p>
       </div>
 

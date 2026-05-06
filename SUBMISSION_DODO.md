@@ -17,7 +17,7 @@ Indian retail investors cannot access RWA tokenization because:
 Z-RWA + Dodo Payments creates the complete INR → RWA pipeline:
 
 - **Dodo Payments** handles INR collection (UPI, card, netbanking)
-- **SP1 Groth16** generates ZK compliance proof locally (no PII on-chain)
+- **SnarkJS Groth16** generates ZK compliance proof locally via Circom circuit (no PII on-chain)
 - **Token2022 + Anchor** mints RWA tokens, gated on valid ZK proof
 - **Settlement in < 60 seconds**, not T+2 days
 
@@ -71,5 +71,5 @@ Dodo + Z-RWA is the onboarding layer that makes this accessible.
 ## Links
 - Live demo: https://z-rwa-monorepo-fzeb4r6c1-dshivaay23s-projects.vercel.app/invest
 - GitHub (feature/dodo-payments branch): https://github.com/DSHIVAAY-23/Z-RWA-Monorepo/tree/feature/dodo-payments
-- Demo video: [Loom URL]
+- Demo video: https://www.loom.com/share/7bf935bef303412ebae2f0a1cee35e24
 - Colosseum submission: [URL]
