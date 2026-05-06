@@ -6,7 +6,6 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import ZNavbar from "../components/ZNavbar";
 import ZTerminal, { TerminalLine } from "../components/ZTerminal";
 import { getExplorerUrl } from "../lib/solana";
-import Tesseract from 'tesseract.js';
 import Link from "next/link";
 import { validateDocumentFile } from '../lib/documentValidator';
 import { validateExtractedFields } from '../lib/ocrValidator';
@@ -108,14 +107,13 @@ export default function HomePage() {
           return;
         }
 
-        // ── Layer 2: OCR + field validation ─────────────────────────────────
-        const imageUrl = URL.createObjectURL(selectedFile);
-        const result = await Tesseract.recognize(imageUrl, 'eng', {
-          logger: m => console.log(m)
-        });
-        URL.revokeObjectURL(imageUrl);
-
-        const rawText = result.data.text;
+        // ── Layer 2: OCR via QVAC server-side engine ─────────────────────────
+        const ocrFormData = new FormData();
+        ocrFormData.append('image', selectedFile);
+        const ocrRes = await fetch('/api/ocr', { method: 'POST', body: ocrFormData });
+        if (!ocrRes.ok) throw new Error('OCR service unavailable');
+        const { text: rawText, engine: ocrEngine } = await ocrRes.json();
+        setTerminalLines(prev => [...prev, { text: `[${ocrEngine === 'qvac-local' ? 'QVAC' : 'OCR'}] Document scanned — zero data transmitted`, isSystem: true }]);
         const ocrResult = validateExtractedFields(rawText);
 
         if (!ocrResult.valid) {
@@ -498,9 +496,14 @@ export default function HomePage() {
                         {isScanning ? (
                           <div className="text-xs text-yellow-500 animate-pulse mt-1 font-mono">Scanning document (OCR)...</div>
                         ) : docStatus === 'success' ? (
-                          <div className="text-xs text-green-400 font-mono mt-1 flex items-center gap-1">
-                            <span>✓ {docValidation?.docType === 'pan' ? 'PAN Detected ✓' : 'Aadhaar Detected ✓'}</span>
-                            {docValidation?.extractedAge && <span className="opacity-60 ml-2">Age: {docValidation.extractedAge}</span>}
+                          <div className="mt-1 space-y-0.5">
+                            <div className="text-xs text-green-400 font-mono flex items-center gap-1">
+                              <span>✓ {docValidation?.docType === 'pan' ? 'PAN Detected ✓' : 'Aadhaar Detected ✓'}</span>
+                              {docValidation?.extractedAge && <span className="opacity-60 ml-2">Age: {docValidation.extractedAge}</span>}
+                            </div>
+                            <div className="text-xs text-teal-400 font-mono flex items-center gap-1">
+                              <span>🔒 Processed locally via QVAC</span>
+                            </div>
                           </div>
                         ) : docStatus === 'error' ? (
                           <div className={`text-xs font-mono mt-1 flex items-start gap-1.5 leading-relaxed

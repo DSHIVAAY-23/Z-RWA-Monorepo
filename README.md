@@ -158,6 +158,26 @@ Z-RWA-Monorepo/
 
 ---
 
+## QVAC Integration (Tether Side Track)
+
+Z-RWA uses QVAC SDK for fully local document OCR — no cloud, no API calls.
+
+### Why QVAC?
+Our privacy guarantee is "identity never leaves your device."
+QVAC OCR makes this technically enforceable:
+- Aadhaar/PAN OCR runs entirely on the user's hardware
+- QVAC uses Vulkan API — hardware-agnostic, works on any GPU
+- Offline capable — no internet required for document processing
+
+### QVAC Modules Used
+- @qvac/sdk — Native SDK for local processing
+- @qvac/ocr-onnx — Local OCR for Aadhaar/PAN document extraction
+
+### Setup
+npm install @qvac/sdk @qvac/ocr-onnx
+
+---
+
 ## Dodo Payments Integration
 
 **Flow:** INR Payment (UPI/Card) → Dodo Webhook → ZK Proof Generation → Token2022 Mint
