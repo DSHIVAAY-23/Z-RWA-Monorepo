@@ -1,3 +1,4 @@
+import path from 'path';
 import {
   ocr,
   startQVACProvider,
@@ -16,43 +17,44 @@ async function ensureProvider(): Promise<string> {
     const start = Date.now();
     console.log('[QVAC] Initializing local AI engine...');
     
-    // On Vercel, serverless functions have a 50MB size limit, so we cannot bundle 95MB models.
-    // Instead, we download them from the repo to /tmp on the first request.
-    const isVercel = process.env.VERCEL === '1';
-    const bundledHome = isVercel ? '/tmp/qvac' : path.join(process.cwd(), 'qvac-data');
+    // On Vercel/Serverless, we download models to /tmp to stay under the 50MB limit.
+    // On Local, we use qvac-data.
+    const bundledHome = process.env.VERCEL === '1' ? '/tmp/qvac' : path.join(process.cwd(), 'qvac-data');
     
-    if (isVercel) {
-      console.log(`[QVAC] Vercel detected. Ensuring models are in ${bundledHome}...`);
-      const fs = require('fs');
-      const https = require('https');
-      
-      const modelsToDownload = [
-        { 
-          name: '7c3f97207b725d40_recognizer_latin.onnx', 
-          url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/7c3f97207b725d40_recognizer_latin.onnx' 
-        },
-        { 
-          name: 'e5341e191b8b1ea6_detector_craft.onnx', 
-          url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/e5341e191b8b1ea6_detector_craft.onnx' 
-        }
-      ];
+    console.log(`[QVAC] Ensuring models are in ${bundledHome}...`);
+    const fs = require('fs');
+    const https = require('https');
+    
+    const modelsToDownload = [
+      { 
+        name: '7c3f97207b725d40_recognizer_latin.onnx', 
+        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/7c3f97207b725d40_recognizer_latin.onnx' 
+      },
+      { 
+        name: 'e5341e191b8b1ea6_detector_craft.onnx', 
+        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/e5341e191b8b1ea6_detector_craft.onnx' 
+      }
+    ];
 
-      const modelDir = path.join(bundledHome, '.qvac', 'models');
-      if (!fs.existsSync(modelDir)) fs.mkdirSync(modelDir, { recursive: true });
+    const modelDir = path.join(bundledHome, '.qvac', 'models');
+    if (!fs.existsSync(modelDir)) fs.mkdirSync(modelDir, { recursive: true });
 
-      for (const model of modelsToDownload) {
-        const dest = path.join(modelDir, model.name);
-        if (!fs.existsSync(dest)) {
-          console.log(`[QVAC] Downloading ${model.name}...`);
-          await new Promise((resolve, reject) => {
-            const file = fs.createWriteStream(dest);
-            https.get(model.url, (response) => {
-              response.pipe(file);
-              file.on('finish', () => { file.close(); resolve(true); });
-            }).on('error', (err) => { fs.unlink(dest); reject(err); });
-          });
-          console.log(`[QVAC] Downloaded ${model.name}`);
-        }
+    for (const model of modelsToDownload) {
+      const dest = path.join(modelDir, model.name);
+      if (!fs.existsSync(dest)) {
+        console.log(`[QVAC] Downloading ${model.name} to ${dest}...`);
+        await new Promise((resolve, reject) => {
+          const file = fs.createWriteStream(dest);
+          https.get(model.url, (response) => {
+            if (response.statusCode !== 200) {
+              reject(new Error(`Failed to download: ${response.statusCode}`));
+              return;
+            }
+            response.pipe(file);
+            file.on('finish', () => { file.close(); resolve(true); });
+          }).on('error', (err) => { fs.unlink(dest, () => {}); reject(err); });
+        });
+        console.log(`[QVAC] Downloaded ${model.name}`);
       }
     }
 
@@ -64,10 +66,6 @@ async function ensureProvider(): Promise<string> {
     const bareBinPath = path.join(projectRoot, 'node_modules', 'bare-runtime', 'bin');
     process.env.PATH = `${bareBinPath}:${process.env.PATH}`;
     console.log(`[QVAC] Updated PATH with: ${bareBinPath}`);
-    
-    // We skip startQVACProvider() because it triggers DHT bootstrapping, 
-    // which is slow and not needed for local-only inference.
-    // getRPC() is handled internally by loadModel().
     
     console.log('[QVAC] Loading OCR model (Latin + CRAFT Detector)...');
     const modelId = await loadModel({
@@ -92,38 +90,41 @@ export type QVACOcrResult = {
   blocks: OCRTextBlock[];
 };
 
-/**
- * Extracts text from a document image using the QVAC OCR engine (server-side).
- * Performs local inference using ONNX models (Latin Recognizer + CRAFT Detector).
- *
- * Privacy note: image bytes are processed entirely within this server process.
- * No data is forwarded to any third-party API.
- */
 export async function extractTextFromDocument(
-  image: Buffer | string
+  imageBuffer: Buffer
 ): Promise<QVACOcrResult> {
-  console.log('[QVAC] Local OCR engine — zero data transmitted');
+  try {
+    const modelId = await ensureProvider();
+    
+    // Create a temporary file for the image
+    const tempImagePath = path.join(process.env.HOME || '/tmp', `ocr_${Date.now()}.jpg`);
+    const fs = require('fs');
+    fs.writeFileSync(tempImagePath, imageBuffer);
 
-  const modelId = await ensureProvider();
+    console.log(`[QVAC] Starting OCR on ${tempImagePath}...`);
+    const { blocks: blocksPromise } = ocr({
+      modelId: modelId,
+      image: tempImagePath,
+    });
 
-  const { blocks: blocksPromise } = ocr({
-    modelId: modelId,
-    image,
-    options: { paragraph: false },
-  });
+    const blocks = await blocksPromise;
+    
+    // Cleanup temp image
+    try { fs.unlinkSync(tempImagePath); } catch (e) {}
 
-  const blocks = await blocksPromise;
-
-  const text = blocks.map((b) => b.text).join('\n');
-  const avgConfidence =
-    blocks.length > 0
-      ? blocks.reduce((sum, b) => sum + (b.confidence ?? 1), 0) / blocks.length
+    const fullText = blocks.map((b) => b.text).join('\n');
+    const avgConfidence = blocks.length > 0 
+      ? blocks.reduce((acc, b) => acc + b.confidence, 0) / blocks.length 
       : 0;
 
-  return {
-    text,
-    confidence: avgConfidence,
-    engine: 'qvac-local',
-    blocks,
-  };
+    return {
+      text: fullText,
+      confidence: avgConfidence,
+      engine: 'qvac-local',
+      blocks,
+    };
+  } catch (error) {
+    console.error('[QVAC] OCR Error:', error);
+    throw error;
+  }
 }
