@@ -17,11 +17,11 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(arrayBuffer);
 
     // Primary: QVAC server-side OCR (zero external data transmission)
-    // Race with a 2.5s timeout — if QVAC provider isn't running it hangs rather than throwing
+    // 60s timeout for QVAC processing (includes first-time model download on Vercel)
     const start = Date.now();
     try {
       const qvacTimeout = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error('QVAC engine timeout')), 30000)
+        setTimeout(() => reject(new Error('QVAC engine timeout')), 60000)
       );
       const result = await Promise.race([extractTextFromDocument(buffer), qvacTimeout]);
       console.log(`[QVAC] Success in ${Date.now() - start}ms`);

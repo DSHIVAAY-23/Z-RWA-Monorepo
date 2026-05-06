@@ -43,18 +43,43 @@ async function ensureProvider(): Promise<string> {
       const dest = path.join(modelDir, model.name);
       if (!fs.existsSync(dest)) {
         console.log(`[QVAC] Downloading ${model.name} to ${dest}...`);
+        const startTime = Date.now();
         await new Promise((resolve, reject) => {
           const file = fs.createWriteStream(dest);
-          https.get(model.url, (response) => {
+          const request = https.get(model.url, { timeout: 10000 }, (response) => {
             if (response.statusCode !== 200) {
-              reject(new Error(`Failed to download: ${response.statusCode}`));
+              reject(new Error(`Failed to download ${model.name}: ${response.statusCode}`));
               return;
             }
+            
+            let downloaded = 0;
+            const total = parseInt(response.headers['content-length'] || '0', 10);
+            
+            response.on('data', (chunk) => {
+              downloaded += chunk.length;
+              if (Date.now() % 1000 < 100) { // Log roughly every second
+                console.log(`[QVAC] Progress for ${model.name}: ${((downloaded / total) * 100).toFixed(1)}%`);
+              }
+            });
+
             response.pipe(file);
-            file.on('finish', () => { file.close(); resolve(true); });
-          }).on('error', (err) => { fs.unlink(dest, () => {}); reject(err); });
+            file.on('finish', () => { 
+              file.close(); 
+              console.log(`[QVAC] Finished ${model.name} in ${Date.now() - startTime}ms`);
+              resolve(true); 
+            });
+          });
+          
+          request.on('error', (err) => { 
+            fs.unlink(dest, () => {}); 
+            reject(err); 
+          });
+          
+          request.on('timeout', () => {
+            request.destroy();
+            reject(new Error(`Download timeout for ${model.name}`));
+          });
         });
-        console.log(`[QVAC] Downloaded ${model.name}`);
       }
     }
 
@@ -68,16 +93,21 @@ async function ensureProvider(): Promise<string> {
     console.log(`[QVAC] Updated PATH with: ${bareBinPath}`);
     
     console.log('[QVAC] Loading OCR model (Latin + CRAFT Detector)...');
-    const modelId = await loadModel({
-      modelSrc: OCR_LATIN_RECOGNIZER_1.src,
-      modelType: 'onnx-ocr',
-      modelConfig: {
-        detectorModelSrc: OCR_CRAFT_DETECTOR.src
-      }
-    });
-    
-    console.log(`[QVAC] Engine ready in ${Date.now() - start}ms (Model ID: ${modelId})`);
-    return modelId;
+    try {
+      const modelId = await loadModel({
+        modelSrc: OCR_LATIN_RECOGNIZER_1.src,
+        modelType: 'onnx-ocr',
+        modelConfig: {
+          detectorModelSrc: OCR_CRAFT_DETECTOR.src
+        }
+      });
+      
+      console.log(`[QVAC] Engine ready in ${Date.now() - start}ms (Model ID: ${modelId})`);
+      return modelId;
+    } catch (err) {
+      console.error('[QVAC] Failed to load model:', err);
+      throw err;
+    }
   })();
 
   return providerInitPromise;
