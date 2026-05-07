@@ -711,8 +711,8 @@ export default function HomePage() {
                 </div>
 
                 <p className="text-gray-400 text-sm leading-relaxed mb-5">
-                  Already verified? Skip the compliance step — buy additional RWA tokens
-                  directly with INR via UPI, Card, or Netbanking.
+                  India's first ZK-compliant RWA investment flow.
+                  Pay with INR — token delivered to your wallet instantly.
                 </p>
 
                 <a
