@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import ZNavbar from "../../components/ZNavbar";
-import Link from "next/link";
 import { getWalletTransactions, getWalletTokenBalances } from "../../lib/goldrush";
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -310,12 +309,12 @@ export default function CheckPage() {
               ))}
             </div>
 
-            <Link
+            <a
               href="/#compliance-flow"
               className="block w-full py-3 rounded-xl text-center text-sm font-bold bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)]"
             >
               Generate ZK Proof →
-            </Link>
+            </a>
           </div>
         )}
 

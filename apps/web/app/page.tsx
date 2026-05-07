@@ -695,6 +695,47 @@ export default function HomePage() {
                 )}
               </div>
 
+            {/* Buy More RWA Tokens */}
+            {mintAddress && (
+              <div className="rounded-xl border border-purple-500/30 bg-purple-500/5 p-6 md:p-8 transition-all duration-300">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">💳</span>
+                    <span className="font-semibold text-[var(--foreground)] font-space text-lg">
+                      Buy More RWA Tokens — Pay with INR
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-purple-900/40 text-purple-300 border border-purple-500/30 tracking-widest font-bold w-fit">
+                    POWERED BY DODO
+                  </span>
+                </div>
+
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                  Already verified? Skip the compliance step — buy additional RWA tokens
+                  directly with INR via UPI, Card, or Netbanking.
+                </p>
+
+                <a
+                  href="/invest"
+                  className="block w-full py-3.5 rounded-xl font-bold font-space text-sm text-center bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] mb-4"
+                >
+                  Invest with INR →
+                </a>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["🔒 SSL SECURED", "⚡ UPI SUPPORTED", "✅ INSTANT MINT"].map((badge) => (
+                    <span key={badge} className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-gray-800 text-gray-400 border border-gray-700">
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="text-[10px] text-gray-600 font-mono">
+                  Powered by Dodo Payments · India's first ZK-compliant RWA investment flow
+                </p>
+              </div>
+            )}
+
               {/* Phase 2 Roadmap */}
               <div className="rounded-xl border border-gray-800 bg-black/20 p-6 md:p-8 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -721,8 +762,8 @@ export default function HomePage() {
                       },
                       {
                         icon: "⚡",
-                        title: "MPC Prover Network",
-                        desc: "Distributed proving — proofs in under 3 seconds. No single party sees full input."
+                        title: "SP1 RISC-V zkVM Migration",
+                        desc: "Migrate from SnarkJS/Circom to Succinct's SP1 RISC-V zkVM for native program proving — no DSL constraints, hardware acceleration via GPU/ICICLE integration."
                       },
                       {
                         icon: "🏗️",

@@ -1,29 +1,19 @@
 import { NextResponse } from 'next/server';
-import { paymentStore } from '../../../lib/paymentStore';
 
 async function getDodoPayments(walletAddress: string) {
-  const walletPaymentIds: string[] = [];
-  paymentStore.forEach((state, paymentId) => {
-    if (state.walletAddress === walletAddress) {
-      walletPaymentIds.push(paymentId);
-    }
-  });
-
-  if (walletPaymentIds.length === 0) return [];
-
-  const payments = await Promise.all(
-    walletPaymentIds.map(async (paymentId) => {
-      try {
-        const resp = await fetch(
-          `https://api.dodopayments.com/payments/${paymentId}`,
-          { headers: { 'Authorization': `Bearer ${process.env.DODO_API_KEY}` } }
-        );
-        return await resp.json();
-      } catch { return null; }
-    })
-  );
-
-  return payments.filter(Boolean);
+  try {
+    const resp = await fetch(
+      'https://api.dodopayments.com/payments?limit=10',
+      { headers: { 'Authorization': `Bearer ${process.env.DODO_API_KEY}` } }
+    );
+    const data = await resp.json();
+    return (data.items || []).filter(
+      (p: any) => p.metadata?.wallet_address === walletAddress
+    );
+  } catch (error) {
+    console.error('[Dodo] Failed to fetch payments:', error);
+    return [];
+  }
 }
 
 async function getRWATokenBalance(walletAddress: string) {
@@ -53,7 +43,7 @@ async function getComplianceStatus(walletAddress: string) {
     const response = await fetch(`${baseUrl}/api/verify/${walletAddress}`);
     const data = await response.json();
     return {
-      verified: data.verified || false,
+      verified: data.compliant || false,
       proofHash: data.proof_hash || null,
       verifiedAt: data.verified_at || null
     };

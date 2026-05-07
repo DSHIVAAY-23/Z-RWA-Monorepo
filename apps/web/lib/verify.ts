@@ -10,7 +10,7 @@ const RPC_URL =
   clusterApiUrl("devnet");
 
 const RWA_MINT = new PublicKey(
-  process.env.NEXT_PUBLIC_RWA_MINT || "FhuXW2JHUyTNFF8eXW1EYsfuWcx3RfzdXHuDPvN7A7Xc"
+  process.env.NEXT_PUBLIC_RWA_MINT || "8GWCAZsHLMw3XaBACPxZzSz5Q2bqSKAZXx8NwYqkJcaa"
 );
 
 export interface VerifyResult {
