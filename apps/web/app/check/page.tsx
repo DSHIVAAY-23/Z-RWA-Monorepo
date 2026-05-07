@@ -5,6 +5,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import ZNavbar from "../../components/ZNavbar";
 import Link from "next/link";
+import { getWalletTransactions, getWalletTokenBalances } from "../../lib/goldrush";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface VerifyResult {
@@ -60,6 +61,11 @@ export default function CheckPage() {
   const [result, setResult] = useState<VerifyResult | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // GoldRush state
+  const [goldrushBalances, setGoldrushBalances] = useState<any[]>([]);
+  const [goldrushTransactions, setGoldrushTransactions] = useState<any[]>([]);
+  const [isGoldRushLoading, setIsGoldRushLoading] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -83,18 +89,32 @@ export default function CheckPage() {
     setResult(null);
 
     try {
-      const res = await fetch(`/api/verify/${trimmed}`);
-      const data: VerifyResult = await res.json();
+      setIsGoldRushLoading(true);
+      
+      // Call ZK Verify API and GoldRush services in parallel
+      const [verifyRes, transactions, balances] = await Promise.all([
+        fetch(`/api/verify/${trimmed}`),
+        getWalletTransactions(trimmed),
+        getWalletTokenBalances(trimmed)
+      ]);
 
-      if (!res.ok) {
+      const data: VerifyResult = await verifyRes.json();
+
+      if (!verifyRes.ok) {
         setState("error");
+        setIsGoldRushLoading(false);
         return;
       }
 
       setResult(data);
+      setGoldrushTransactions(transactions);
+      setGoldrushBalances(balances);
       setState(data.compliant ? "compliant" : "not_verified");
-    } catch {
+      setIsGoldRushLoading(false);
+    } catch (err) {
+      console.error("[GoldRush] Fetch error:", err);
       setState("error");
+      setIsGoldRushLoading(false);
     }
   }, [input]);
 
@@ -278,7 +298,7 @@ export default function CheckPage() {
             </div>
 
             <Link
-              href="/"
+              href="/#compliance-flow"
               className="block w-full py-3 rounded-xl text-center text-sm font-bold bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)]"
             >
               → Get Verified Now
@@ -290,6 +310,130 @@ export default function CheckPage() {
         {state === "error" && (
           <div className="rounded-2xl border border-red-500/30 bg-red-500/5 p-6 text-center text-red-400 font-mono text-sm">
             Failed to check compliance. Please try again.
+          </div>
+        )}
+
+        {/* ── GoldRush Data Sections ───────────────────────────────────────── */}
+        {(state === "compliant" || state === "not_verified") && (
+          <div className="space-y-8">
+            {/* Section 1: Token Balances */}
+            <section className="rounded-2xl border border-gray-800 bg-gray-900/60 backdrop-blur-xl p-8 space-y-6">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-bold font-space text-[var(--foreground)]">Token Balances</h3>
+                <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest px-2 py-1 bg-gray-950 rounded border border-gray-800">
+                  Powered by GoldRush API
+                </div>
+              </div>
+
+              {isGoldRushLoading ? (
+                <div className="animate-pulse space-y-3">
+                  <div className="h-12 bg-gray-800 rounded-xl w-full" />
+                  <div className="h-12 bg-gray-800 rounded-xl w-full" />
+                </div>
+              ) : (
+                <div className="grid gap-3">
+                  {goldrushBalances.length > 0 ? (
+                    goldrushBalances.map((item: any, i: number) => (
+                      <div key={i} className="flex items-center justify-between p-4 bg-gray-950/50 rounded-xl border border-gray-800/50">
+                        <div className="flex items-center gap-3">
+                          {item.logo_url && (
+                            <img src={item.logo_url} alt={item.contract_name} className="w-6 h-6 rounded-full" />
+                          )}
+                          <div>
+                            <div className="text-sm font-bold text-white">{item.contract_ticker_symbol}</div>
+                            <div className="text-[10px] text-gray-500 uppercase">{item.contract_name}</div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-sm font-mono text-teal-400 font-bold">
+                            {(Number(item.balance) / Math.pow(10, item.contract_decimals)).toLocaleString(undefined, { maximumFractionDigits: 4 })}
+                          </div>
+                          <div className="text-[10px] text-gray-500 font-mono">
+                            ${Number(item.quote).toLocaleString(undefined, { maximumFractionDigits: 2 })}
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-center py-6 text-gray-500 text-sm font-mono">
+                      No tokens found in this wallet.
+                    </div>
+                  )}
+                </div>
+              )}
+              <div className="text-[9px] text-gray-600 font-mono text-right">
+                GoldRush Covalent SDK · Mainnet-Beta
+              </div>
+            </section>
+
+            {/* Section 2: Transaction History */}
+            <section className="rounded-2xl border border-gray-800 bg-gray-900/60 backdrop-blur-xl p-8 space-y-6">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-bold font-space text-[var(--foreground)]">Recent Activity</h3>
+                <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest px-2 py-1 bg-gray-950 rounded border border-gray-800">
+                  Powered by GoldRush API
+                </div>
+              </div>
+
+              {isGoldRushLoading ? (
+                <div className="animate-pulse space-y-3">
+                  <div className="h-20 bg-gray-800 rounded-xl w-full" />
+                  <div className="h-20 bg-gray-800 rounded-xl w-full" />
+                </div>
+              ) : (
+                <div className="overflow-hidden bg-gray-950/50 rounded-xl border border-gray-800/50">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs font-mono">
+                      <thead className="bg-gray-900/50 text-gray-500 uppercase border-b border-gray-800">
+                        <tr>
+                          <th className="px-5 py-3">Transaction</th>
+                          <th className="px-5 py-3">Date</th>
+                          <th className="px-5 py-3 text-right">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-800/50">
+                        {goldrushTransactions.length > 0 ? (
+                          goldrushTransactions.map((tx: any, i: number) => (
+                            <tr key={i} className="hover:bg-white/5 transition-colors">
+                              <td className="px-5 py-4">
+                                <a 
+                                  href={`https://explorer.solana.com/tx/${tx.tx_hash}`} 
+                                  target="_blank" 
+                                  rel="noreferrer"
+                                  className="text-teal-400 hover:underline flex flex-col gap-0.5"
+                                >
+                                  <span>{tx.tx_hash.slice(0, 8)}...{tx.tx_hash.slice(-8)}</span>
+                                  <span className="text-[9px] text-gray-500 uppercase">{tx.log_events?.[0]?.sender_contract_ticker_symbol || 'SOL'} Transfer</span>
+                                </a>
+                              </td>
+                              <td className="px-5 py-4 text-gray-400">
+                                {new Date(tx.block_signed_at).toLocaleDateString()}
+                              </td>
+                              <td className="px-5 py-4 text-right">
+                                <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase ${
+                                  tx.successful ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'
+                                }`}>
+                                  {tx.successful ? 'Success' : 'Failed'}
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td colSpan={3} className="px-5 py-10 text-center text-gray-500">
+                              No recent transactions found.
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+              <div className="text-[9px] text-gray-600 font-mono text-right">
+                GoldRush Covalent SDK · solana-mainnet
+              </div>
+            </section>
           </div>
         )}
 

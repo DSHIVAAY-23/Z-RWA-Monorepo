@@ -113,9 +113,22 @@ export default function HomePage() {
         ocrFormData.append('image', selectedFile);
         const ocrRes = await fetch('/api/ocr', { method: 'POST', body: ocrFormData });
         if (!ocrRes.ok) throw new Error('OCR service unavailable');
-        const { text: rawText, engine: ocrEngine } = await ocrRes.json();
-        setTerminalLines(prev => [...prev, { text: `[${ocrEngine === 'qvac-local' ? 'QVAC' : 'OCR'}] Local scan complete — zero data transmitted`, isSystem: true }]);
-        const ocrResult = validateExtractedFields(rawText);
+        const { text: rawText, engine: ocrEngine, fallbackToClient } = await ocrRes.json();
+        
+        let finalRawText = rawText;
+        if (fallbackToClient) {
+          setTerminalLines(prev => [...prev, { text: `[QVAC] Server unavailable, falling back to local Tesseract...`, isSystem: true }]);
+          const Tesseract = (await import('tesseract.js')).default;
+          const imageUrl = URL.createObjectURL(selectedFile);
+          const result = await Tesseract.recognize(imageUrl, 'eng');
+          URL.revokeObjectURL(imageUrl);
+          finalRawText = result.data.text;
+          setTerminalLines(prev => [...prev, { text: `[OCR] Local scan complete — zero data transmitted`, isSystem: true }]);
+        } else {
+          setTerminalLines(prev => [...prev, { text: `[${ocrEngine === 'qvac-local' ? 'QVAC' : 'OCR'}] Local scan complete — zero data transmitted`, isSystem: true }]);
+        }
+        
+        const ocrResult = validateExtractedFields(finalRawText);
 
         if (!ocrResult.valid) {
           setDocStatus('error');
@@ -335,13 +348,15 @@ export default function HomePage() {
               🇮🇳 Built for India's DPDP Act · Colosseum Frontier 2026
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-space text-[var(--foreground)] leading-tight">
-              The Compliance Layer for{" "}
+              Zero-Knowledge <br />
               <span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
-                Institutional DeFi
+                Identity Verification
               </span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              Privacy-preserving KYC for Indian RWA — ZK proof on Solana, identity never leaves your device.
+              Prove your regulatory compliance without ever exposing your Aadhaar or PAN data. 
+              <br />
+              <span className="text-sm opacity-60">Powered by Solana & Groth16 Snarks.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">

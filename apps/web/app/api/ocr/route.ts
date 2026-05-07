@@ -31,23 +31,12 @@ export async function POST(request: NextRequest) {
         engine: result.engine,
       });
     } catch (qvacErr: any) {
-      // QVAC provider not running on this host — fall back to Tesseract (server-side)
-      console.warn('[QVAC] Falling back to Tesseract:', qvacErr?.message);
-
-      const tesseractStart = Date.now();
-      const { createWorker } = await import('tesseract.js');
-      const worker = await createWorker('eng');
-      const {
-        data: { text, confidence },
-      } = await worker.recognize(buffer);
-      await worker.terminate();
-
-      console.log(`[OCR] Tesseract fallback complete in ${Date.now() - tesseractStart}ms`);
+      // QVAC provider not running on this host — fall back to Tesseract (client-side)
+      console.warn('[QVAC] Falling back to Client-Side Tesseract:', qvacErr?.message);
 
       return NextResponse.json({
-        text,
-        confidence,
-        engine: 'tesseract-fallback',
+        fallbackToClient: true,
+        engine: 'failed',
       });
     }
   } catch (err: any) {

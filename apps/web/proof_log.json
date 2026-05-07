@@ -1,7 +1,7 @@
 {
-  "proofsGenerated": 6,
-  "walletsVerified": 2,
-  "tokensMinted": 2,
+  "proofsGenerated": 12,
+  "walletsVerified": 8,
+  "tokensMinted": 8,
   "logs": [
     {
       "proofId": "64f9c3cf-bccd-4738-ab3e-378c6daed6ec",
@@ -50,6 +50,78 @@
       "timestamp": 1777552183633,
       "type": "TOKEN_MINTED",
       "signature": "2EqWJg6GFR2mYQKWk5hJUYyPxmHxN3qMZaAfQWYCx6GGS56JkoKRdzdDsW2K7A3BcyLM8ZMoE26VsXHScuSauTTg"
+    },
+    {
+      "proofId": "3d2264cc-95dc-4c18-8797-e5080acfe8d6",
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778152630544,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778152641685,
+      "type": "TOKEN_MINTED",
+      "signature": "aA3KzcXC7SJmtPshG95D6x9cuLxwLfxhddaELmGwZBTbekFM5eJeq4Tc5bGUsgx5hJ5omx25KnWUbqUzJdnWfK8"
+    },
+    {
+      "proofId": "ad095417-d42d-44e3-9a24-3a5da0fc2a14",
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778152683662,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778152692688,
+      "type": "TOKEN_MINTED",
+      "signature": "4BU73g6rBMh1ZvFvxEFTcDTmp8dEmM2vfyj1zFp3JaK5MBZkKxsLQoNHKPgJwhqtmf9QCNbwRAuYbGEi2aevcyLs"
+    },
+    {
+      "proofId": "21baeb9a-3d95-4e5a-a17c-c3f0e8ce6b0d",
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778153856307,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778153864466,
+      "type": "TOKEN_MINTED",
+      "signature": "43C5zR5wWRHrhFWc36pYwJ3dWWTxJz5MaByGhJkZtswDGFJCCY5ffptkT5d43DwKN58VAFwp7M3ucj7wnESC6hGm"
+    },
+    {
+      "proofId": "871bed7d-8626-4756-87b0-800639123a3d",
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778157893105,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778157900039,
+      "type": "TOKEN_MINTED",
+      "signature": "2tp5NaJGZn2BBwpgwyobtt6E7PG8Cc6XQsaRcZr2jDarvx2N47RB2N2JgLEUgDFYuxLvQ3jc4VhEZUoERd6pjLWo"
+    },
+    {
+      "proofId": "f88290bc-badd-467f-828e-c652d35e3f72",
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778158189535,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778158196210,
+      "type": "TOKEN_MINTED",
+      "signature": "4ME7nieQgsY7FqJZDv4mN6kJSQggEk89nUWeGcjjhpzcb4PeCdty2cD77W4PaydX8WopqPcdC6BQFYAXZGKxqWY6"
+    },
+    {
+      "proofId": "20fc1443-2c8a-404b-a555-88256f53443e",
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778160720384,
+      "type": "PROOF_GENERATED"
+    },
+    {
+      "walletAddress": "26GLeJC21jq4RZuSQSi1KnXovamWdNTUb4xG7NMVAdkV",
+      "timestamp": 1778160727136,
+      "type": "TOKEN_MINTED",
+      "signature": "5qQ843K1KEYLiScVdqTNnByTJDmXee7SNkrufEmvHLeb1njP5cdpnwM5QmLkhMEQfLTBEaJwVpwiuP6LTNQ22pRc"
     }
   ]
 }

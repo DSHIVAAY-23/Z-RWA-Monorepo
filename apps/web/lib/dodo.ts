@@ -66,3 +66,36 @@ export function verifyWebhookSignature(payload: string, signature: string, secre
         return false;
     }
 }
+
+export async function issueRefund(paymentId: string, reason: string = 'Solana transaction failed after retries'): Promise<boolean> {
+  try {
+    console.log(`[Dodo] Issuing refund for payment ${paymentId}. Reason: ${reason}`);
+    // Check if SDK supports refunds natively, otherwise fallback to API
+    if ((dodo as any).refunds && typeof (dodo as any).refunds.create === 'function') {
+      await (dodo as any).refunds.create({
+        payment_id: paymentId,
+        reason: reason
+      });
+    } else {
+      // Fallback for demo if the SDK type differs
+      const response = await fetch(`https://api.dodopayments.com/v1/refunds`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.DODO_API_KEY || 'test_key'}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          payment_id: paymentId,
+          reason: reason
+        })
+      });
+      if (!response.ok) {
+         throw new Error(`Refund API returned status ${response.status}`);
+      }
+    }
+    return true;
+  } catch (error: any) {
+    console.error(`[Dodo] Failed to issue refund for payment ${paymentId}:`, error.message);
+    return false;
+  }
+}

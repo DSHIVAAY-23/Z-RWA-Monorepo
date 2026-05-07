@@ -11,10 +11,10 @@ const nextConfig = {
       'snarkjs',
       'ffjavascript'
     ],
-  },
-  outputFileTracingIncludes: {
-    '/api/generate-proof': ['./public/circuits/**/*'],
-    '/api/ocr': ['./qvac-data/**/*'],
+    outputFileTracingIncludes: {
+      '/api/generate-proof': ['./public/circuits/**/*'],
+      '/api/ocr': ['./qvac-data/**/*'],
+    },
   },
 }
 

@@ -2,8 +2,9 @@ export interface PaymentState {
   walletAddress: string;
   aadhaarHash: string;
   panHash: string;
-  status: 'pending' | 'processing' | 'complete' | 'failed';
+  status: 'pending' | 'processing' | 'complete' | 'failed' | 'refunded';
   proofHash?: string;
+  publicValues?: string;
   txSignature?: string;
   tokenAddress?: string;
 }

@@ -25,14 +25,16 @@ async function ensureProvider(): Promise<string> {
     const fs = require('fs');
     const https = require('https');
     
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    
     const modelsToDownload = [
       { 
         name: '7c3f97207b725d40_recognizer_latin.onnx', 
-        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/7c3f97207b725d40_recognizer_latin.onnx' 
+        url: `${appUrl}/models/7c3f97207b725d40_recognizer_latin.onnx` 
       },
       { 
         name: 'e5341e191b8b1ea6_detector_craft.onnx', 
-        url: 'https://raw.githubusercontent.com/DSHIVAAY-23/Z-RWA-Monorepo/main/apps/web/qvac-data/.qvac/models/e5341e191b8b1ea6_detector_craft.onnx' 
+        url: `${appUrl}/models/e5341e191b8b1ea6_detector_craft.onnx` 
       }
     ];
 

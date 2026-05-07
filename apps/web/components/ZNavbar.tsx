@@ -3,7 +3,6 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useState, useEffect } from "react";
-import ThemeToggle from "./ThemeToggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -30,17 +29,8 @@ export default function ZNavbar() {
         {/* Left Side (Brand) */}
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-4">
-            <div className="relative flex h-10 w-10 items-center justify-center">
-              {/* Hexagon icon */}
-              <svg viewBox="0 0 36 36" fill="none" className="absolute inset-0 h-full w-full">
-                <polygon
-                  points="18,2 33,10.5 33,25.5 18,34 3,25.5 3,10.5"
-                  stroke="#00cc66"
-                  strokeWidth="1.5"
-                  fill="rgba(0,204,102,0.1)"
-                />
-              </svg>
-              <span className="relative text-sm font-bold text-green-500 font-mono">Z</span>
+            <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg">
+              <img src="/z-rwa-logo.png" alt="Z-RWA Logo" className="object-cover w-full h-full" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-[var(--foreground)] font-space">
@@ -81,8 +71,7 @@ export default function ZNavbar() {
             </span>
           </div>
 
-          {/* New Cyberpunk Theme Toggle */}
-          <ThemeToggle />
+          {/* Dark Mode Forced (Theme Toggle removed to fix layout issues) */}
 
           {/* Wallet Integration Button */}
           <div className="[&>button]:!bg-gray-100 dark:[&>button]:!bg-gray-900 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-gray-900 dark:[&>button]:!text-white [&>button]:!border [&>button]:!border-purple-500/30 dark:[&>button]:!border-purple-500/50 [&>button:hover]:!border-purple-400 [&>button:hover]:!bg-gray-200 dark:[&>button:hover]:!bg-gray-800 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg [&>button]:!h-10 [&>button]:!px-4">

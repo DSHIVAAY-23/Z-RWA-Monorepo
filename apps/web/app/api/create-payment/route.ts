@@ -13,7 +13,7 @@ import { paymentStore } from '../../../lib/paymentStore';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { amount_inr, wallet_address } = body;
+    const { amount_inr, wallet_address, proof, publicValues } = body;
 
     // --- Validation ---
     if (!amount_inr || typeof amount_inr !== 'number' || amount_inr < 1000 || amount_inr > 1000000) {
@@ -53,7 +53,7 @@ export async function POST(request: Request) {
         pan_hash: '',
         wallet_address: walletTrimmed,
       },
-      redirectUrl: `${appUrl}/invest/success?wallet=${encodeURIComponent(walletTrimmed)}`,
+      redirectUrl: `${appUrl}/dashboard`,
       webhookUrl: `${appUrl}/api/dodo-webhook`,
     });
 
@@ -63,6 +63,8 @@ export async function POST(request: Request) {
       aadhaarHash: '',
       panHash: '',
       status: 'pending',
+      proofHash: proof, 
+      publicValues: publicValues, 
     });
 
     console.log(`[create-payment] Session created → paymentId=${paymentId}, url=${checkoutUrl}`);
