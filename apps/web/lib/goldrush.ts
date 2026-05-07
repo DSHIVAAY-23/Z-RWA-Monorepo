@@ -11,7 +11,7 @@ export async function getWalletTransactions(walletAddress: string) {
       .getAllTransactionsForAddressByPage(
         "solana-mainnet",
         walletAddress,
-        { noLogs: true, pageSize: 10 }
+        { noLogs: true }
       );
     return resp.data?.items || [];
   } catch (error) {
