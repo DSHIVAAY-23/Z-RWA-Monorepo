@@ -330,7 +330,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 py-2.5 flex items-center gap-4">
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
           <span className="font-mono text-[10px] md:text-xs text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em] font-semibold">
-            Z-RWA • CROSS-CHAIN RWA & COMPLIANCE INFRASTRUCTURE
+            Z-RWA • ZK COMPLIANCE INFRASTRUCTURE FOR INDIAN RWA
           </span>
           <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
         </div>
@@ -348,15 +348,13 @@ export default function HomePage() {
               🇮🇳 Built for India's DPDP Act · Colosseum Frontier 2026
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-space text-[var(--foreground)] leading-tight">
-              Zero-Knowledge <br />
+              The Compliance Layer for <br />
               <span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
-                Identity Verification
+                Institutional DeFi
               </span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              Prove your regulatory compliance without ever exposing your Aadhaar or PAN data. 
-              <br />
-              <span className="text-sm opacity-60">Powered by Solana & Groth16 Snarks.</span>
+              Privacy-preserving KYC for Indian RWA — ZK proof on Solana, identity never leaves your device.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
@@ -999,7 +997,7 @@ export default function HomePage() {
           <div className="bg-gray-950 rounded-xl border border-gray-800 p-5 font-mono text-sm overflow-x-auto">
             <div className="text-gray-500 mb-2 text-xs">// AI agent compliance check</div>
             <div className="space-y-1">
-              <div><span className="text-blue-400">const</span> <span className="text-teal-300">res</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-yellow-300">fetch</span><span className="text-gray-400">(</span><span className="text-green-400">'https://zrwa.vercel.app/api/verify/WALLET_ADDRESS'</span><span className="text-gray-400">);</span></div>
+              <div><span className="text-blue-400">const</span> <span className="text-teal-300">res</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-yellow-300">fetch</span><span className="text-gray-400">(</span><span className="text-green-400">'https://z-rwa-monorepo.vercel.app/api/verify/WALLET_ADDRESS'</span><span className="text-gray-400">);</span></div>
               <div><span className="text-blue-400">const</span> <span className="text-gray-200">{'{ compliant, proof_hash }'}</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-teal-300">res</span><span className="text-gray-400">.</span><span className="text-yellow-300">json</span><span className="text-gray-400">();</span></div>
               <div><span className="text-blue-400">if</span> <span className="text-gray-400">(</span><span className="text-teal-300">compliant</span><span className="text-gray-400">)</span> <span className="text-yellow-300">executeRWATrade</span><span className="text-gray-400">({'{ proof_hash }'});</span></div>
             </div>
@@ -1043,7 +1041,7 @@ export default function HomePage() {
         <footer className="border-t border-gray-800 py-10 text-center space-y-4">
           <div className="flex flex-wrap items-center justify-center gap-6 text-gray-500 text-xs font-mono">
             <a href="https://github.com/DSHIVAAY-23/Z-RWA-Monorepo" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">GitHub</a>
-            <a href="https://z-rwa-monorepo-fzeb4r6c1-dshivaay23s-projects.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">Live Demo</a>
+            <a href="https://z-rwa-monorepo.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">Live Demo</a>
             <Link href="/community" className="hover:text-gray-300 transition-colors">Community</Link>
             <Link href="/check" className="hover:text-gray-300 transition-colors">Check Wallet</Link>
           </div>
