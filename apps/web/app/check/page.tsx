@@ -66,19 +66,26 @@ export default function CheckPage() {
   const [goldrushTransactions, setGoldrushTransactions] = useState<any[]>([]);
   const [isGoldRushLoading, setIsGoldRushLoading] = useState(false);
 
+  // Dashboard analytics state
+  const [dashboardData, setDashboardData] = useState<any>(null);
+  const [isDashboardLoading, setIsDashboardLoading] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Auto-fill with connected wallet
+  // Auto-fill and auto-check on wallet connect
   useEffect(() => {
     if (connected && publicKey) {
-      setInput(publicKey.toBase58());
+      const addr = publicKey.toBase58();
+      setInput(addr);
+      handleCheck(addr);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [connected, publicKey]);
 
-  const handleCheck = useCallback(async () => {
-    const trimmed = input.trim();
+  const handleCheck = useCallback(async (overrideAddr?: string) => {
+    const trimmed = (overrideAddr || input).trim();
 
     if (!isValidSolanaAddress(trimmed)) {
       setInputError("Invalid Solana address");
@@ -90,12 +97,13 @@ export default function CheckPage() {
 
     try {
       setIsGoldRushLoading(true);
-      
-      // Call ZK Verify API and GoldRush services in parallel
-      const [verifyRes, transactions, balances] = await Promise.all([
+      setIsDashboardLoading(true);
+
+      const [verifyRes, transactions, balances, dashRes] = await Promise.all([
         fetch(`/api/verify/${trimmed}`),
         getWalletTransactions(trimmed),
-        getWalletTokenBalances(trimmed)
+        getWalletTokenBalances(trimmed),
+        fetch(`/api/dashboard?wallet=${trimmed}`)
       ]);
 
       const data: VerifyResult = await verifyRes.json();
@@ -103,18 +111,23 @@ export default function CheckPage() {
       if (!verifyRes.ok) {
         setState("error");
         setIsGoldRushLoading(false);
+        setIsDashboardLoading(false);
         return;
       }
 
+      const dash = await dashRes.json();
       setResult(data);
       setGoldrushTransactions(transactions);
       setGoldrushBalances(balances);
+      setDashboardData(dash);
       setState(data.compliant ? "compliant" : "not_verified");
       setIsGoldRushLoading(false);
+      setIsDashboardLoading(false);
     } catch (err) {
-      console.error("[GoldRush] Fetch error:", err);
+      console.error("[Check] Fetch error:", err);
       setState("error");
       setIsGoldRushLoading(false);
+      setIsDashboardLoading(false);
     }
   }, [input]);
 
@@ -301,7 +314,7 @@ export default function CheckPage() {
               href="/#compliance-flow"
               className="block w-full py-3 rounded-xl text-center text-sm font-bold bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)]"
             >
-              → Get Verified Now
+              Generate ZK Proof →
             </Link>
           </div>
         )}
@@ -316,6 +329,73 @@ export default function CheckPage() {
         {/* ── GoldRush Data Sections ───────────────────────────────────────── */}
         {(state === "compliant" || state === "not_verified") && (
           <div className="space-y-8">
+            {/* Section 0: Wallet Analytics */}
+            <section className="rounded-2xl border border-gray-800 bg-gray-900/60 backdrop-blur-xl p-8 space-y-6">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-bold font-space text-[var(--foreground)]">Wallet Analytics</h3>
+                <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest px-2 py-1 bg-gray-950 rounded border border-gray-800">
+                  Live Data
+                </div>
+              </div>
+
+              {isDashboardLoading ? (
+                <div className="animate-pulse space-y-3">
+                  <div className="h-12 bg-gray-800 rounded-xl w-full" />
+                  <div className="h-12 bg-gray-800 rounded-xl w-full" />
+                </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 bg-gray-950/50 rounded-xl border border-gray-800/50 text-center">
+                      <div className="text-xs text-gray-500 font-mono uppercase mb-1">Tokens Owned</div>
+                      <div className="text-2xl font-bold text-teal-400">{dashboardData?.stats?.tokens_owned ?? 0}</div>
+                      <div className="text-[10px] text-gray-600 font-mono mt-1">Z-RWA-COMPLY</div>
+                    </div>
+                    <div className="p-4 bg-gray-950/50 rounded-xl border border-gray-800/50 text-center">
+                      <div className="text-xs text-gray-500 font-mono uppercase mb-1">Payments Done</div>
+                      <div className="text-2xl font-bold text-purple-400">{dashboardData?.stats?.payments_done ?? 0}</div>
+                      <div className="text-[10px] text-gray-600 font-mono mt-1">via Dodo</div>
+                    </div>
+                  </div>
+
+                  {dashboardData?.transactions?.length > 0 && (
+                    <div className="overflow-hidden bg-gray-950/50 rounded-xl border border-gray-800/50">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-xs font-mono">
+                          <thead className="bg-gray-900/50 text-gray-500 uppercase border-b border-gray-800">
+                            <tr>
+                              <th className="px-4 py-3">Payment ID</th>
+                              <th className="px-4 py-3">Amount</th>
+                              <th className="px-4 py-3 text-right">Status</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-gray-800/50">
+                            {dashboardData.transactions.slice(0, 3).map((tx: any, i: number) => (
+                              <tr key={i} className="hover:bg-white/5 transition-colors">
+                                <td className="px-4 py-3 text-gray-300 truncate max-w-[140px]">
+                                  {tx.payment_id?.slice(0, 16)}...
+                                </td>
+                                <td className="px-4 py-3 text-teal-400">{tx.amount}</td>
+                                <td className="px-4 py-3 text-right">
+                                  <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase ${
+                                    tx.status === "COMPLETE"
+                                      ? "bg-green-500/10 text-green-400"
+                                      : "bg-yellow-500/10 text-yellow-400"
+                                  }`}>
+                                    {tx.status}
+                                  </span>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </section>
+
             {/* Section 1: Token Balances */}
             <section className="rounded-2xl border border-gray-800 bg-gray-900/60 backdrop-blur-xl p-8 space-y-6">
               <div className="flex items-center justify-between">

@@ -1,26 +1,29 @@
 import { NextResponse } from 'next/server';
+import { paymentStore } from '../../../lib/paymentStore';
 
 async function getDodoPayments(walletAddress: string) {
-  try {
-    const response = await fetch(
-      'https://api.dodopayments.com/payments?limit=10',
-      {
-        headers: {
-          'Authorization': `Bearer ${process.env.DODO_API_KEY}`,
-          'Content-Type': 'application/json'
-        }
-      }
-    );
-    const data = await response.json();
-    const userPayments = data.items?.filter(
-      (p: any) => p.metadata?.wallet_address === walletAddress
-        && p.status === 'succeeded'
-    ) || [];
-    return userPayments;
-  } catch (error) {
-    console.error('[Dodo] Failed to fetch payments:', error);
-    return [];
-  }
+  const walletPaymentIds: string[] = [];
+  paymentStore.forEach((state, paymentId) => {
+    if (state.walletAddress === walletAddress) {
+      walletPaymentIds.push(paymentId);
+    }
+  });
+
+  if (walletPaymentIds.length === 0) return [];
+
+  const payments = await Promise.all(
+    walletPaymentIds.map(async (paymentId) => {
+      try {
+        const resp = await fetch(
+          `https://api.dodopayments.com/payments/${paymentId}`,
+          { headers: { 'Authorization': `Bearer ${process.env.DODO_API_KEY}` } }
+        );
+        return await resp.json();
+      } catch { return null; }
+    })
+  );
+
+  return payments.filter(Boolean);
 }
 
 async function getRWATokenBalance(walletAddress: string) {

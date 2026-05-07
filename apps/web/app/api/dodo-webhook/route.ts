@@ -34,6 +34,15 @@ export async function POST(request: Request) {
         if (state) {
           state.status = 'processing';
           paymentStore.set(paymentId, state);
+        } else {
+          paymentStore.set(paymentId, {
+            walletAddress,
+            aadhaarHash: metadata.aadhaar_hash || '',
+            panHash: metadata.pan_hash || '',
+            status: 'processing',
+            proofHash: null,
+            publicValues: null,
+          });
         }
 
         // 4. Trigger ZK Orchestrator (Background-ish)
