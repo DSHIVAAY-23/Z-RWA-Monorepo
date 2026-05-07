@@ -197,7 +197,7 @@ export default function CheckPage() {
           <div className="flex flex-col sm:flex-row gap-3">
             <button
               id="check-compliance-btn"
-              onClick={handleCheck}
+              onClick={() => handleCheck()}
               disabled={state === "loading"}
               className="flex-1 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] disabled:opacity-50 disabled:cursor-wait"
             >
