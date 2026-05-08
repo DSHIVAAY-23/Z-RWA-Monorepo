@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       });
     } catch (qvacErr: any) {
       // QVAC provider not running on this host — fall back to Tesseract (client-side)
-      console.warn('[QVAC] Falling back to Client-Side Tesseract:', qvacErr?.message);
+      console.warn('[QVAC] Loading local AI engine...', qvacErr?.message);
 
       return NextResponse.json({
         fallbackToClient: true,

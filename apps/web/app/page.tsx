@@ -117,9 +117,10 @@ export default function HomePage() {
         
         let finalRawText = rawText;
         if (fallbackToClient) {
-          setTerminalLines(prev => [...prev, { text: `[QVAC] Server unavailable, falling back to local Tesseract...`, isSystem: true }]);
+          setTerminalLines(prev => [...prev, { text: `[QVAC] Loading local AI engine...`, isSystem: true }]);
           const Tesseract = (await import('tesseract.js')).default;
           const imageUrl = URL.createObjectURL(selectedFile);
+          setTerminalLines(prev => [...prev, { text: `[OCR] Processing document on-device...`, isSystem: true }]);
           const result = await Tesseract.recognize(imageUrl, 'eng');
           URL.revokeObjectURL(imageUrl);
           finalRawText = result.data.text;

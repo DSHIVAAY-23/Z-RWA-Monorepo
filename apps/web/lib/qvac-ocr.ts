@@ -21,44 +21,11 @@ async function ensureProvider(): Promise<string> {
     // On Local, we use qvac-data.
     const bundledHome = process.env.VERCEL === '1' ? '/tmp/qvac' : path.join(process.cwd(), 'qvac-data');
     
-    console.log(`[QVAC] Ensuring models are in ${bundledHome}...`);
+    // Models are fetched by the QVAC SDK from its CDN on first loadModel call
+    // and cached in $HOME/.qvac/models/ — no manual download needed
     const fs = require('fs');
-    const https = require('https');
-    
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
-    
-    const modelsToDownload = [
-      { 
-        name: '7c3f97207b725d40_recognizer_latin.onnx', 
-        url: `${appUrl}/models/7c3f97207b725d40_recognizer_latin.onnx` 
-      },
-      { 
-        name: 'e5341e191b8b1ea6_detector_craft.onnx', 
-        url: `${appUrl}/models/e5341e191b8b1ea6_detector_craft.onnx` 
-      }
-    ];
-
     const modelDir = path.join(bundledHome, '.qvac', 'models');
     if (!fs.existsSync(modelDir)) fs.mkdirSync(modelDir, { recursive: true });
-
-    for (const model of modelsToDownload) {
-      const dest = path.join(modelDir, model.name);
-      if (!fs.existsSync(dest)) {
-        console.log(`[QVAC] Downloading ${model.name} to ${dest}...`);
-        await new Promise((resolve, reject) => {
-          const file = fs.createWriteStream(dest);
-          https.get(model.url, (response) => {
-            if (response.statusCode !== 200) {
-              reject(new Error(`Failed to download: ${response.statusCode}`));
-              return;
-            }
-            response.pipe(file);
-            file.on('finish', () => { file.close(); resolve(true); });
-          }).on('error', (err) => { fs.unlink(dest, () => {}); reject(err); });
-        });
-        console.log(`[QVAC] Downloaded ${model.name}`);
-      }
-    }
 
     console.log(`[QVAC] Setting HOME to: ${bundledHome}`);
     process.env.HOME = bundledHome;
