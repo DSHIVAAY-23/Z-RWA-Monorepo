@@ -1,7 +1,20 @@
 import { NextResponse } from 'next/server';
 
-async function getDodoPayments(walletAddress: string) {
+async function getDodoPayments(walletAddress: string, directPaymentId?: string) {
   try {
+    // If Dodo redirected with a payment_id, fetch it directly — guaranteed match
+    if (directPaymentId) {
+      const resp = await fetch(
+        `https://api.dodopayments.com/payments/${directPaymentId}`,
+        { headers: { 'Authorization': `Bearer ${process.env.DODO_API_KEY}` } }
+      );
+      if (resp.ok) {
+        const p = await resp.json();
+        console.log('[Dodo] Direct payment fetch:', p.payment_id, p.status);
+        return [p];
+      }
+    }
+
     const resp = await fetch(
       'https://api.dodopayments.com/payments?limit=100',
       {
@@ -82,13 +95,14 @@ async function getComplianceStatus(walletAddress: string) {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const wallet = searchParams.get('wallet');
+  const directPaymentId = searchParams.get('payment_id') ?? undefined;
 
   if (!wallet) {
     return NextResponse.json({ error: 'Wallet address required' }, { status: 400 });
   }
 
   const [payments, tokenBalance, compliance] = await Promise.all([
-    getDodoPayments(wallet),
+    getDodoPayments(wallet, directPaymentId),
     getRWATokenBalance(wallet),
     getComplianceStatus(wallet)
   ]);

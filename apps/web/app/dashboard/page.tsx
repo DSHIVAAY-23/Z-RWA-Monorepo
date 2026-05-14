@@ -12,7 +12,10 @@ export default function DashboardPage() {
   useEffect(() => {
     if (publicKey) {
       setLoading(true);
-      fetch(`/api/dashboard?wallet=${publicKey.toBase58()}`)
+      const urlParams = new URLSearchParams(window.location.search);
+      const paymentId = urlParams.get('payment_id');
+      const apiUrl = `/api/dashboard?wallet=${publicKey.toBase58()}${paymentId ? `&payment_id=${paymentId}` : ''}`;
+      fetch(apiUrl)
         .then(res => res.json())
         .then(resData => {
           setData(resData);
