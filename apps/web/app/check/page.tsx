@@ -134,16 +134,20 @@ export default function CheckPage() {
     if (e.key === "Enter") handleCheck();
   };
 
+  const appUrl = typeof window !== "undefined" ? window.location.origin : "https://z-rwa-monorepo.vercel.app";
+
   const tweetUrl = result
-    ? `https://twitter.com/intent/tweet?text=My+wallet+is+ZK-verified+on+Z-RWA+%E2%9C%93+No+identity+data+on-chain.+Check+yours+at+zrwa.vercel.app%2Fcheck+%23ZKProof+%23Solana+%23RWA`
+    ? `https://twitter.com/intent/tweet?text=My+wallet+is+ZK-verified+on+Z-RWA+%E2%9C%93+No+identity+data+on-chain.+Check+yours+at+${encodeURIComponent(appUrl + "/check")}+%23ZKProof+%23Solana+%23RWA`
     : "";
 
-  const badgeMarkdown = result
-    ? `![Z-RWA Verified](https://z-rwa.vercel.app/api/badge/${result.wallet})`
+  const badgeUrl = result ? `${appUrl}/api/badge/${result.wallet}` : "";
+
+  const badgeCode = result
+    ? `<!-- Markdown -->\n![Z-RWA Verified](${badgeUrl})\n\n<!-- HTML (responsive) -->\n<img src="${badgeUrl}" alt="Z-RWA Verified" style="max-width:200px;height:auto;">`
     : "";
 
   const copyBadge = async () => {
-    await navigator.clipboard.writeText(badgeMarkdown);
+    await navigator.clipboard.writeText(badgeCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
