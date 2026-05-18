@@ -28,18 +28,13 @@ export default function ZNavbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Left Side (Brand) */}
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-4">
-            <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg">
               <img src="/z-rwa-logo.png" alt="Z-RWA Logo" className="object-cover w-full h-full" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-[var(--foreground)] font-space">
-                Z-RWA <span className="text-green-500">Compliance</span>
-              </span>
-              <span className="text-[9px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-[0.3em] mt-0.5">
-                🟢 v1.0.0-beta • Local Device
-              </span>
-            </div>
+            <span className="text-xl font-bold tracking-tight text-[var(--foreground)] font-space">
+              Z-RWA <span className="text-teal-400">Compliance</span>
+            </span>
           </Link>
 
           {/* Nav Links */}

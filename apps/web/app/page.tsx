@@ -326,31 +326,19 @@ export default function HomePage() {
     <div className="min-h-screen bg-[var(--background)] grid-bg transition-colors duration-200 font-sans text-[var(--foreground)]">
       <ZNavbar />
 
-      {/* 2. Sub-Ticker Bar */}
-      <div className="border-b border-gray-200 dark:border-gray-900 bg-[var(--background)] opacity-80 backdrop-blur-md transition-colors duration-200">
-        <div className="mx-auto max-w-7xl px-6 py-2.5 flex items-center gap-4">
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
-          <span className="font-mono text-[10px] md:text-xs text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em] font-semibold">
-            Z-RWA • ZK COMPLIANCE INFRASTRUCTURE FOR INDIAN RWA
-          </span>
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
-        </div>
-      </div>
-
       <main className="mx-auto max-w-5xl px-6 py-12 space-y-12">
         {/* ── HERO ── */}
-        <section className="rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/5 via-transparent to-teal-500/5 p-10 md:p-14 relative overflow-hidden text-center">
+        <section className="rounded-2xl border border-teal-500/15 bg-gradient-to-br from-teal-500/5 via-transparent to-transparent p-10 md:p-16 relative overflow-hidden text-center">
           {/* Glow orbs */}
-          <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-purple-500/20 blur-[100px] pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full bg-teal-500/20 blur-[100px] pointer-events-none" />
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-teal-500/10 blur-[120px] pointer-events-none" />
 
-          <div className="relative z-10 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-mono">
-              🇮🇳 Built for India's DPDP Act · Colosseum Frontier 2026
+          <div className="relative z-10 space-y-7">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-[11px] font-mono tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" /> LIVE ON SOLANA
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-space text-[var(--foreground)] leading-tight">
-              The Compliance Layer for <br />
-              <span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-space text-white leading-[1.1]">
+              The Compliance Layer for<br />
+              <span className="text-teal-400">
                 Institutional DeFi
               </span>
             </h1>
@@ -359,27 +347,24 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-              {/* PRIMARY: Generate ZK Proof */}
               <a
                 href="#compliance-flow"
                 onClick={(e) => { e.preventDefault(); document.getElementById('compliance-flow')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="px-8 py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:shadow-[0_0_45px_rgba(139,92,246,0.7)] hover:scale-[1.03] transform"
+                className="px-8 py-4 rounded-xl font-bold text-sm bg-teal-500 text-gray-950 hover:bg-teal-400 transition-all shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:shadow-[0_0_45px_rgba(20,184,166,0.6)] hover:scale-[1.02] transform"
               >
                 ⚡ Generate ZK Proof →
               </a>
-              {/* SECONDARY: Check Wallet */}
               <Link
                 href="/check"
-                className="px-8 py-4 rounded-xl font-bold text-sm border border-purple-500/50 text-purple-300 hover:border-purple-400 hover:text-white hover:bg-purple-500/10 transition-all"
+                className="px-8 py-4 rounded-xl font-bold text-sm border border-gray-700 text-white hover:border-teal-500/50 hover:bg-teal-500/5 transition-all"
               >
                 Check Your Wallet →
               </Link>
-              {/* TERTIARY: Read the Docs */}
               <a
                 href="https://github.com/DSHIVAAY-23/Z-RWA-Monorepo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-xl font-bold text-sm border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white transition-all"
+                className="px-8 py-4 rounded-xl font-bold text-sm border border-gray-700 text-gray-400 hover:border-gray-500 hover:text-white transition-all"
               >
                 Read the Docs
               </a>
@@ -388,16 +373,16 @@ export default function HomePage() {
         </section>
 
         {/* ── LIVE STATS BAR ── */}
-        <section className="rounded-xl border border-gray-800 bg-gray-900/50 backdrop-blur px-6 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-center">
+        <section className="border-y border-gray-800/60 py-5">
+          <div className="flex flex-wrap items-center justify-center divide-x divide-gray-800">
             {[
               { label: "Proofs Generated", value: stats.proofs_generated },
               { label: "Wallets Verified", value: stats.wallets_verified },
               { label: "RWA Tokens Minted", value: stats.tokens_minted },
             ].map(({ label, value }) => (
-              <div key={label} className="flex items-center gap-3">
-                <span className="text-2xl font-bold font-mono text-teal-400 tabular-nums">{value}</span>
-                <span className="text-gray-500 text-sm">{label}</span>
+              <div key={label} className="flex flex-col items-center px-10 py-1 gap-0.5">
+                <span className="text-3xl font-bold font-mono text-teal-400 tabular-nums">{value}</span>
+                <span className="text-gray-500 text-xs uppercase tracking-widest font-mono">{label}</span>
               </div>
             ))}
           </div>
