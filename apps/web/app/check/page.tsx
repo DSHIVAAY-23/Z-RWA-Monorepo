@@ -159,12 +159,12 @@ export default function CheckPage() {
       <main className="mx-auto max-w-3xl px-6 py-16 space-y-16">
         {/* ── Header ──────────────────────────────────────────────────────── */}
         <section className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-mono mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-mono mb-2">
             Powered by Z-RWA · Solana Devnet
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[var(--foreground)] font-space">
             Z-RWA{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
+            <span className="text-teal-400">
               Compliance Checker
             </span>
           </h1>
@@ -189,7 +189,7 @@ export default function CheckPage() {
               className={`w-full bg-gray-950 border rounded-xl px-4 py-4 text-white font-mono text-sm outline-none transition-all
                 ${inputError
                   ? "border-red-500 focus:border-red-400"
-                  : "border-gray-700 focus:border-purple-500/70"
+                  : "border-gray-700 focus:border-teal-500/70"
                 }`}
             />
             {inputError && (
@@ -202,7 +202,7 @@ export default function CheckPage() {
               id="check-compliance-btn"
               onClick={() => handleCheck()}
               disabled={state === "loading"}
-              className="flex-1 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] disabled:opacity-50 disabled:cursor-wait"
+              className="flex-1 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] disabled:opacity-50 disabled:cursor-wait"
             >
               {state === "loading" ? (
                 <span className="flex items-center justify-center gap-2">
@@ -218,7 +218,7 @@ export default function CheckPage() {
             </button>
 
             {mounted && (
-              <div className="[&>button]:!bg-gray-800 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-white [&>button]:!border [&>button]:!border-gray-600 [&>button:hover]:!border-purple-400 [&>button]:!rounded-xl [&>button]:!h-[50px] [&>button]:!px-4 [&>button]:!transition-all">
+              <div className="[&>button]:!bg-gray-800 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-white [&>button]:!border [&>button]:!border-gray-600 [&>button:hover]:!border-teal-400 [&>button]:!rounded-xl [&>button]:!h-[50px] [&>button]:!px-4 [&>button]:!transition-all">
                 <WalletMultiButton />
               </div>
             )}
@@ -277,7 +277,7 @@ export default function CheckPage() {
               </a>
               <button
                 onClick={copyBadge}
-                className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-gray-800 border border-gray-700 text-gray-300 hover:border-purple-400 hover:text-white transition-all"
+                className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-gray-800 border border-gray-700 text-gray-300 hover:border-teal-400 hover:text-white transition-all"
               >
                 {copied ? "✓ Copied!" : "Copy Badge Code"}
               </button>
@@ -315,7 +315,7 @@ export default function CheckPage() {
 
             <a
               href="/#compliance-flow"
-              className="block w-full py-3 rounded-xl text-center text-sm font-bold bg-gradient-to-r from-purple-600 to-teal-500 text-white hover:from-purple-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+              className="block w-full py-3 rounded-xl text-center text-sm font-bold bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)]"
             >
               Generate ZK Proof →
             </a>
@@ -356,7 +356,7 @@ export default function CheckPage() {
                     </div>
                     <div className="p-4 bg-gray-950/50 rounded-xl border border-gray-800/50 text-center">
                       <div className="text-xs text-gray-500 font-mono uppercase mb-1">Payments Done</div>
-                      <div className="text-2xl font-bold text-purple-400">{dashboardData?.stats?.payments_done ?? 0}</div>
+                      <div className="text-2xl font-bold text-teal-400">{dashboardData?.stats?.payments_done ?? 0}</div>
                       <div className="text-[10px] text-gray-600 font-mono mt-1">via Dodo</div>
                     </div>
                   </div>
@@ -550,7 +550,7 @@ export default function CheckPage() {
                 key={step}
                 className={`rounded-xl border p-6 space-y-3
                   ${color === "purple"
-                    ? "border-purple-500/20 bg-purple-500/5"
+                    ? "border-teal-500/20 bg-teal-500/5"
                     : color === "teal"
                     ? "border-teal-500/20 bg-teal-500/5"
                     : "border-green-500/20 bg-green-500/5"
@@ -559,7 +559,7 @@ export default function CheckPage() {
                 <div
                   className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center
                     ${color === "purple"
-                      ? "bg-purple-500 text-white"
+                      ? "bg-teal-500 text-white"
                       : color === "teal"
                       ? "bg-teal-500 text-white"
                       : "bg-green-500 text-black"

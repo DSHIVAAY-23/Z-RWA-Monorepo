@@ -48,7 +48,7 @@ export default function DashboardPage() {
   }, [publicKey]);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-purple-900/30">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-teal-900/30">
       <ZNavbar />
 
       <main className="max-w-7xl mx-auto px-6 py-20">
@@ -82,8 +82,8 @@ export default function DashboardPage() {
                   <div className="text-teal-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Proofs Generated</div>
                   <div className="text-4xl font-extrabold">{data?.stats?.proofs_generated ?? 0}</div>
                 </div>
-                <div className="bg-gray-900/40 border border-purple-500/30 rounded-2xl p-6 backdrop-blur-md text-center shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                  <div className="text-purple-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Tokens Owned</div>
+                <div className="bg-gray-900/40 border border-teal-500/30 rounded-2xl p-6 backdrop-blur-md text-center shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+                  <div className="text-teal-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Tokens Owned</div>
                   <div className="text-4xl font-extrabold">{data?.stats?.tokens_owned ?? 0}</div>
                 </div>
                 <div className="bg-gray-900/40 border border-gray-800 rounded-2xl p-6 backdrop-blur-md text-center">

@@ -45,9 +45,9 @@ export default function ZNavbar() {
                 href={href}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors
                   ${primary
-                    ? "text-purple-400 bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 hover:text-purple-300"
+                    ? "text-teal-400 bg-teal-500/10 border border-teal-500/20 hover:bg-teal-500/20 hover:text-teal-300"
                     : pathname === href
-                    ? "text-purple-400 bg-purple-500/10 border border-purple-500/20"
+                    ? "text-teal-400 bg-teal-500/10 border border-teal-500/20"
                     : "text-gray-500 dark:text-gray-400 hover:text-[var(--foreground)] hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
               >
@@ -69,7 +69,7 @@ export default function ZNavbar() {
           {/* Dark Mode Forced (Theme Toggle removed to fix layout issues) */}
 
           {/* Wallet Integration Button */}
-          <div className="[&>button]:!bg-gray-100 dark:[&>button]:!bg-gray-900 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-gray-900 dark:[&>button]:!text-white [&>button]:!border [&>button]:!border-purple-500/30 dark:[&>button]:!border-purple-500/50 [&>button:hover]:!border-purple-400 [&>button:hover]:!bg-gray-200 dark:[&>button:hover]:!bg-gray-800 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg [&>button]:!h-10 [&>button]:!px-4">
+          <div className="[&>button]:!bg-gray-100 dark:[&>button]:!bg-gray-900 [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-gray-900 dark:[&>button]:!text-white [&>button]:!border [&>button]:!border-teal-500/30 dark:[&>button]:!border-teal-500/50 [&>button:hover]:!border-teal-400 [&>button:hover]:!bg-gray-200 dark:[&>button:hover]:!bg-gray-800 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg [&>button]:!h-10 [&>button]:!px-4">
             {mounted && <WalletMultiButton />}
           </div>
         </div>
