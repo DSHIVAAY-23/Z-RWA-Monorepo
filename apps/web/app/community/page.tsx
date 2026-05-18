@@ -98,12 +98,12 @@ export default function CommunityPage() {
       <main className="mx-auto max-w-5xl px-6 py-16 space-y-20">
         {/* ── Header ──────────────────────────────────────────────────────── */}
         <section className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono">
             Open Community · Colosseum Frontier 2026
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-space">
             ZK RWA Builders{" "}
-            <span className="bg-gradient-to-r from-teal-400 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-emerald-400 bg-clip-text text-transparent">
               Community
             </span>
           </h1>
@@ -119,9 +119,9 @@ export default function CommunityPage() {
               key={label}
               className={`rounded-2xl border p-6 text-center space-y-3 transition-all hover:-translate-y-1
                 ${color === "purple"
-                  ? "border-teal-500/20 bg-teal-500/5"
+                  ? "border-emerald-500/20 bg-emerald-500/5"
                   : color === "teal"
-                  ? "border-teal-500/20 bg-teal-500/5"
+                  ? "border-emerald-500/20 bg-emerald-500/5"
                   : color === "green"
                   ? "border-green-500/20 bg-green-500/5"
                   : "border-amber-500/20 bg-amber-500/5"
@@ -130,9 +130,9 @@ export default function CommunityPage() {
               <div className="text-3xl">{icon}</div>
               <div className={`text-3xl font-bold font-mono
                 ${color === "purple"
-                  ? "text-teal-400"
+                  ? "text-emerald-400"
                   : color === "teal"
-                  ? "text-teal-400"
+                  ? "text-emerald-400"
                   : color === "green"
                   ? "text-green-400"
                   : "text-amber-400"
@@ -182,18 +182,18 @@ export default function CommunityPage() {
                 key={step}
                 className={`rounded-2xl border p-7 space-y-4 flex flex-col
                   ${color === "purple"
-                    ? "border-teal-500/20 bg-teal-500/5"
+                    ? "border-emerald-500/20 bg-emerald-500/5"
                     : color === "teal"
-                    ? "border-teal-500/20 bg-teal-500/5"
+                    ? "border-emerald-500/20 bg-emerald-500/5"
                     : "border-green-500/20 bg-green-500/5"
                   }`}
               >
                 <div
                   className={`w-9 h-9 rounded-full text-sm font-bold flex items-center justify-center
                     ${color === "purple"
-                      ? "bg-teal-500 text-white"
+                      ? "bg-emerald-500 text-white"
                       : color === "teal"
-                      ? "bg-teal-500 text-white"
+                      ? "bg-emerald-500 text-white"
                       : "bg-green-500 text-black"
                     }`}
                 >
@@ -207,7 +207,7 @@ export default function CommunityPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`text-sm font-semibold
-                      ${color === "green" ? "text-green-400 hover:text-green-300" : "text-teal-400 hover:text-teal-300"}
+                      ${color === "green" ? "text-green-400 hover:text-green-300" : "text-emerald-400 hover:text-emerald-300"}
                       transition-colors`}
                   >
                     {action.label}
@@ -217,8 +217,8 @@ export default function CommunityPage() {
                     href={action.href}
                     className={`text-sm font-semibold
                       ${color === "purple"
-                        ? "text-teal-400 hover:text-teal-300"
-                        : "text-teal-400 hover:text-teal-300"
+                        ? "text-emerald-400 hover:text-emerald-300"
+                        : "text-emerald-400 hover:text-emerald-300"
                       } transition-colors`}
                   >
                     {action.label}
@@ -255,7 +255,7 @@ export default function CommunityPage() {
             </span>
             <button
               onClick={copyBadge}
-              className="shrink-0 px-3 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:border-teal-400 hover:text-white transition-all text-xs font-semibold"
+              className="shrink-0 px-3 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-gray-300 hover:border-emerald-400 hover:text-white transition-all text-xs font-semibold"
             >
               {copied ? "✓ Copied!" : "Copy"}
             </button>
@@ -263,7 +263,7 @@ export default function CommunityPage() {
 
           <Link
             href="/check"
-            className="inline-block px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)]"
+            className="inline-block px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400 transition-all shadow-[0_0_20px_rgba(0,212,161,0.3)]"
           >
             Generate Your Own Badge →
           </Link>

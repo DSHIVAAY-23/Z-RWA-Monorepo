@@ -48,16 +48,16 @@ export default function DashboardPage() {
   }, [publicKey]);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-teal-900/30">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-emerald-900/30">
       <ZNavbar />
 
       <main className="max-w-7xl mx-auto px-6 py-20">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-600/10 blur-[120px] pointer-events-none rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-600/10 blur-[120px] pointer-events-none rounded-full" />
 
         <div className="relative z-10 w-full">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-extrabold tracking-tight mb-3">
-              Investor <span className="text-teal-400">Dashboard</span>
+              Investor <span className="text-emerald-400">Dashboard</span>
             </h1>
             <p className="text-gray-400">
               Track your generated ZK proofs, RWA tokens, and fiat payments.
@@ -71,7 +71,7 @@ export default function DashboardPage() {
               <p className="text-gray-400 text-sm">Please connect your Solana wallet to view your profile.</p>
             </div>
           ) : loading ? (
-            <div className="text-center py-20 text-teal-400 animate-pulse">
+            <div className="text-center py-20 text-emerald-400 animate-pulse">
               Loading profile data...
             </div>
           ) : (
@@ -79,11 +79,11 @@ export default function DashboardPage() {
               {/* Top Stats */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-gray-900/40 border border-gray-800 rounded-2xl p-6 backdrop-blur-md text-center">
-                  <div className="text-teal-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Proofs Generated</div>
+                  <div className="text-emerald-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Proofs Generated</div>
                   <div className="text-4xl font-extrabold">{data?.stats?.proofs_generated ?? 0}</div>
                 </div>
-                <div className="bg-gray-900/40 border border-teal-500/30 rounded-2xl p-6 backdrop-blur-md text-center shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                  <div className="text-teal-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Tokens Owned</div>
+                <div className="bg-gray-900/40 border border-emerald-500/30 rounded-2xl p-6 backdrop-blur-md text-center shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+                  <div className="text-emerald-400 text-sm font-bold tracking-widest font-mono mb-2 uppercase">Tokens Owned</div>
                   <div className="text-4xl font-extrabold">{data?.stats?.tokens_owned ?? 0}</div>
                 </div>
                 <div className="bg-gray-900/40 border border-gray-800 rounded-2xl p-6 backdrop-blur-md text-center">
@@ -126,7 +126,7 @@ export default function DashboardPage() {
                             </td>
                             <td className="px-6 py-4 font-mono text-xs">
                               {item.mint_address ? (
-                                <a href={`https://explorer.solana.com/address/${item.mint_address}?cluster=devnet`} target="_blank" rel="noreferrer" className="text-teal-400 hover:underline">
+                                <a href={`https://explorer.solana.com/address/${item.mint_address}?cluster=devnet`} target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">
                                   {item.mint_address.slice(0,8)}...{item.mint_address.slice(-8)}
                                 </a>
                               ) : '-'}

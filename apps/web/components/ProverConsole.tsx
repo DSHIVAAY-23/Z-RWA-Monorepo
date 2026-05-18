@@ -86,7 +86,7 @@ export default function ProverConsole({ docHash, onProofGenerated, isActive }: P
   };
 
   return (
-    <div className={`rounded-xl border p-6 mb-4 transition-all duration-300 ${isActive ? 'border-teal-500/50 bg-teal-500/5' : 'border-white/8 bg-black/50 opacity-50'}`}>
+    <div className={`rounded-xl border p-6 mb-4 transition-all duration-300 ${isActive ? 'border-emerald-500/50 bg-emerald-500/5' : 'border-white/8 bg-black/50 opacity-50'}`}>
       
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">

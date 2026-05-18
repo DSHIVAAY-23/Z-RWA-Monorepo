@@ -12,7 +12,7 @@
   }
 
   .dark {
-    --background: #030712;
+    --background: #060e0c;
     --foreground: #f9fafb;
     color-scheme: dark;
   }
@@ -51,11 +51,11 @@
 
 @layer utilities {
   .glow-green {
-    box-shadow: 0 0 20px #00cc6655, 0 0 40px #00cc6633, 0 0 80px #00cc6611;
+    box-shadow: 0 0 20px #00d4a155, 0 0 40px #00d4a133, 0 0 80px #00d4a111;
   }
 
   .glow-green-text {
-    text-shadow: 0 0 10px #00cc6699, 0 0 20px #00cc6655;
+    text-shadow: 0 0 10px #00d4a199, 0 0 20px #00d4a155;
   }
 
   .glow-amber {
@@ -73,8 +73,8 @@
 
   .grid-bg {
     background-image:
-        linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0, 212, 161, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 161, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 

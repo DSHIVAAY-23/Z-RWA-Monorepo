@@ -15,7 +15,7 @@ const config: Config = {
         space: ["Space Grotesk", "sans-serif"],
       },
       colors: {
-        "neon-green": "#00cc66",
+        "neon-green": "#00d4a1",
         "neon-cyan": "#00d4ff",
         "neon-purple": "#8b5cf6",
         "stellar-amber": "#f59e0b",
@@ -28,8 +28,8 @@ const config: Config = {
       },
       keyframes: {
         glow: {
-          from: { boxShadow: "0 0 10px #00cc6644, 0 0 20px #00cc6622" },
-          to: { boxShadow: "0 0 20px #00cc6688, 0 0 40px #00cc6644, 0 0 60px #00cc6622" },
+          from: { boxShadow: "0 0 10px #00d4a144, 0 0 20px #00d4a122" },
+          to: { boxShadow: "0 0 20px #00d4a188, 0 0 40px #00d4a144, 0 0 60px #00d4a122" },
         },
         glowAmber: {
           from: { boxShadow: "0 0 10px #f59e0b44, 0 0 20px #f59e0b22" },
@@ -41,7 +41,7 @@ const config: Config = {
         },
       },
       boxShadow: {
-        "neon-green": "0 0 20px #00cc6655, 0 0 40px #00cc6633",
+        "neon-green": "0 0 20px #00d4a155, 0 0 40px #00d4a133",
         "neon-cyan": "0 0 20px #00d4ff55, 0 0 40px #00d4ff33",
         "neon-amber": "0 0 20px #f59e0b55, 0 0 40px #f59e0b33",
       },

@@ -42,9 +42,9 @@ export default function DocumentUpload({ onDocumentReady, isActive }: DocumentUp
   const isCompleted = !!mockHash && !isHashing;
 
   return (
-    <div className={`rounded-xl border-2 p-6 mb-4 transition-all duration-300 ${isActive || isCompleted ? 'border-teal-500/50 bg-teal-500/5' : 'border-white/8 bg-white/2 opacity-50'}`}>
+    <div className={`rounded-xl border-2 p-6 mb-4 transition-all duration-300 ${isActive || isCompleted ? 'border-emerald-500/50 bg-emerald-500/5' : 'border-white/8 bg-white/2 opacity-50'}`}>
       <div className="flex items-center gap-3 mb-4">
-        <div className={`w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center ${isCompleted ? 'bg-accent-green text-black' : 'bg-teal-500'}`}>
+        <div className={`w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center ${isCompleted ? 'bg-accent-green text-black' : 'bg-emerald-500'}`}>
           {isCompleted ? '✓' : '1'}
         </div>
         <span className="font-semibold text-white">
@@ -56,7 +56,7 @@ export default function DocumentUpload({ onDocumentReady, isActive }: DocumentUp
         value={selectedType}
         onChange={(e) => setSelectedType(e.target.value)}
         disabled={!isActive && !isCompleted}
-        className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white font-mono text-sm mb-4 outline-none focus:border-teal-500/50"
+        className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white font-mono text-sm mb-4 outline-none focus:border-emerald-500/50"
       >
         {DOC_TYPES.map(doc => (
           <option key={doc} value={doc}>{doc}</option>
@@ -64,7 +64,7 @@ export default function DocumentUpload({ onDocumentReady, isActive }: DocumentUp
       </select>
       
       {!file ? (
-        <label className="block border-2 border-dashed border-white/20 rounded-xl p-8 text-center hover:border-teal-500/50 transition-all cursor-pointer bg-black/20">
+        <label className="block border-2 border-dashed border-white/20 rounded-xl p-8 text-center hover:border-emerald-500/50 transition-all cursor-pointer bg-black/20">
           <div className="text-4xl mb-3">📄</div>
           <div className="text-white font-medium mb-1">
             Drop document here or click to browse
@@ -87,7 +87,7 @@ export default function DocumentUpload({ onDocumentReady, isActive }: DocumentUp
                 <div className="text-xs text-gray-400">{(file.size / 1024 / 1024).toFixed(2)} MB</div>
               </div>
             </div>
-            <button onClick={() => { setFile(null); setMockHash(''); }} className="text-xs text-teal-400 hover:text-teal-300">Reselect</button>
+            <button onClick={() => { setFile(null); setMockHash(''); }} className="text-xs text-emerald-400 hover:text-emerald-300">Reselect</button>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-xs text-gray-500 font-mono">SHA-256 HASH:</span>

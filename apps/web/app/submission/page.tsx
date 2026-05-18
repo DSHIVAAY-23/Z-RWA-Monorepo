@@ -34,7 +34,7 @@ function DeployRow({ label, address }: { label: string; address: string }) {
           href={explorerUrl(address)}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-xs text-teal-400 hover:text-teal-300 underline underline-offset-2 truncate"
+          className="font-mono text-xs text-emerald-400 hover:text-emerald-300 underline underline-offset-2 truncate"
         >
           {address}
         </a>
@@ -89,15 +89,15 @@ export default function SubmissionPage() {
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col items-center gap-3 text-center">
           {/* Logo */}
           <div className="flex items-center gap-2 mb-1">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-600 to-green-500 flex items-center justify-center font-bold text-sm">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-600 to-green-500 flex items-center justify-center font-bold text-sm">
               Z
             </div>
             <span className="text-xl font-bold tracking-tight">Z-RWA</span>
           </div>
 
           {/* Hackathon badge */}
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-teal-500/40 bg-teal-500/10 text-teal-300 text-xs font-mono uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-xs font-mono uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Colosseum Frontier 2026 — Hackathon Submission
           </span>
 
@@ -119,7 +119,7 @@ export default function SubmissionPage() {
               <h2 className="text-xl font-bold text-white">The Problem</h2>
             </div>
             <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-              India&apos;s <span className="text-teal-400 font-semibold">DPDP Act</span> mandates institutions prove compliance without
+              India&apos;s <span className="text-emerald-400 font-semibold">DPDP Act</span> mandates institutions prove compliance without
               storing raw Aadhaar/PAN data. Existing solutions force a binary choice:{' '}
               <span className="text-red-400">full privacy (no verification)</span> or{' '}
               <span className="text-red-400">full disclosure (no privacy)</span>.{' '}
@@ -148,8 +148,8 @@ export default function SubmissionPage() {
                 title: 'Generate ZK Proof',
                 body: 'Groth16 circuit verifies age ≥ 18 and KYC score ≥ threshold. 7.4M constraints, ~2-3s proving time.',
                 icon: '🔐',
-                color: 'border-teal-500/30 bg-teal-500/5',
-                accent: 'text-teal-400',
+                color: 'border-emerald-500/30 bg-emerald-500/5',
+                accent: 'text-emerald-400',
               },
               {
                 step: '03',
@@ -191,7 +191,7 @@ export default function SubmissionPage() {
                 icon: '⚡',
                 title: 'Real Groth16 Proofs',
                 body: 'Production SnarkJS pipeline with VKey caching. Zero mock data.',
-                accent: 'from-teal-600/20 to-teal-800/10 border-teal-500/30',
+                accent: 'from-emerald-600/20 to-emerald-800/10 border-emerald-500/30',
               },
               {
                 icon: '🔢',
@@ -237,7 +237,7 @@ export default function SubmissionPage() {
             <span className="text-2xl">📊</span> Live Protocol Stats
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <StatCard value={stats?.proofs_generated ?? null} label="Proofs Generated" color="text-teal-400" />
+            <StatCard value={stats?.proofs_generated ?? null} label="Proofs Generated" color="text-emerald-400" />
             <StatCard value={stats?.wallets_verified ?? null} label="Wallets Verified" color="text-green-400" />
             <StatCard value={stats?.tokens_minted ?? null} label="Tokens Minted" color="text-blue-400" />
           </div>
@@ -250,7 +250,7 @@ export default function SubmissionPage() {
         <section className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold transition-colors text-sm"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-colors text-sm"
           >
             🎯 View Live Demo
           </Link>
@@ -280,7 +280,7 @@ export default function SubmissionPage() {
         <div className="max-w-5xl mx-auto px-6 py-6 text-center">
           <p className="text-gray-600 text-sm font-mono">
             Built for Colosseum Frontier 2026 |{' '}
-            <span className="text-teal-500">Z-RWA Protocol</span> |{' '}
+            <span className="text-emerald-500">Z-RWA Protocol</span> |{' '}
             India 🇮🇳
           </p>
         </div>

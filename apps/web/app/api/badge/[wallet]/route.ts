@@ -12,7 +12,7 @@ function buildBadgeSVG(compliant: boolean): string {
   if (compliant) {
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 28" width="200" height="28" role="img" aria-label="Z-RWA verified">
   <rect width="120" height="28" rx="4" fill="#1a1a2e"/>
-  <rect x="120" width="80" height="28" rx="4" fill="#00c4a0"/>
+  <rect x="120" width="80" height="28" rx="4" fill="#00d4a1"/>
   <text x="8" y="18" font-family="monospace" font-size="11" fill="#fff">Z-RWA</text>
   <text x="128" y="18" font-family="monospace" font-size="11" fill="#000" font-weight="bold">&#x2713; verified</text>
 </svg>`;

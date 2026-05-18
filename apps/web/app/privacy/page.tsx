@@ -16,10 +16,10 @@ export default function PrivacyPage() {
             ZK proofs for identity. MagicBlock for payments. Nothing leaks on-chain.
           </p>
           <div className="flex justify-center gap-4 pt-4">
-            <span className="px-5 py-2 rounded-full border border-teal-500/50 bg-teal-500/10 text-teal-400 font-mono text-sm tracking-wide shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+            <span className="px-5 py-2 rounded-full border border-emerald-500/50 bg-emerald-500/10 text-emerald-400 font-mono text-sm tracking-wide shadow-[0_0_15px_rgba(168,85,247,0.2)]">
               SnarkJS Groth16
             </span>
-            <span className="px-5 py-2 rounded-full border border-teal-500/50 bg-teal-500/10 text-teal-400 font-mono text-sm tracking-wide shadow-[0_0_15px_rgba(20,184,166,0.2)]">
+            <span className="px-5 py-2 rounded-full border border-emerald-500/50 bg-emerald-500/10 text-emerald-400 font-mono text-sm tracking-wide shadow-[0_0_15px_rgba(0,212,161,0.2)]">
               MagicBlock Private Payments
             </span>
           </div>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         {/* Section 2: Privacy Model */}
         <section className="grid md:grid-cols-3 gap-6">
           <div className="p-8 rounded-2xl border border-gray-800 bg-gray-900/50 backdrop-blur-sm transition-all hover:bg-gray-900 shadow-xl">
-            <div className="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl mb-6">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6">
               🛡️
             </div>
             <h3 className="text-xl font-space font-bold text-white mb-3 tracking-wide">
@@ -39,8 +39,8 @@ export default function PrivacyPage() {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl border border-teal-800/50 bg-teal-900/10 backdrop-blur-sm transition-all hover:bg-teal-900/20 shadow-xl">
-            <div className="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl mb-6">
+          <div className="p-8 rounded-2xl border border-emerald-800/50 bg-emerald-900/10 backdrop-blur-sm transition-all hover:bg-emerald-900/20 shadow-xl">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6">
               👁️‍🗨️
             </div>
             <h3 className="text-xl font-space font-bold text-white mb-3 tracking-wide">
@@ -77,19 +77,19 @@ export default function PrivacyPage() {
               </div>
             </div>
 
-            <div className="hidden md:flex text-teal-500 text-2xl mx-1">→</div>
-            <div className="md:hidden text-teal-500 text-2xl my-2">↓</div>
+            <div className="hidden md:flex text-emerald-500 text-2xl mx-1">→</div>
+            <div className="md:hidden text-emerald-500 text-2xl my-2">↓</div>
 
             {/* Step 2 */}
             <div className="flex flex-col items-center w-full md:w-1/5">
-              <div className="p-5 rounded-xl border border-teal-500/50 bg-teal-900/20 w-full text-center shadow-lg relative z-10 shrink-0 h-[140px] flex flex-col justify-center">
-                <div className="text-teal-400 font-space font-semibold mb-2">Circom Circuit</div>
-                <div className="text-xs text-teal-300 font-mono">Local computation<br/>Groth16 proof out</div>
+              <div className="p-5 rounded-xl border border-emerald-500/50 bg-emerald-900/20 w-full text-center shadow-lg relative z-10 shrink-0 h-[140px] flex flex-col justify-center">
+                <div className="text-emerald-400 font-space font-semibold mb-2">Circom Circuit</div>
+                <div className="text-xs text-emerald-300 font-mono">Local computation<br/>Groth16 proof out</div>
               </div>
             </div>
 
-            <div className="hidden md:flex text-teal-500 text-2xl mx-1">→</div>
-            <div className="md:hidden text-teal-500 text-2xl my-2">↓</div>
+            <div className="hidden md:flex text-emerald-500 text-2xl mx-1">→</div>
+            <div className="md:hidden text-emerald-500 text-2xl my-2">↓</div>
 
             {/* Step 3 */}
             <div className="flex flex-col items-center w-full md:w-1/5">
@@ -99,19 +99,19 @@ export default function PrivacyPage() {
               </div>
             </div>
 
-            <div className="hidden md:flex text-teal-500 text-2xl mx-1">→</div>
-            <div className="md:hidden text-teal-500 text-2xl my-2">↓</div>
+            <div className="hidden md:flex text-emerald-500 text-2xl mx-1">→</div>
+            <div className="md:hidden text-emerald-500 text-2xl my-2">↓</div>
 
             {/* Step 4 */}
             <div className="flex flex-col items-center w-full md:w-1/5">
-              <div className="p-5 rounded-xl border border-teal-500/50 bg-teal-900/20 w-full text-center shadow-lg relative z-10 shrink-0 h-[140px] flex flex-col justify-center">
-                <div className="text-teal-400 font-space font-semibold mb-2">MagicBlock PER</div>
-                <div className="text-xs text-teal-300 font-mono">Private payment<br/>Amount shielded</div>
+              <div className="p-5 rounded-xl border border-emerald-500/50 bg-emerald-900/20 w-full text-center shadow-lg relative z-10 shrink-0 h-[140px] flex flex-col justify-center">
+                <div className="text-emerald-400 font-space font-semibold mb-2">MagicBlock PER</div>
+                <div className="text-xs text-emerald-300 font-mono">Private payment<br/>Amount shielded</div>
               </div>
             </div>
 
-            <div className="hidden md:flex text-teal-500 text-2xl mx-1">→</div>
-            <div className="md:hidden text-teal-500 text-2xl my-2">↓</div>
+            <div className="hidden md:flex text-emerald-500 text-2xl mx-1">→</div>
+            <div className="md:hidden text-emerald-500 text-2xl my-2">↓</div>
 
             {/* Step 5 */}
             <div className="flex flex-col items-center w-full md:w-1/5">
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
           <a href="https://github.com/DSHIVAAY-23/Z-RWA-Monorepo" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-xl border border-gray-700 bg-gray-800 hover:bg-gray-700 hover:border-gray-600 transition-all text-white font-space font-semibold shadow-lg min-w-[200px] text-center">
             View on GitHub
           </a>
-          <a href="https://z-rwa-monorepo-fzeb4r6c1-dshivaay23s-projects.vercel.app/" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-xl border border-teal-500/50 bg-teal-600 hover:bg-teal-500 transition-all text-white font-space font-semibold shadow-[0_0_20px_rgba(168,85,247,0.3)] min-w-[200px] text-center">
+          <a href="https://z-rwa-monorepo-fzeb4r6c1-dshivaay23s-projects.vercel.app/" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-xl border border-emerald-500/50 bg-emerald-600 hover:bg-emerald-500 transition-all text-white font-space font-semibold shadow-[0_0_20px_rgba(168,85,247,0.3)] min-w-[200px] text-center">
             Live Demo
           </a>
           <Link href="/PRIVACY.md" className="px-8 py-3 rounded-xl border border-gray-700 bg-transparent hover:bg-gray-800 transition-all text-gray-300 font-space font-semibold min-w-[200px] text-center">

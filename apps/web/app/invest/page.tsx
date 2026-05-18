@@ -76,22 +76,22 @@ export default function InvestPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-teal-900/30">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-emerald-900/30">
       <ZNavbar />
 
       <main className="max-w-7xl mx-auto px-6 py-20 flex flex-col items-center">
         {/* Animated Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-600/10 blur-[120px] pointer-events-none rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-600/10 blur-[120px] pointer-events-none rounded-full" />
 
         <div className="relative z-10 w-full max-w-lg">
           {/* Invest Card */}
           <div className="bg-gray-900/40 backdrop-blur-2xl border border-gray-800 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
             {/* Top accent */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent opacity-50" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50" />
 
             <div className="text-center mb-10">
               <h1 className="text-3xl font-extrabold tracking-tight mb-3">
-                Invest in Indian RWA — <span className="text-teal-400">Pay with INR</span>
+                Invest in Indian RWA — <span className="text-emerald-400">Pay with INR</span>
               </h1>
               <p className="text-gray-400 text-sm">
                 Securely invest in real-world assets using UPI, Card, or Netbanking. 
@@ -116,7 +116,7 @@ export default function InvestPage() {
                     required
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
-                    className="w-full bg-black/60 border border-gray-800 rounded-2xl pl-10 pr-6 py-4 text-2xl font-light focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500/50 transition-all placeholder-gray-700"
+                    className="w-full bg-black/60 border border-gray-800 rounded-2xl pl-10 pr-6 py-4 text-2xl font-light focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/50 transition-all placeholder-gray-700"
                     placeholder="1,000"
                   />
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-mono text-gray-600 bg-gray-900/80 px-2 py-1 rounded border border-gray-800">
@@ -135,14 +135,14 @@ export default function InvestPage() {
                   required
                   value={walletAddress}
                   onChange={(e) => setWalletAddress(e.target.value)}
-                  className="w-full bg-black/60 border border-gray-800 rounded-2xl px-6 py-4 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500/50 transition-all placeholder-gray-700"
+                  className="w-full bg-black/60 border border-gray-800 rounded-2xl px-6 py-4 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/50 transition-all placeholder-gray-700"
                   placeholder="Enter Solana wallet address"
                 />
               </div>
 
               {/* Summary */}
-              <div className="bg-teal-900/10 border border-teal-500/20 rounded-2xl p-4 flex justify-between items-center">
-                <span className="text-sm text-teal-300">Estimated Tokens</span>
+              <div className="bg-emerald-900/10 border border-emerald-500/20 rounded-2xl p-4 flex justify-between items-center">
+                <span className="text-sm text-emerald-300">Estimated Tokens</span>
                 <span className="text-xl font-bold text-white">{(amount / 100).toFixed(2)} RWA</span>
               </div>
 
@@ -150,7 +150,7 @@ export default function InvestPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full group relative flex items-center justify-center gap-2 bg-gradient-to-r from-teal-600 to-indigo-600 hover:from-teal-500 hover:to-indigo-500 text-white font-bold py-5 px-8 rounded-2xl transition-all shadow-[0_10px_40px_-10px_rgba(20,184,166,0.5)] transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
+                className={`w-full group relative flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white font-bold py-5 px-8 rounded-2xl transition-all shadow-[0_10px_40px_-10px_rgba(0,212,161,0.5)] transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed`}
               >
                 {isLoading ? (
                   <>

@@ -38,7 +38,7 @@ export default function ComplianceStatus({ proof, publicValues, docHash, isActiv
   };
 
   return (
-    <div className={`rounded-xl border p-6 transition-all duration-300 ${isActive || status === 'success' ? 'border-teal-500/50 bg-black/40' : 'border-white/8 bg-black/20 opacity-50'}`}>
+    <div className={`rounded-xl border p-6 transition-all duration-300 ${isActive || status === 'success' ? 'border-emerald-500/50 bg-black/40' : 'border-white/8 bg-black/20 opacity-50'}`}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center ${status === 'success' ? 'bg-accent-green text-black' : 'bg-gray-700 text-gray-400'}`}>
@@ -56,7 +56,7 @@ export default function ComplianceStatus({ proof, publicValues, docHash, isActiv
             Connect your Solana wallet to verify the ZK proof on-chain and receive your Token2022 asset.
           </p>
           <div className="w-full flex justify-center py-2">
-            <WalletMultiButton className="!bg-teal-600 hover:!bg-teal-500 !transition-colors !rounded-xl !w-full !justify-center !font-space" />
+            <WalletMultiButton className="!bg-emerald-600 hover:!bg-emerald-500 !transition-colors !rounded-xl !w-full !justify-center !font-space" />
           </div>
         </>
       ) : status === 'pending' || status === 'error' ? (
@@ -70,15 +70,15 @@ export default function ComplianceStatus({ proof, publicValues, docHash, isActiv
           <button 
             onClick={handleVerify}
             disabled={!isActive}
-            className="w-full py-3 rounded-xl border-2 border-teal-500 text-teal-400 font-space font-semibold hover:bg-teal-500/10 transition-all shadow-[0_0_15px_rgba(124,58,237,0.15)] disabled:opacity-40 disabled:shadow-none"
+            className="w-full py-3 rounded-xl border-2 border-emerald-500 text-emerald-400 font-space font-semibold hover:bg-emerald-500/10 transition-all shadow-[0_0_15px_rgba(124,58,237,0.15)] disabled:opacity-40 disabled:shadow-none"
           >
             Submit Proof & Mint Token →
           </button>
         </>
       ) : status === 'verifying' ? (
-        <div className="py-8 flex flex-col items-center justify-center rounded-xl bg-teal-500/5 border border-teal-500/20">
-          <div className="w-6 h-6 border-2 border-teal-500 border-t-transparent rounded-full animate-spin mb-3"></div>
-          <p className="text-teal-400 font-mono text-sm">Awaiting Devnet Confirmation...</p>
+        <div className="py-8 flex flex-col items-center justify-center rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+          <div className="w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3"></div>
+          <p className="text-emerald-400 font-mono text-sm">Awaiting Devnet Confirmation...</p>
         </div>
       ) : (
         <div className="p-5 rounded-xl border border-accent-green/30 bg-accent-green/5">
@@ -95,7 +95,7 @@ export default function ComplianceStatus({ proof, publicValues, docHash, isActiv
               <span>Standard:</span> <span className="text-white">Token2022</span>
             </div>
             <div className="flex justify-between border-b border-white/5 pb-2">
-              <span>Mint:</span> <span className="text-teal-400 truncate w-32 text-right">{mintAddress}</span>
+              <span>Mint:</span> <span className="text-emerald-400 truncate w-32 text-right">{mintAddress}</span>
             </div>
           </div>
           

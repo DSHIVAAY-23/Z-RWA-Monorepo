@@ -98,7 +98,7 @@ export default function DocumentSelector({
                                 <div className="text-xs font-mono text-gray-400">{(fileState.size / 1024 / 1024).toFixed(2)} MB</div>
                             </div>
                         </div>
-                        <button onClick={() => { setFileState(null); onFileSelected(null); }} className="text-xs font-semibold text-teal-400 hover:text-teal-300 bg-teal-500/10 px-3 py-1.5 rounded-lg border border-teal-500/20">
+                        <button onClick={() => { setFileState(null); onFileSelected(null); }} className="text-xs font-semibold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20">
                             Remove
                         </button>
                     </div>

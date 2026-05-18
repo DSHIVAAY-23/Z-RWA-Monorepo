@@ -67,12 +67,12 @@ export default function VaultPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-teal-900 to-gray-900 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 p-6">
       <div className="max-w-6xl mx-auto mb-8 flex justify-between items-center pt-8">
         <h1 className="text-3xl font-bold text-white font-space">
           Z-RWA Compliance Vault
         </h1>
-        <WalletMultiButton className="!bg-teal-600 hover:!bg-teal-700 transition-colors" />
+        <WalletMultiButton className="!bg-emerald-600 hover:!bg-emerald-700 transition-colors" />
       </div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
@@ -96,7 +96,7 @@ export default function VaultPage() {
         <button
           onClick={handleDeposit}
           disabled={!publicKey || isGeneratingProof || !depositAmount}
-          className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition"
+          className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition"
         >
           {isGeneratingProof ? "Generating ZK Proof & Estimating QN Fees..." : "Deposit with Compliance Proof"}
         </button>

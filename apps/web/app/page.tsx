@@ -328,17 +328,17 @@ export default function HomePage() {
 
       <main className="mx-auto max-w-5xl px-6 py-12 space-y-12">
         {/* ── HERO ── */}
-        <section className="rounded-2xl border border-teal-500/15 bg-gradient-to-br from-teal-500/5 via-transparent to-transparent p-10 md:p-16 relative overflow-hidden text-center">
+        <section className="rounded-2xl border border-emerald-500/15 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent p-10 md:p-16 relative overflow-hidden text-center">
           {/* Glow orbs */}
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-teal-500/10 blur-[120px] pointer-events-none" />
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" />
 
           <div className="relative z-10 space-y-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-[11px] font-mono tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" /> LIVE ON SOLANA
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[11px] font-mono tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> LIVE ON SOLANA
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight font-space text-white leading-[1.1]">
               The Compliance Layer for<br />
-              <span className="text-teal-400">
+              <span className="text-emerald-400">
                 Institutional DeFi
               </span>
             </h1>
@@ -350,13 +350,13 @@ export default function HomePage() {
               <a
                 href="#compliance-flow"
                 onClick={(e) => { e.preventDefault(); document.getElementById('compliance-flow')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="px-8 py-4 rounded-xl font-bold text-sm bg-teal-500 text-gray-950 hover:bg-teal-400 transition-all shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:shadow-[0_0_45px_rgba(20,184,166,0.6)] hover:scale-[1.02] transform"
+                className="px-8 py-4 rounded-xl font-bold text-sm bg-emerald-500 text-gray-950 hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(0,212,161,0.4)] hover:shadow-[0_0_45px_rgba(0,212,161,0.6)] hover:scale-[1.02] transform"
               >
                 ⚡ Generate ZK Proof →
               </a>
               <Link
                 href="/check"
-                className="px-8 py-4 rounded-xl font-bold text-sm border border-gray-700 text-white hover:border-teal-500/50 hover:bg-teal-500/5 transition-all"
+                className="px-8 py-4 rounded-xl font-bold text-sm border border-gray-700 text-white hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all"
               >
                 Check Your Wallet →
               </Link>
@@ -381,7 +381,7 @@ export default function HomePage() {
               { label: "RWA Tokens Minted", value: stats.tokens_minted },
             ].map(({ label, value }) => (
               <div key={label} className="flex flex-col items-center px-10 py-1 gap-0.5">
-                <span className="text-3xl font-bold font-mono text-teal-400 tabular-nums">{value}</span>
+                <span className="text-3xl font-bold font-mono text-emerald-400 tabular-nums">{value}</span>
                 <span className="text-gray-500 text-xs uppercase tracking-widest font-mono">{label}</span>
               </div>
             ))}
@@ -397,10 +397,10 @@ export default function HomePage() {
           {/* Card Header */}
           <div className="px-8 py-5 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between relative z-10 bg-gray-50 dark:bg-gray-950/50">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-400">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                 ⚡
               </div>
-              <span className="px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-[10px] font-mono tracking-widest font-bold">
+              <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono tracking-widest font-bold">
                 ZK-COMPLY-V1
               </span>
             </div>
@@ -417,7 +417,7 @@ export default function HomePage() {
                 Private RWA Compliance Shield
               </h1>
               <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Prove ownership and compliance of Indian assets without revealing Aadhaar, PAN, or sensitive documents. Verified natively on <span className="text-teal-600 dark:text-teal-400 font-semibold">Solana (Devnet)</span>.
+                Prove ownership and compliance of Indian assets without revealing Aadhaar, PAN, or sensitive documents. Verified natively on <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Solana (Devnet)</span>.
               </p>
             </div>
 
@@ -445,9 +445,9 @@ export default function HomePage() {
 
             <div className="flex flex-col relative space-y-6 max-w-3xl mx-auto">
               {/* STEP 1: Document Upload */}
-              <div className={`rounded-xl border p-6 md:p-8 transition-all duration-300 ${isScanning ? 'border-yellow-500/50 bg-yellow-500/5 animate-pulse' : docStatus === 'success' ? 'border-green-500/50 bg-green-500/5' : docStatus === 'error' ? 'border-red-500/50 bg-red-500/5' : !file ? 'border-teal-500/50 bg-teal-500/5 glow-pulse' : 'border-gray-800 bg-gray-900/50 opacity-80'}`}>
+              <div className={`rounded-xl border p-6 md:p-8 transition-all duration-300 ${isScanning ? 'border-yellow-500/50 bg-yellow-500/5 animate-pulse' : docStatus === 'success' ? 'border-green-500/50 bg-green-500/5' : docStatus === 'error' ? 'border-red-500/50 bg-red-500/5' : !file ? 'border-emerald-500/50 bg-emerald-500/5 glow-pulse' : 'border-gray-800 bg-gray-900/50 opacity-80'}`}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center ${file ? 'bg-green-500 text-black' : 'bg-teal-500 text-white'}`}>
+                  <div className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center ${file ? 'bg-green-500 text-black' : 'bg-emerald-500 text-white'}`}>
                     {file ? '✓' : '1'}
                   </div>
                   <span className="font-semibold text-[var(--foreground)] font-space text-lg">
@@ -459,7 +459,7 @@ export default function HomePage() {
                   value={selectedDoc}
                   onChange={e => setSelectedDoc(e.target.value)}
                   disabled={!!file || isScanning}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-3 text-white font-mono text-sm mb-4 outline-none focus:border-teal-500/50 transition-all cursor-pointer shadow-inner disabled:opacity-50"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-3 text-white font-mono text-sm mb-4 outline-none focus:border-emerald-500/50 transition-all cursor-pointer shadow-inner disabled:opacity-50"
                 >
                   <option>Aadhaar Card</option>
                   <option>PAN Card</option>
@@ -469,7 +469,7 @@ export default function HomePage() {
                 </select>
 
                 {!file ? (
-                  <label className="block border-2 border-dashed border-gray-700 rounded-xl p-8 text-center hover:border-teal-500/50 hover:bg-teal-500/5 transition-all cursor-pointer bg-gray-950/50">
+                  <label className="block border-2 border-dashed border-gray-700 rounded-xl p-8 text-center hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all cursor-pointer bg-gray-950/50">
                     <div className="text-4xl mb-3">📄</div>
                     <div className="text-[var(--foreground)] font-medium mb-1">
                       Drop document here or click to browse
@@ -501,7 +501,7 @@ export default function HomePage() {
                               <span>✓ {docValidation?.docType === 'pan' ? 'PAN Detected ✓' : 'Aadhaar Detected ✓'}</span>
                               {docValidation?.extractedAge && <span className="opacity-60 ml-2">Age: {docValidation.extractedAge}</span>}
                             </div>
-                            <div className="text-xs text-teal-400 font-mono flex items-center gap-1">
+                            <div className="text-xs text-emerald-400 font-mono flex items-center gap-1">
                               <span>🔒 Processed locally via QVAC</span>
                             </div>
                           </div>
@@ -532,10 +532,10 @@ export default function HomePage() {
               </div>
 
               {/* STEP 2: Prover Console */}
-              <div className={`rounded-xl border p-6 md:p-8 transition-all duration-300 ${file && !proofDone ? 'border-teal-500/50 bg-black/60 glow-pulse shadow-[0_0_20px_rgba(168,85,247,0.15)]' : 'border-gray-800 bg-black/40 opacity-80'}`}>
+              <div className={`rounded-xl border p-6 md:p-8 transition-all duration-300 ${file && !proofDone ? 'border-emerald-500/50 bg-black/60 glow-pulse shadow-[0_0_20px_rgba(168,85,247,0.15)]' : 'border-gray-800 bg-black/40 opacity-80'}`}>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div className="flex items-center gap-3">
-                    <div className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center shrink-0 ${proofDone ? 'bg-green-500 text-black' : file ? 'bg-teal-500 text-white' : 'bg-gray-800 text-gray-500'}`}>
+                    <div className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center shrink-0 ${proofDone ? 'bg-green-500 text-black' : file ? 'bg-emerald-500 text-white' : 'bg-gray-800 text-gray-500'}`}>
                       {proofDone ? '✓' : '2'}
                     </div>
                     <span className="font-semibold text-[var(--foreground)] font-space text-lg">
@@ -584,12 +584,12 @@ export default function HomePage() {
                 {!mintDone ? (
                   <>
                     <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                      Proof verified locally. Submit the lightweight 260-byte Groth16 proof to the <span className="text-teal-600 dark:text-teal-400 font-mono">z-rwa program</span>. A compliant Token2022 will be minted to your connected wallet upon success.
+                      Proof verified locally. Submit the lightweight 260-byte Groth16 proof to the <span className="text-emerald-600 dark:text-emerald-400 font-mono">z-rwa program</span>. A compliant Token2022 will be minted to your connected wallet upon success.
                     </p>
 
                     {!connected ? (
                       <div className="w-full flex justify-center py-2 bg-gray-900/50 rounded-xl border border-gray-800 mb-2">
-                        <div className="[&>button]:!bg-transparent [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-teal-400 [&>button]:!border [&>button]:!border-teal-500/50 [&>button:hover]:!bg-teal-500/10 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg">
+                        <div className="[&>button]:!bg-transparent [&>button]:!text-sm [&>button]:!font-semibold [&>button]:!text-emerald-400 [&>button]:!border [&>button]:!border-emerald-500/50 [&>button:hover]:!bg-emerald-500/10 [&>button]:!transition-all [&>button]:!duration-200 [&>button]:!rounded-lg">
                           {mounted && <WalletMultiButton />}
                         </div>
                       </div>
@@ -606,7 +606,7 @@ export default function HomePage() {
                               setTerminalLines(prev => [...prev, { text: `[ERR] ${e.message}`, isError: true }]);
                             }
                           }}
-                          className="w-full py-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-mono rounded-lg hover:bg-teal-500/20 transition-all mb-2"
+                          className="w-full py-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono rounded-lg hover:bg-emerald-500/20 transition-all mb-2"
                         >
                           Verify Wallet Connection (Sign Message)
                         </button>
@@ -618,7 +618,7 @@ export default function HomePage() {
                             ${mintStatus === 'success'
                               ? 'bg-neon-green text-gray-950 shadow-[0_0_20px_#00cc66]'
                               : mintStatus === 'processing'
-                                ? 'bg-teal-600 text-white border border-teal-400 animate-pulse cursor-wait'
+                                ? 'bg-emerald-600 text-white border border-emerald-400 animate-pulse cursor-wait'
                                 : mintStatus === 'awaiting_signature'
                                   ? 'bg-yellow-500 text-black border border-yellow-400 animate-pulse cursor-wait'
                                   : mintStatus === 'error'
@@ -661,7 +661,7 @@ export default function HomePage() {
                         <span>Standard:</span> <span className="text-white">Token2022</span>
                       </div>
                       <div className="flex justify-between border-b border-gray-800 pb-3">
-                        <span>Mint Address:</span> <span className="text-teal-400 break-all ml-4 text-right">{mintAddress}</span>
+                        <span>Mint Address:</span> <span className="text-emerald-400 break-all ml-4 text-right">{mintAddress}</span>
                       </div>
                       <div className="flex justify-between pt-1 items-center">
                         <span>Transaction:</span> 
@@ -681,7 +681,7 @@ export default function HomePage() {
 
             {/* Buy More RWA Tokens */}
             {mintAddress && (
-              <div className="rounded-xl border border-teal-500/30 bg-teal-500/5 p-6 md:p-8 transition-all duration-300">
+              <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 md:p-8 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">💳</span>
@@ -689,7 +689,7 @@ export default function HomePage() {
                       Buy More RWA Tokens — Pay with INR
                     </span>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-teal-900/40 text-teal-300 border border-teal-500/30 tracking-widest font-bold w-fit">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-emerald-900/40 text-emerald-300 border border-emerald-500/30 tracking-widest font-bold w-fit">
                     POWERED BY DODO
                   </span>
                 </div>
@@ -701,7 +701,7 @@ export default function HomePage() {
 
                 <a
                   href="/invest"
-                  className="block w-full py-3.5 rounded-xl font-bold font-space text-sm text-center bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] mb-4"
+                  className="block w-full py-3.5 rounded-xl font-bold font-space text-sm text-center bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400 transition-all shadow-[0_0_20px_rgba(0,212,161,0.3)] hover:shadow-[0_0_30px_rgba(0,212,161,0.5)] mb-4"
                 >
                   Invest with INR →
                 </a>
@@ -793,7 +793,7 @@ export default function HomePage() {
           {[
             {
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-teal-400">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-emerald-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                 </svg>
               ),
@@ -803,7 +803,7 @@ export default function HomePage() {
             },
             {
               icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-teal-400">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7 text-emerald-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>
               ),
@@ -825,13 +825,13 @@ export default function HomePage() {
             <div
               key={title}
               className={`rounded-2xl border p-7 space-y-4 hover:-translate-y-1 transition-all duration-200
-                ${color === "purple" ? "border-teal-500/20 bg-teal-500/5"
-                  : color === "teal" ? "border-teal-500/20 bg-teal-500/5"
+                ${color === "purple" ? "border-emerald-500/20 bg-emerald-500/5"
+                  : color === "teal" ? "border-emerald-500/20 bg-emerald-500/5"
                   : "border-green-500/20 bg-green-500/5"}`}
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center
-                ${color === "purple" ? "bg-teal-500/10 border border-teal-500/20"
-                  : color === "teal" ? "bg-teal-500/10 border border-teal-500/20"
+                ${color === "purple" ? "bg-emerald-500/10 border border-emerald-500/20"
+                  : color === "teal" ? "bg-emerald-500/10 border border-emerald-500/20"
                   : "bg-green-500/10 border border-green-500/20"}`}>
                 {icon}
               </div>
@@ -870,8 +870,8 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="rounded-xl border border-teal-500/30 bg-teal-500/5 p-6 space-y-3">
-            <div className="font-bold text-lg text-teal-400 font-space">✓ Z-RWA solves both</div>
+          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 space-y-3">
+            <div className="font-bold text-lg text-emerald-400 font-space">✓ Z-RWA solves both</div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Compliance without identity exposure. Verifiable without a central authority. Composable with any DeFi protocol or AI agent.
             </p>
@@ -890,14 +890,14 @@ export default function HomePage() {
             ].map(({ step, title, desc, color }, i, arr) => (
               <div key={step} className="relative">
                 <div className={`rounded-xl border p-6 space-y-3 h-full
-                  ${color === "purple" ? "border-teal-500/20 bg-teal-500/5"
-                    : color === "blue" ? "border-teal-500/20 bg-teal-500/5"
-                    : color === "teal" ? "border-teal-500/20 bg-teal-500/5"
+                  ${color === "purple" ? "border-emerald-500/20 bg-emerald-500/5"
+                    : color === "blue" ? "border-emerald-500/20 bg-emerald-500/5"
+                    : color === "teal" ? "border-emerald-500/20 bg-emerald-500/5"
                     : "border-green-500/20 bg-green-500/5"}`}>
                   <div className={`w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center
-                    ${color === "purple" ? "bg-teal-500 text-white"
-                      : color === "blue" ? "bg-teal-500 text-white"
-                      : color === "teal" ? "bg-teal-500 text-white"
+                    ${color === "purple" ? "bg-emerald-500 text-white"
+                      : color === "blue" ? "bg-emerald-500 text-white"
+                      : color === "teal" ? "bg-emerald-500 text-white"
                       : "bg-green-500 text-black"}`}>
                     {step}
                   </div>
@@ -922,9 +922,9 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card 1: Individual Verification */}
-            <div className="rounded-2xl border border-teal-500/20 bg-teal-500/5 p-8 flex flex-col gap-5 hover:-translate-y-1 transition-all duration-200">
-              <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6 text-teal-400">
+            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 flex flex-col gap-5 hover:-translate-y-1 transition-all duration-200">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6 text-emerald-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                 </svg>
               </div>
@@ -937,16 +937,16 @@ export default function HomePage() {
               <a
                 href="#compliance-flow"
                 onClick={(e) => { e.preventDefault(); document.getElementById('compliance-flow')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="mt-auto inline-block w-full py-3.5 rounded-xl text-center font-bold text-sm bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]"
+                className="mt-auto inline-block w-full py-3.5 rounded-xl text-center font-bold text-sm bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400 transition-all shadow-[0_0_20px_rgba(0,212,161,0.3)] hover:shadow-[0_0_30px_rgba(0,212,161,0.5)]"
               >
                 Start Verification →
               </a>
             </div>
 
             {/* Card 2: API Integration */}
-            <div className="rounded-2xl border border-teal-500/20 bg-teal-500/5 p-8 flex flex-col gap-5 hover:-translate-y-1 transition-all duration-200">
-              <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6 text-teal-400">
+            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 flex flex-col gap-5 hover:-translate-y-1 transition-all duration-200">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6 text-emerald-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
                 </svg>
               </div>
@@ -960,7 +960,7 @@ export default function HomePage() {
                 href="/api/verify/docs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-block w-full py-3.5 rounded-xl text-center font-bold text-sm border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transition-all"
+                className="mt-auto inline-block w-full py-3.5 rounded-xl text-center font-bold text-sm border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 transition-all"
               >
                 View API Docs →
               </a>
@@ -969,9 +969,9 @@ export default function HomePage() {
         </section>
 
         {/* ── AGENTIC COMMERCE ── */}
-        <section className="rounded-2xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 via-teal-500/5 to-transparent p-10 space-y-6">
+        <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 via-emerald-500/5 to-transparent p-10 space-y-6">
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono">
               🤖 AI-Native · Agent-Ready
             </div>
             <h2 className="text-3xl font-bold font-space text-[var(--foreground)]">Built for Agentic Commerce</h2>
@@ -983,9 +983,9 @@ export default function HomePage() {
           <div className="bg-gray-950 rounded-xl border border-gray-800 p-5 font-mono text-sm overflow-x-auto">
             <div className="text-gray-500 mb-2 text-xs">// AI agent compliance check</div>
             <div className="space-y-1">
-              <div><span className="text-blue-400">const</span> <span className="text-teal-300">res</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-yellow-300">fetch</span><span className="text-gray-400">(</span><span className="text-green-400">'https://z-rwa-monorepo.vercel.app/api/verify/WALLET_ADDRESS'</span><span className="text-gray-400">);</span></div>
-              <div><span className="text-blue-400">const</span> <span className="text-gray-200">{'{ compliant, proof_hash }'}</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-teal-300">res</span><span className="text-gray-400">.</span><span className="text-yellow-300">json</span><span className="text-gray-400">();</span></div>
-              <div><span className="text-blue-400">if</span> <span className="text-gray-400">(</span><span className="text-teal-300">compliant</span><span className="text-gray-400">)</span> <span className="text-yellow-300">executeRWATrade</span><span className="text-gray-400">({'{ proof_hash }'});</span></div>
+              <div><span className="text-blue-400">const</span> <span className="text-emerald-300">res</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-yellow-300">fetch</span><span className="text-gray-400">(</span><span className="text-green-400">'https://z-rwa-monorepo.vercel.app/api/verify/WALLET_ADDRESS'</span><span className="text-gray-400">);</span></div>
+              <div><span className="text-blue-400">const</span> <span className="text-gray-200">{'{ compliant, proof_hash }'}</span> <span className="text-gray-400">=</span> <span className="text-blue-400">await</span> <span className="text-emerald-300">res</span><span className="text-gray-400">.</span><span className="text-yellow-300">json</span><span className="text-gray-400">();</span></div>
+              <div><span className="text-blue-400">if</span> <span className="text-gray-400">(</span><span className="text-emerald-300">compliant</span><span className="text-gray-400">)</span> <span className="text-yellow-300">executeRWATrade</span><span className="text-gray-400">({'{ proof_hash }'});</span></div>
             </div>
           </div>
 
@@ -994,7 +994,7 @@ export default function HomePage() {
               href="/api/verify/docs"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 rounded-xl text-sm font-bold border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 transition-all"
+              className="inline-block px-6 py-3 rounded-xl text-sm font-bold border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 transition-all"
             >
               Read Oracle API Docs →
             </a>
@@ -1002,7 +1002,7 @@ export default function HomePage() {
         </section>
 
         {/* ── COMMUNITY CTA ── */}
-        <section className="rounded-2xl border border-teal-500/20 bg-teal-500/5 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <section className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2">
             <div className="font-bold text-xl font-space text-[var(--foreground)]">Join the ZK RWA Builders</div>
             <p className="text-gray-400 text-sm">Connect with builders making compliant DeFi a reality on Solana.</p>
@@ -1010,7 +1010,7 @@ export default function HomePage() {
           <div className="flex gap-3 shrink-0">
             <Link
               href="/community"
-              className="px-5 py-2.5 rounded-xl text-sm font-bold bg-teal-500 text-white hover:bg-teal-400 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)]"
+              className="px-5 py-2.5 rounded-xl text-sm font-bold bg-emerald-500 text-white hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(0,212,161,0.3)]"
             >
               View Community →
             </Link>
